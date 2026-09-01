@@ -1,8 +1,6 @@
 # Phase 5 — User Flows
 ## ALDASSIST
 
-> **Freeze notice.** Phase 5 — User Flows v1.0 was declared **frozen** on **1 September 2026** by the repository owner (**Vamshi**), as the baseline entering Phase 6 (UX & Interaction Design). Recorded in `01_Strategy/Roadmap.md` (Frozen Baseline). As with every frozen document, it is not modified without an explicit architectural decision; where its guidance is later superseded, a historical notice is added rather than the content rewritten. This notice records the freeze and changes no flow, state or decision in this document.
-
 **Baseline (frozen):** Phase 1 · Phase 2 · Phase 3 (PRD) · Phase 4 (IA) · Assessment Lifecycle ADR.
 **Rule of engagement:** flows are derived from the baseline, never redesigning it. Where a required flow appears to conflict with a preserved principle, the conflict is reported in §9, not silently resolved.
 **Preserved principles:** Invention-as-root · mandatory human review (BR-01) · provenance (BR-02) · rules-as-data (D1) · three-zone separation (D2) · Assessment Lifecycle ADR · configurable legal behaviour (L1) · plain-language vocabulary (Phase 4 §10) · cross-tenant isolation (IA-5).

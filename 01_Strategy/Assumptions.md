@@ -1,7 +1,7 @@
 # Assumptions
 
 **Type:** Living document
-**Status:** Populated 25 July 2026 under Decision A2, by extraction from existing repository sources only. No new content was created.
+**Status:** Living document. Originally populated 25 July 2026 under Decision A2 by extraction from existing repository sources only. Updated 1 Sep 2026 to record post-session decisions: the A1–A3 flow assumptions confirmed (**D-2026-015**), and a free-assessment "no-gate" working assumption added (**D-2026-017**). Extracted content is otherwise unchanged; where a decision has updated an assumption's status, that status is shown against it.
 **Sources:** Phase 2 §0; Phase 3 §24; Phase 5 §11; Assessment Lifecycle ADR §9
 
 **Purpose.** A single index of assumptions the repository is operating under. Each is recorded where it was made; this document collects them so they can be challenged rather than silently inherited.
@@ -47,13 +47,13 @@ Phase 3 §24 singles out **TA-8** for particular scrutiny: every rules engine ev
 
 ## 3. Flow assumptions
 
-Phase 5 §11 records three assumptions introduced by the user flows, each narrowing an ambiguity conservatively rather than expanding scope. All three are **awaiting explicit confirmation**.
+Phase 5 §11 records three assumptions introduced by the user flows, each narrowing an ambiguity conservatively rather than expanding scope. All three were **confirmed as written on 1 Sep 2026** (Decision Log **D-2026-015**). A3 is confirmed only as an MVP narrowing: concurrent multi-inventor editing and the co-inventor consent model remain an explicitly deferred gap (Phase 5 §9-B), revisited in V2.
 
-| # | Assumption | Rationale | Confirm with |
+| # | Assumption | Rationale | Status |
 |---|---|---|---|
-| A1 | Account and Workspace are distinct; a verified account can use tools and alerts without a Workspace; a Workspace is created on first Disclosure | An alerts-only inventor should not be forced through workspace setup | Product |
-| A2 | MVP client↔agent communication is confined to active matters; no general client↔agent messaging and no client↔reviewer channel | Prevents an unengaged professional relationship forming outside the model; keeps the reviewer role clean | Product / Legal |
-| A3 | One Disclosure has one editing owner at a time; additional Named Inventors view but co-edit sequentially; institutional ownership wrappers are V2 | Avoids inventing a concurrent-edit and consent model while keeping the multi-inventor record faithful | Product |
+| A1 | Account and Workspace are distinct; a verified account can use tools and alerts without a Workspace; a Workspace is created on first Disclosure | An alerts-only inventor should not be forced through workspace setup | **Confirmed 1 Sep 2026 (D-2026-015)** |
+| A2 | MVP client↔agent communication is confined to active matters; no general client↔agent messaging and no client↔reviewer channel | Prevents an unengaged professional relationship forming outside the model; keeps the reviewer role clean | **Confirmed 1 Sep 2026 (D-2026-015)** |
+| A3 | One Disclosure has one editing owner at a time; additional Named Inventors view but co-edit sequentially; institutional ownership wrappers are V2 | Avoids inventing a concurrent-edit and consent model while keeping the multi-inventor record faithful | **Confirmed 1 Sep 2026 (D-2026-015)** — concurrent-edit/consent gap deferred to V2 (§9-B) |
 
 Phase 5 §11 records that if any is rejected, the affected flow is revised — not the architecture.
 
@@ -63,8 +63,9 @@ Phase 5 §11 records that if any is rejected, the affected flow is revised — n
 
 | # | Assumption | Status |
 |---|---|---|
-| L1 | Proceed with the configurable pricing model until legal review is completed. Unified customer experience; three internally independent fee components (platform · professional · official); commercial model configurable, never hardcoded | Open — see Decision Log O-2026-001 and `06_Legal/L1 Register.md` |
+| L1 | Proceed with the configurable pricing model until legal review is completed. Unified customer experience; three internally independent fee components (platform · professional · official); commercial model configurable, never hardcoded | Open — see Decision Log O-2026-001 (probable direction: component pricing) and `06_Legal/L1 Register.md` |
 | SLA | A first working assumption of two business days may be used for review turnaround in Phase 5 illustration; it is **not** a fixed commitment | Assessment Lifecycle ADR §9 |
+| GATE | No eligibility, quota or rate-limit gate on the free, human-reviewed assessment (ADR §7 "universally free" preserved); held pending a COGS/capacity sizing model | Deferred — see Decision Log D-2026-017 |
 
 ---
 
@@ -72,11 +73,11 @@ Phase 5 §11 records that if any is rejected, the affected flow is revised — n
 
 - **Open legal dependencies L1–L7** — Phase 3 §26.1
 - **Open data and technical dependencies D1–D6** — Phase 3 §26.2
-- **Open product decisions P1–P5** — Phase 3 §26.3. P1 is resolved (D-2026-010); P4 is resolved (D-2026-014); P5 remains open (O-2026-002). P2 and P3 are not recorded as resolved in any repository document.
-- **Phase 5 §9 boundary observations** — 9-A (MVP files and tracks but does not prosecute in-product), 9-B (multi-inventor editing under-specified), 9-C (re-assessment tooling is V2)
+- **Open product decisions P1–P5** — Phase 3 §26.3. P1 is resolved (D-2026-010); P4 is resolved (D-2026-014); P5 is resolved (D-2026-019; formerly O-2026-002). P2 and P3 are not recorded as resolved in any repository document.
+- **Phase 5 §9 boundary observations** — 9-A (MVP files and tracks but does not prosecute in-product; resolved for MVP by D-2026-016 — in-product status view), 9-B (multi-inventor editing under-specified; MVP narrowing confirmed by D-2026-015 / A3, full model deferred to V2), 9-C (re-assessment tooling is V2)
 
 ---
 
 ## Placeholder
 
-No repository source records assumptions beyond those collected above. Nothing has been added to fill gaps.
+No repository source records assumptions beyond those collected above. Nothing has been added to fill gaps by inference; the only post-extraction addition is the free-assessment "no-gate" working assumption recorded by an approved decision (D-2026-017), noted in the Status above.

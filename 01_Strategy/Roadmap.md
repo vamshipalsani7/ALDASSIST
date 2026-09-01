@@ -15,7 +15,7 @@ Current project status is recorded in this document only. Other documents link h
 | **Current status** | Active Development |
 | **Current focus** | Product Architecture & Design |
 | **Repository version** | Pre-MVP |
-| **Current phase** | Phase 5 — User Flows complete; Phase 6 not started |
+| **Current phase** | Phase 5 — User Flows complete and frozen (1 Sep 2026); Phase 6 not started |
 | **Architecture** | Frozen — see Frozen Baseline below |
 
 Values transcribed from `README.md`, where they were previously recorded, and removed there under Decision L to avoid duplication.
@@ -57,11 +57,11 @@ Recorded under Decision N. This enumerates which documents the repository treats
 | Phase 3 — Product Architecture PRD | Phase 4 header ("Phase 3 is frozen"); Phase 5 header baseline | v1.0 (filename) | Not recorded |
 | Phase 4 — Information Architecture | Phase 5 header baseline | v1.0 (filename) | Not recorded |
 | Assessment Lifecycle ADR | Phase 5 header baseline | Version 1.0 (in-document) | Not recorded |
-| Phase 5 — User Flows | **Freeze not declared in any repository source** | v1.0 (filename) | Not recorded |
+| Phase 5 — User Flows | **Declared frozen 1 Sep 2026 by the repository owner (Vamshi)** as the baseline entering Phase 6; freeze notice in the Phase 5 header | v1.0 (filename) | 1 Sep 2026 |
 
-Before this record, the only enumeration of the frozen baseline in the repository was the header of Phase 5 — User Flows. Phase 5's own freeze status is not declared anywhere and is not assumed here.
+Before this record, the only enumeration of the frozen baseline in the repository was the header of Phase 5 — User Flows. Phase 5's freeze was declared on 1 September 2026 by the repository owner (Vamshi), effective as the baseline entering Phase 6 (UX & Interaction Design); see the freeze notice in the Phase 5 header.
 
-Freeze dates and freezing authority are not recorded in any repository source. Traceability requirements for frozen documents are stated in `README.md`.
+Freeze dates and freezing authority are recorded for Phase 5 (1 September 2026; repository owner, Vamshi); they remain unrecorded for Phases 1–4 and the Assessment Lifecycle ADR. Traceability requirements for frozen documents are stated in `README.md`.
 
 Living documents are not listed.
 

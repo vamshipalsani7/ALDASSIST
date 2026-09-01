@@ -150,7 +150,7 @@ Every frozen document must have:
 
 The architectural requirement is traceability, not any particular tool. Version control (Git) is the recommended implementation.
 
-Current position: the repository is not under version control. No frozen document records a freeze date or freezing authority. The frozen baseline is enumerated in `01_Strategy/Roadmap.md`.
+Current position: the repository is under version control (Git, with a remote at `github.com/vamshipalsani7/ALDASSIST`). Phase 5 records a freeze date and authority (1 September 2026; repository owner, Vamshi); Phases 1–4 and the Assessment Lifecycle ADR do not yet, so that traceability requirement remains partly outstanding. The frozen baseline is enumerated in `01_Strategy/Roadmap.md`.
 
 ---
 

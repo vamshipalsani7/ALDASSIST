@@ -1,0 +1,508 @@
+Before writing, I must verify one thing I may have gotten wrong earlier in this session — the version-control claim now written into `README.md`.
+
+Git exists with a GitHub remote — **my earlier audit statement was wrong**, and that error is now written into `README.md`. Verifying scope before I report it.
+
+Two material discoveries requiring verification before I write.
+
+One inconsistency to resolve — HEAD tracks a file Batch 3 deleted, yet `git status` reports it clean.
+
+I have now read the entire repository including its git state. **One finding must lead this report: a factual error I introduced in Batch 1 is currently written into `README.md`.**
+
+---
+
+# ALDASSIST — Project State Report
+
+**Date:** 25 July 2026 · **Repository state:** commit `271036b`, clean, synced with `origin/main`
+**Convention used throughout:** **[F]** = repository fact · **[I]** = logical inference · **[R]** = personal recommendation
+
+---
+
+# Executive Summary
+
+## What ALDASSIST is
+
+**[F]** ALDASSIST is a patent ecosystem for inventors, patent professionals, law firms and innovation teams, positioned as **"the operating layer between an invention and the patent system"** (Phase 2 §4). It spans three layers: **the Record** (custody — disclosure capture, vault, docket, deadline engine, portfolio), **the Judgement** (AI assessment with human verification, cost modelling, abandon/renew), and **the Work** (drafting, filing, prosecution, renewals delivered by verified agents). Competitors own one layer; the repository's thesis is that **the integration is the product**.
+
+**[F]** The strategic thesis is that patent services are a *lemons market* — buyers cannot evaluate quality at purchase or for 3–5 years afterwards — and such markets are won not by being better but by being **first to make quality visible**, through accumulated outcome metadata that cannot be bought (Phase 2 §6.2, §16.2).
+
+**[F]** MVP scope is India + PCT, patents only, proving exactly one hypothesis: *that an inventor will trust an AI-assisted, human-verified assessment enough to pay for the filing that follows* (Phase 2 §13.1).
+
+## Current maturity
+
+**[F]** The repository contains ~460 KB of documentation across 33 tracked files. Planning is complete and frozen through **Phase 5 (User Flows)**. Phases 6–9 have not started. `03_Design` and `04_Development` contain README stubs only — **no design assets, no code, no schema, no API specification, no infrastructure plan**.
+
+**[F]** Governance is unusually mature for a pre-implementation repository: a canonical principles document (AP-01…AP-14), a canonical glossary (20 structured terms), a canonical metrics document (8 defined metrics), a canonical status source, a 16-entry Decision Log on a standard template, an approved 15-decision governance Decision Register, an independent audit, and 13 historical notices preserving frozen documents without rewriting them.
+
+## Overall assessment
+
+**[I]** This is a **strategy- and architecture-complete, implementation-empty** repository. The thinking is substantially deeper than typical pre-seed documentation — Phase 3 alone specifies 8 architectural principles, 30 modules, 20 business rules, a 4-tier AI boundary model, a three-zone data architecture, and a rules-as-data deadline engine. The gap is not quality of thought; it is that **nothing has been converted into technical artifacts**.
+
+## ⚠ Correction to the record — material
+
+**[F]** The repository **is** under version control. `.git` exists, remote is `https://github.com/vamshipalsani7/ALDASSIST.git`, branch `main` is level with `origin/main`, and commit `271036b "Repository governance baseline v1.0"` (25 Jul 2026, 17:22 IST) contains all Batch 1–3 work and the post-audit corrections.
+
+**[F]** `README.md:153` currently states: *"Current position: the repository is not under version control."* **This is false.** I introduced it during Batch 1 implementation of Decision N and repeated it in the independent audit. The error arose because my file inventory command excluded `.git` paths and I never verified directly.
+
+**[I]** Consequence: **Decision N is more completely implemented than the audit assessed.** N required traceability with Git as "recommended implementation" — the capability exists and is in use. The repository's own statement understates its position, and the audit's stated limitation ("frozen prose unchanged cannot be proven") was itself wrong: it *can* now be proven by diffing against `271036b`.
+
+## Current project stage
+
+**[F]** Milestone M1 — Architecture Baseline Established — complete and frozen. Post-baseline governance remediation complete. **Phase 6 not started.**
+
+## Readiness for Phase 6
+
+**[I] Ready, with three qualifications.** Phase 5 §12 delivers an explicit Phase 6 handoff (10 numbered instructions plus 6 prohibitions), Phase 4 delivers the template inventory and object-page skeletons, and Phase 4 §26.2 names the three flows to design first. However: **(1)** Phase 5 §11 assumptions A1–A3 are flagged for confirmation *before* Phase 6 finalises affected flows; **(2)** the §9-A decision (how MVP presents the "Responding" state, given prosecution tooling is V2) must be made before designing Application status screens; **(3)** Phase 6's own scope is defined only as a name.
+
+---
+
+# 1. Repository Assessment
+
+| Dimension | Rating | Explanation |
+|---|---|---|
+| **Repository structure** | **8/10** | **[F]** Ten numbered domain folders, consistent convention, every content-bearing folder has a README. **[F]** Deductions: `Repository-Audit/` sits at root outside the numbered convention `README.md` itself states; four folder READMEs are empty (`05`, `07`, `08`, `99`); `01_Strategy/Repository Audit v1.0.md` is a **tracked 0-byte orphan**; `AGENTS.md` is an untracked duplicate of `CLAUDE.md`. |
+| **Document quality** | **9/10** | **[F]** The five phase documents are exceptional — opinionated, evidence-cited, self-critical, with explicit "what I got wrong" and "where I disagree with the brief" sections (Phase 2 §21). Phase 5 §9 reports three boundary problems rather than silently resolving them. **[I]** Deduction only for volume: 136 KB in a single Phase 3 document is a real onboarding cost. |
+| **Governance quality** | **9/10** | **[F]** Freeze discipline, historical notices that preserve rather than rewrite, an approved Decision Register, an independent audit, and explicit recorded conflicts. **[F]** Deductions: one false statement (version control), duplicate instruction files, two parallel governance-tracking artifacts (Decision Register vs. Repository Audit Resolution, which covers only A1). |
+| **Decision maturity** | **8/10** | **[F]** 14 accepted decisions + 2 open, all on a 9-field template with provenance. **[F]** Deductions: Phase 3 §26.3 P2 and P3 are implemented in Phase 5 but never recorded as decisions; four conflicts remain formally unresolved; several entries carry `Question: Not recorded` and `Owner: Not recorded`. |
+| **Architecture maturity** | **9/10** | **[F]** Phase 3 specifies P1–P8 principles, D1–D5 shaping decisions, 30 modules across 6 layers, 20 business rules, entity model with cardinalities, three-zone data separation, security threat model, deadline engine with rule schema and 4-layer verification, search pipeline with span addressing, integration adapter pattern, API strategy, scalability sequence, 10 technical assumptions, 9 architectural risks. **[I]** Deduction: it is an architecture *specification*, not a validated design — TA-1 through TA-10 are untested. |
+| **Business maturity** | **8/10** | **[F]** Phase 2 covers mission, vision, positioning, 6 ICPs, 8 revenue streams, cost structure, unit economics, regulatory structure with 3 evaluated options, geographic strategy, MVP scope with explicit exclusions, MoSCoW, 5 moats, network effects, flywheel, 5 risk categories, 30+ metrics. **[F]** Deductions: three load-bearing figures marked `[verify]` and still unverified; unit economics omit assessment-review COGS (noticed but uncorrected — Phase 2 is frozen); L1 legal dependency unresolved. |
+| **Documentation maturity** | **9/10** | **[F]** Canonical sources exist for principles, terminology, metrics and status, each with a stated authority and maintenance rule. `PROJECT_CONTEXT.md` provides a routing table. Every A2 document carries an explicit Placeholder section naming what the repository does *not* record. |
+| **Technical planning maturity** | **4/10** | **[F]** This is the weakest dimension by a wide margin. There is **no database schema, no API specification, no technology stack decision, no infrastructure plan, no deployment plan, no test strategy, no environment definition, no CI/CD design**. Phase 3 §2.2 names component *classes* ("PostgreSQL-class", "durable job queue") but selects nothing. `04_Development/README.md` is a 5-line stub. Phase 1 §8's original "Phase 7 — Technical architecture" is recorded in `Roadmap.md` as **"Disposition not recorded."** |
+| **Repository completeness** | **7/10** | **[F]** Complete and frozen for Phases 1–5 plus ADR. **[F]** Absent: Phases 6–9, design assets, code, research folder content, marketing, meetings, legal documents beyond the L1 Register, and the Stage Gate Review (deliberately not reconstructed per A1). |
+
+**Composite: 7.9/10** **[I]** — a repository whose strategic and architectural work is near-professional-grade, held back by an untouched technical-planning layer and a handful of hygiene defects.
+
+---
+
+# 2. Work Completed
+
+**[F]** All dates below are from document headers, the Decision Log, and git metadata.
+
+| # | Milestone | What was done | Why it mattered | Outcome | Dependencies |
+|---|---|---|---|---|---|
+| 1 | **Phase 1 — Competitive Landscape** (23 Jul) | Teardown of 30 competitors across 6 clusters; IA models, design language, AI maturity levels, pricing, trust architecture, SEO; 12 structural gaps; 6 founder-level conclusions | Established that the 30 "competitors" are 6 different businesses, that value is created in one cluster and captured in another, and that the real competitor is the status quo | 12 gaps ranked by defensibility; the regulatory structure identified as a **day-one design decision**, not a legal footnote | None (foundation) |
+| 2 | **Phase 2 — Business Strategy** (23 Jul) | Mission, vision, 7 core principles, positioning, 6 ICPs, business model, regulatory structure (3 options), geography, MVP scope, roadmap, MoSCoW, moats, network effects, flywheel, risks, metrics | Converted landscape analysis into commitments; rejected "Apple of patent services" and India-as-market | MVP defined with explicit exclusions; Option B (marketplace) chosen with B+C architecture | Phase 1 |
+| 3 | **Phase 3 — Product Architecture PRD** (23 Jul) | 26 sections: principles, layers, 30 modules, roles/permissions, dashboards, navigation, 9 journeys, FRs, NFRs, 20 business rules, AI boundaries, data architecture, entities, security, notification, search, deadline engine, documents, integration, API, scalability, extensibility, assumptions, risks, dependencies | The master blueprint; everything downstream derives from it | Complete architecture specification; 26 open dependencies catalogued | Phase 2 |
+| 4 | **Phase 4 — Information Architecture** (24 Jul) | 5 surface sitemaps, URL architecture, controlled vocabulary lexicon, status taxonomy, navigation systems, template inventory, object-page architecture, progressive disclosure, permissions-aware IA, empty/error states, responsive IA, pricing IA + L1 register, accessibility, SEO, content model, governance | Made the architecture navigable and labelable | 20-entry L1 dependency register; 7 structures Phase 5 must not change | Phase 3 (frozen) |
+| 5 | **Stage Gate Review** (~24 Jul) | Cross-document consistency review of Phases 2–4 | Found that Phases 2–4 silently assumed different answers to *when does the client pay, and what is review attached to* | Findings C1 and G1; a §2.3 gap on multi-inventor editing | Phases 2–4 |
+| 6 | **Assessment Lifecycle ADR** (24 Jul) | Resolved C1 and G1; introduced the **review grant**; made assessment free and pre-payment; queue-based reviewer routing; platform-borne reviewer compensation; retired "hours, not seconds"; reserved "Marketplace" | Removed a contradiction that would have made the architecture unbuildable | D-2026-013; supersedes conflicting text in Phases 2–4 | Stage Gate Review |
+| 7 | **Decision Log D-001…D-013** (24 Jul) | 13 accepted decisions recorded | Made architecture decisions auditable | Permanent decision record | Phases 1–4, ADR |
+| 8 | **Phase 5 — User Flows** (24 Jul) | 23 primary flows, 15 cross-flow rules, 11 exceptional flows, state transitions, consistency review, 3 assumptions, Phase 6 handoff | Proved the architecture is executable as flows | **Zero violations** of 9 preserved principles; 3 boundaries reported not resolved | Phases 1–4, ADR |
+| 9 | **Repository Audit** (25 Jul) | Full-repository review producing 14 findings (A–N) | Surfaced that the Stage Gate Review was never committed, four spine documents were empty, three principle lists disagreed, and metrics had conflicting denominators | `09_Governance/Repository Audit - 2026-07-25.md` | Entire repository |
+| 10 | **Decision Register** (25 Jul) | Owner approved 15 governance decisions A1–N | Converted audit findings into an implementation contract | `Repository-Audit/Repository Audit Decision Register.md` | Repository Audit |
+| 11 | **Batch 1** (25 Jul) | B, F, H1, I, K, N — canonical principles designation, reviewer-scope notices, L1 Register extraction, Metrics.md, roadmap evolution, traceability requirement | Closed the highest-consequence defect (BR-05 would have blocked reviewers entirely) | 2 documents created, 4 modified, 5 notices | Decision Register |
+| 12 | **Batch 2** (25 Jul) | A2, C, D, E, G, H2, L, M — 4 spine documents populated, terminology governance, structured glossary, consistency review, notice mechanism, Decision Log template, canonical status, backfills | Made glossary, status and Decision Log canonical | 4 documents created, 10 modified, 8 notices | Batch 1 |
+| 13 | **Batch 3** (25 Jul) | Repository-wide consistency pass | Left the repository internally consistent | 3 READMEs corrected, 1 duplicate removed | Batches 1–2 |
+| 14 | **Independent Audit** (25 Jul) | Decision-by-decision verification A1–N with direct evidence | Caught 8 defects including 2 invented/inaccurate claims in notices | **PASS WITH MINOR ISSUES** | Batches 1–3 |
+| 15 | **Post-Audit Corrections** (25 Jul) | R1, R2, D2, D3, R3, R4 corrected | Removed an unsupported causal claim and a factually wrong metric attribution | 6 files corrected, all verified resolved | Independent Audit |
+| 16 | **Git baseline + GitHub** (25 Jul, 17:22) | Commit `271036b "Repository governance baseline v1.0"`, 33 files, pushed to `origin/main` | **[I]** Satisfies Decision N's recommended implementation and makes freeze enforceable | Repository under version control and backed up remotely | All prior work |
+
+---
+
+# 3. Current Repository Status
+
+**[F]** How the repository fits together — not what each document says.
+
+**The authority chain.** `Repository-Audit/Decision Register` governs repository governance. `01_Strategy/Architecture Principles.md` is canonical for permanent constraints. `01_Strategy/Glossary.md` is canonical for terminology. `01_Strategy/Metrics.md` is canonical for metric definitions. `01_Strategy/Roadmap.md` is canonical for status and the frozen baseline. `02_Product/Assessment-Lifecycle.md` supersedes conflicting text in Phases 2–4. `PROJECT_CONTEXT.md` routes a newcomer to all of these.
+
+**The derivation chain.** Phase 1 → Phase 2 → Phase 3 → Phase 4 → Phase 5, with the ADR entering sideways between Phase 4 and Phase 5 to resolve a contradiction. Each document declares its baseline, what it may not change, and what it hands forward. **[I]** This is the repository's single most valuable structural property: a reader can trace any product decision to its origin.
+
+**The freeze layer.** Phases 1–4 and the ADR are frozen. Phase 5's freeze status is **explicitly recorded as undeclared** rather than assumed. Frozen documents carry 13 notices that preserve original prose and point to current authority — 4 document-level, 9 section-level.
+
+**The living layer.** Principles, Glossary, Metrics, Roadmap, Assumptions, Product Vision, Product Philosophy, Decision Log, L1 Register, PROJECT_CONTEXT, README, CLAUDE.md. These are updated in place; frozen documents are not.
+
+**The governance layer.** `09_Governance` holds the audit and a partial resolution record. `Repository-Audit/` holds the approved Decision Register at repository root.
+
+**The empty layer.** `03_Design` and `04_Development` are stubs describing intended contents. `05_Research`, `07_Marketing`, `08_Meetings`, `99_Archive` are empty. `06_Legal` holds only the L1 Register.
+
+---
+
+# 4. Product Status
+
+| Dimension | Maturity | Evidence |
+|---|---|---|
+| **Product** | **High (specification)** | **[F]** MVP scope defined with 10 must-haves and 11 explicit exclusions; 4 verdict outcomes; two-axis status; "Not pursued" as a first-class designed state. **[I]** Nothing validated with users. |
+| **Business** | **High (planning)** | **[F]** 8 revenue streams, unit economics, 5 moats, flywheel, 4 headline metrics. **[F]** Three core figures unverified; regulatory structure decided but fee-sharing unresolved. |
+| **Architecture** | **High (specification)** | **[F]** 30 modules, 20 business rules, entity model, three zones, deadline engine schema, AI tiering. **[I]** Zero implementation validation. |
+| **UX** | **Low–Medium** | **[F]** IA complete (sitemaps, templates, object pages, progressive disclosure, empty states, accessibility standard WCAG 2.2 AA); flows complete (23 primary, 11 exceptional). **[F]** No wireframes, no visual design, no design system, no design tokens, no components. |
+| **Technical** | **Very Low** | **[F]** No schema, no API spec, no stack decision, no infrastructure, no environments, no CI/CD. Phase 3 names component classes only. |
+| **Development** | **None** | **[F]** `04_Development` is a 5-line stub. No code exists. |
+| **AI** | **Medium (policy), None (implementation)** | **[F]** Strong policy: 4-tier boundary model, 7 universal constraints, 6 prohibited behaviours, false-negative mitigation, provenance as a type constraint, multi-provider abstraction. **[F]** No prompts, no eval harness, no model selection, no retrieval implementation, no golden datasets. |
+| **Readiness for implementation** | **Not ready** | **[I]** Blocked on: L1 legal answer (billing/marketplace data model), technical architecture (Phase 1 §8's "Phase 7", disposition unrecorded), and Phase 6–8 design output. |
+
+---
+
+# 5. Completed Decisions
+
+**[F]** All from `01_Strategy/Decision Log.md` unless noted.
+
+**Architecture**
+- **D-2026-001** Invention is the root entity, not the Application (AP-01)
+- **D-2026-002** Rules are data, never application code (AP-02)
+- **D-2026-003** Three-Zone Data Separation — Confidential / Public Corpus / Outcome Metadata (AP-03)
+- **D-2026-004** Provenance enforced as a system constraint (AP-04)
+- **D-2026-012** Two independent status axes: Lifecycle State and Attention State (AP-14)
+- **D-2026-013** Assessment Lifecycle ADR adopted — introduced the **review grant**; assessment free and pre-engagement
+
+**Business**
+- **D-2026-005** Layer 2 (Professional) equal in importance to Layer 1 (Client)
+- **D-2026-006** Marketplace-first regulatory model
+- **D-2026-007** India is the launch market; architecture jurisdiction-agnostic
+- **D-2026-009** Patents only for Version 1
+- **D-2026-010** Drafting Workspace deferred to V2
+
+**AI / Legal boundary**
+- **D-2026-008** AI assists professionals; never replaces professional judgement
+
+**Terminology**
+- **D-2026-011** Controlled Vocabulary is the single source of truth
+- **Decision D** Glossary is canonical, structured (5 fields + Source); non-domain UI/IA concepts excluded
+
+**Repository / Governance** — **[F]** from the Decision Register
+- **A1** Do not recreate historical Stage Gate Review documents
+- **A2** Populate empty living documents by extraction only
+- **B** One canonical Governance Principles document
+- **C** Living documents use current terminology; frozen preserve historical
+- **E** Repository-wide consistency review over isolated fixes
+- **F** Reviewer lifecycle expands authorization without replacing Matter access
+- **G** Historical notice mechanism — preserve, explain, point to authority
+- **H1** L1 Register as its own living document
+- **H2** Standardized Decision Log template
+- **I** Concise named metrics with formula/numerator/denominator/purpose/target
+- **K** Standardize phase names; document roadmap evolution
+- **L** Single canonical project status
+- **M** Backfill accepted decisions
+- **N** Frozen documents require traceable governance
+
+**Product naming**
+- **D-2026-014** Product and repository named **ALDASSIST** (backfilled retrospectively)
+
+---
+
+# 6. Remaining Decisions
+
+**[F]** Sourced from Phase 3 §26, Phase 5 §9/§11, and recorded conflicts.
+
+| ID | Decision | Why it matters | What depends on it | Priority | Risk if delayed |
+|---|---|---|---|---|---|
+| **L1** / O-2026-001 | Fee-sharing structure between TechCo and Verified Agents | Determines whether the platform charges a technology fee, takes a share of professional fee, or licenses software — **three different data models and three different UIs** | 21 surfaces in the L1 Register; billing module; marketplace screens; primary CTA | **Critical** | Phase 3 §26 calls it "Highest-priority dependency." Building billing before this is rework. |
+| **§9-A** | How MVP presents the "Responding" state given prosecution tooling is V2 | MVP files and tracks but cannot prosecute in-product | Phase 6 Application status screens | **Critical** | Phase 5 §12 item 10 says decide *before* designing that state |
+| **A1/A2/A3** | Phase 5 assumptions: account≠workspace; matter-confined messaging; single-editor disclosure | Each narrows an ambiguity conservatively | Flows F2/F3, F17, F4 | **High** | Phase 5 §12 item 9: confirm before Phase 6 finalises |
+| **L2** | UPL boundaries per jurisdiction | May shift outputs between AI tiers T1 and T2 | AI tiering, assessment presentation, throughput and cost | **High** | Could invalidate throughput assumptions |
+| **L5** | Whether third-party model processing of pre-filing disclosures raises confidentiality/disclosure concerns | **[F]** If problematic, TA-9 fails and Zone 1 inference must be self-hosted | Zone 1 architecture, provider selection, cost | **High** | Existential per Phase 2 §19.4; late discovery forces re-architecture |
+| **L3** | Advertising/solicitation rules for agents on a marketed platform | **[F]** May constrain publishing agent-level outcome statistics — *a core moat mechanism* | Agent profiles, outcome publication, O-2026-002 | **High** | Could invalidate the primary moat |
+| **L4** | Privilege position and disclosure wording | Onboarding, trust page, document classification | Legal copy | Medium | Confirmed required; wording only |
+| **L6** | Agent record-retention post-engagement | Access revocation schedule | Flow 8-I, permission model | Medium | Blocks access-expiry implementation |
+| **L7** | Data residency / cross-border transfer for Indian client data | Storage architecture, provider regions | Infrastructure | Medium | Architecture is residency-ready; timing only |
+| **D1–D6** | IP India access terms; EPO/USPTO/WIPO API terms; whether open sources suffice; model-provider no-training terms; Indian fee schedules; agent credential verification method | **[F]** TA-2 (IP India reliability) is "the single largest external technical risk" | M1.1 feasibility, corpus scope, rules seeding, agent onboarding | **High** | Phase 2's free-search wedge depends on D1 |
+| **P2** | Agent value proposition: free docket first, matters second | Implemented in Phase 5 F21 but never recorded as a decision | Go-to-market, Layer 2 priority | Medium | Undocumented basis for a load-bearing strategy |
+| **P3** | Institution modules V2 or V3 | Team sizing, entity model detail | Roadmap | Medium | Phase 5 assumes V2 |
+| **P5** / O-2026-002 | Minimum sample size for published agent statistics | Phase 3 M2.4 proposes n=20; unconfirmed | Agent profiles; interacts with L3 | Medium | Blocks outcome publication |
+| **Conflict 1** | "Marketplace" — does ADR §13.8's reservation govern product vocabulary only, or all usage? | Two accepted decisions use the word differently | Terminology across living documents | Medium | Recorded in Glossary, unresolved |
+| **Conflict 2** | OP-1 vs OP-2 targets — both carry 25%/15% on different denominators | Cannot both hold unless every Disclosure produces a released Assessment | North Star measurement, Phase 3 §6 dashboards | **High** | **[I]** The company's headline metric is currently ambiguous |
+| **Conflict 3** | OP-5 scope — all missed deadlines (Phase 2 §20.2) vs platform-attributable only (NFR-C01) | Different denominators for the zero-tolerance metric | Incident policy | Medium | Ambiguous Sev-1 trigger |
+| **Conflict 4** | OP-6 threshold — <20% (§13.4) vs <15% (§20.2); "material" undefined | Cannot be computed unambiguously | AI quality gate | Medium | The core AI-efficacy metric is unmeasurable as written |
+| **Freeze** | Is Phase 5 frozen? | Recorded as undeclared | Change control on Phase 5 | Low | Ambiguous change authority |
+| **Phase 6** | Scope and deliverable definition | Named "UX & Interaction Design" but never scoped | All Phase 6 work | **Critical** | Cannot start without it |
+
+---
+
+# 7. Repository Backlog
+
+**[F]** Repository/documentation work only. Effort is relative (S/M/L), per instruction not to invent dates.
+
+## Critical
+
+| Item | Description | Reason | Dependencies | Effort | Owner |
+|---|---|---|---|---|---|
+| RB-1 | **Correct the version-control statement in `README.md:153`** | **[F]** Currently states the repository is not under version control; git exists with a GitHub remote. A factual error in a canonical governance document. | None | S | Documentation |
+| RB-2 | **Resolve the 0-byte orphan `01_Strategy/Repository Audit v1.0.md`** | **[F]** Tracked in `271036b` as an empty file after Batch 3 deletion and recreation. Either restore intent (delete + commit) or document why it exists. | RB-1 | S | Documentation |
+| RB-3 | **Resolve `AGENTS.md` duplication** | **[F]** Untracked, byte-identical to `CLAUDE.md` below the title line. Duplicate instruction guidance contradicts the repository's own "prefer deletion of duplicated guidance" principle. | None | S | Documentation |
+
+## High
+
+| Item | Description | Reason | Dependencies | Effort | Owner |
+|---|---|---|---|---|---|
+| RB-4 | Define Phase 6 scope and deliverables in `Roadmap.md` | Phase 6 has a name but no definition | Phase 6 decision | S | Product |
+| RB-5 | Record decisions for P2, P3 in the Decision Log | Implemented in Phase 5 but never recorded | Owner confirmation | S | Product |
+| RB-6 | Record A1/A2/A3 confirmations | Phase 5 §12 requires before Phase 6 finalises | Owner confirmation | S | Product |
+| RB-7 | Declare Phase 5 freeze status | Currently undeclared | Owner decision | S | Documentation |
+| RB-8 | Consolidate `Repository Audit Resolution.md` with the Decision Register | Two parallel governance trackers; covers only A1 of 15 | None | S | Documentation |
+
+## Medium
+
+| Item | Description | Reason | Dependencies | Effort | Owner |
+|---|---|---|---|---|---|
+| RB-9 | Decide `Repository-Audit/` folder placement | Outside the numbered convention `README.md` states | None | S | Documentation |
+| RB-10 | Populate or remove 4 empty folder READMEs | `05`, `07`, `08`, `99` empty; inconsistent with 6 populated | None | S | Documentation |
+| RB-11 | Populate `.gitignore` | **[F]** Tracked and empty | None | S | Development |
+| RB-12 | Record freeze dates and authority in the Frozen Baseline | All rows read "Not recorded"; git now makes this determinable | RB-1 | M | Documentation |
+
+## Low
+
+| Item | Description | Reason | Dependencies | Effort | Owner |
+|---|---|---|---|---|---|
+| RB-13 | Verify Phase 2's three `[verify]` figures | Filing volume, fee schedules, agent register size | External data | M | Product |
+| RB-14 | Consider splitting Phase 3 (136 KB) for navigability | **[R]** Onboarding cost | Freeze policy | L | Architecture |
+
+---
+
+# 8. Product Backlog
+
+**[F]** Derived from Phase 3 §26, Phase 5 §10, and the absence of technical artifacts.
+
+## Product decisions
+All items in §6 above — L1 through L7, D1–D6, P2/P3/P5, A1–A3, §9-A, and the four recorded conflicts.
+
+## UX (Phase 6)
+- Three flows Phase 4 §26.2 names first: **(1)** disclosure → assessment → verdict, both branches; **(2)** agent import → docket → first review; **(3)** deadline approaching → notification → confirmation → escalation
+- The three-depth verdict interaction (**[F]** Phase 5 §12: "the highest-stakes screen in the product")
+- The unfavourable verdict, designed at least as carefully as the favourable
+- The silence view (**[F]** "the signature emotional moment")
+- Matter workspace header — four questions always answered
+- Action queue — *Needs you* vs *Waiting on others*
+- Review workflow — **[F]** "throughput-critical", must feel like minutes
+- PriceDisplay in both configured modes
+
+## Design System (Phase 7)
+Typography, colour, spacing, motion, components, design tokens, WCAG 2.2 AA verification, reduced-motion support, keyboard navigation patterns
+
+## UI (Phase 8)
+All screens instantiated from Phase 4 §14's 21 templates (12 public, 9 application)
+
+## Data model & database
+Entity implementation for Party, Workspace, Agent Org, Institution, Invention, Disclosure, Party_Invention_Role, Assessment, Assertion, Citation, Engagement, Matter, Application, Family, Event, Rule, Deadline, Renewal, Document, Decision, ReviewDecision, Outcome Record; three-zone physical separation with DB-level permission enforcement (BR-15); immutable Event Log; span-stable chunk addressing (TA-7)
+
+## Permissions
+RBAC + ABAC evaluation engine implementing the §4.2 predicate; matter-scoped grants with expiry; **review grants**; conflict checking; consent-gated support access
+
+## Search & Retrieval
+Corpus ingestion from IP India, EPO OPS, USPTO, WIPO; normalization; hybrid lexical + vector index; multi-strategy retrieval; span addressing; physical separation of public and confidential indexes
+
+## Deadline & Rules Engine
+Rule authoring console; India + PCT rule sets; jurisdiction calendars; golden test suites; computation traces; recomputation with diffs; 4-layer verification; alert ladders
+
+## AI
+Model selection and provider abstraction; prompt templates with versioning; assertion/citation type enforcement; eval harness and golden datasets; T2 review gate state machine; reviewer edit diff capture; cost telemetry
+
+## Integration
+Adapter pattern; IP India mirroring with change detection; EPO/USPTO/WIPO adapters; payment gateway; email/SMS/WhatsApp multi-provider
+
+## Development, Testing, Deployment
+Technology stack selection; modular monolith scaffolding with enforced module boundaries; internal-first API; environments; CI/CD with architectural fitness tests; deadline-engine test suites; accessibility testing; penetration testing; SOC 2 Type 1 path (V2)
+
+---
+
+# 9. Recommended Timeline
+
+**[R]** Relative effort only. No dates invented.
+
+```
+NOW ──► GATE 0: Decision Clearance                          [S]
+        L1 · §9-A · A1–A3 · Phase 6 scope · metric conflicts
+        Repository critical backlog RB-1..RB-3
+                 │
+                 ▼
+        PHASE 6 — UX & Interaction Design                   [L]
+        3 priority flows first, then remaining surfaces
+                 │
+                 ▼
+        PHASE 7 — Design System                             [M]
+        Tokens, components, WCAG 2.2 AA
+                 │
+                 ▼
+        TECHNICAL ARCHITECTURE                              [L]  ◄── currently
+        Stack · schema · API · infra · CI/CD                      "disposition
+        (Phase 1 §8's original Phase 7)                            not recorded"
+                 │
+                 ▼
+        PHASE 8 — UI                                        [L]
+                 │
+                 ▼
+        PHASE 9 — DEVELOPMENT                               [XL]
+        Order: Deadline Engine ★ → Identity/Tenancy →
+        Search/Public Register → Vault/Disclosure →
+        Assessment + Review Gate → Agent Console →
+        Marketplace/Engagement → Billing
+                 │
+                 ▼
+        TESTING                                             [L]
+        Golden deadline suites · AI evals · a11y · pen test
+                 │
+                 ▼
+        BETA — closed, seeded supply                        [M]
+        "Deliver the first 50 matters ourselves" (Phase 2 §17.3)
+                 │
+                 ▼
+        LAUNCH — MVP (India + PCT)                          [M]
+        Success criteria: Phase 2 §13.4
+```
+
+**[R]** Two sequencing notes grounded in repository evidence: **(1)** Phase 2 §21.7 and Phase 3 §18 both identify the **deadline engine as the actual business** — build it first, not last. **(2)** Phase 2 §10.4 and TA-5 identify agent capacity as the hard ceiling — the Agent Console (M2.1) should ship early enough to seed supply before demand.
+
+---
+
+# 10. Recommended Workflow
+
+**[R]** Extending the workflow `README.md` already defines (Research → Proposal → Review → Decision → Documentation → Freeze).
+
+```
+Discussion  ──►  Decision  ──►  Decision Log entry  ──►  Repository Update
+                                                              │
+                                                              ▼
+                                    Consistency Review ──► Commit ──► Push
+                                                              │
+                                                              ▼
+                                                      Continue / Freeze
+```
+
+**Rules that already exist and should be kept [F]:** never modify frozen phases without explicit instruction; report contradictions rather than silently fixing them; add notices rather than rewriting history; no permanent decision treated as canonical before approval.
+
+**Git workflow [R]:**
+
+```bash
+git checkout -b phase-6/ux-interaction-design
+```
+
+- **Branch per phase or per decision batch.** `phase-N/<name>` for phases; `governance/<decision-id>` for Decision Register work.
+- **Commit granularity:** one commit per decision implemented, message naming the decision — e.g. `Implement Decision L1: fee-sharing billing model`. This makes the Decision Log and git history mutually verifiable.
+- **Tag every freeze:** `git tag phase-5-frozen` — **[R]** this is what makes Decision N's freeze register enforceable rather than declarative, and would let a future audit prove frozen prose unchanged by diff rather than by spot-check.
+- **PR review before merge to `main`**, even solo, so the consistency review has an artifact.
+- **Never rewrite published history** — consistent with the repository's own preserve-history principle.
+
+---
+
+# 11. Risks
+
+| # | Risk | Category | Severity | Source |
+|---|---|---|---|---|
+| 1 | **A missed deadline costs a client a patent** | Operational | **Existential** | **[F]** Phase 2 §19.2; NFR-C01 |
+| 2 | **Zone 1 leakage** into Zone 2/3 or a third party | Security | **Existential** | **[F]** Phase 3 §25.2; disclosure exposure is *irreversible* |
+| 3 | **Deadline engine computes a wrong date** | Technical | **Existential** | **[F]** Phase 2 §19.3; Phase 3 §25.2 |
+| 4 | **Agent capacity fails to materialize (TA-5)** | Business | Critical | **[F]** Phase 2 §19.1 — "highest-probability failure mode" |
+| 5 | **AI false negative in novelty** — we say novel, it isn't | AI | Critical | **[F]** Phase 2 §19.4; Phase 3 §12.5 |
+| 6 | **Disclosure content used for model training** | AI/Legal | **Existential** | **[F]** Phase 2 §19.4; L5 unresolved |
+| 7 | **UPL / fee-sharing violation** | Legal | Critical | **[F]** Phase 2 §19.2; L1, L2 unresolved |
+| 8 | **IP India source unreliability (TA-2)** | Technical | High | **[F]** Phase 3 §20.3 — "largest external technical risk" |
+| 9 | **Span addressing instability breaks provenance (TA-7)** | Technical | High | **[F]** Phase 3 §17.3 — "If span addressing is not stable, P2 is unenforceable" |
+| 10 | **L3 constrains agent outcome publication** | Business | High | **[I]** Would invalidate the primary moat mechanism |
+| 11 | **Free assessment vs Tier 0 capacity** | Business | High | **[F]** ADR §9.4 acknowledges the coupling; Phase 2 §8 says Tier 0 must consume no human hours. **Recorded, unreconciled.** |
+| 12 | **Headline metric ambiguity (OP-1/OP-2)** | Governance | High | **[F]** Metrics §4.1 |
+| 13 | **Technical planning gap** | Technical | High | **[I]** No stack, schema, API or infra decision exists; Phase 1 §8's Phase 7 disposition unrecorded |
+| 14 | **Scope creep into V2** | Product | Medium | **[F]** CLAUDE.md MVP Discipline; Phase 5 §10 |
+| 15 | **Incumbent builds a consumer front end** | Business | Medium | **[F]** Phase 2 §19.1 — 24–36 month window |
+| 16 | **Repository governance drift** | Repository | Medium | **[I]** Sustained by discipline; git tagging would harden it |
+| 17 | **Three unverified business figures** | Business | Medium | **[F]** Phase 2 §0 `[verify]` markers |
+| 18 | **Modular boundaries erode into a true monolith** | Technical | Medium | **[F]** Phase 3 §25.2 |
+
+---
+
+# 12. Repository Health
+
+| Dimension | Rating | Assessment |
+|---|---|---|
+| **Consistency** | **9/10** | **[F]** Independent audit verified all internal links, glossary anchors, module IDs, status references and notice pointers resolve. One known sitemap divergence (Phase 4 §3 vs §6/§12.4) is flagged, not hidden. |
+| **Maintainability** | **8/10** | **[F]** Canonical sources with stated maintenance rules; living/frozen separation is explicit. **[I]** Deduction for document size. |
+| **Scalability** | **8/10** | **[F]** Numbered folder convention scales; Decision Log and Glossary have non-reuse identifier rules. **[F]** Deduction: `Repository-Audit/` at root breaks the convention it would need to follow. |
+| **Readability** | **8/10** | **[F]** Consistent formatting, tables, notices in a uniform format. **[I]** Phase 3 at 136 KB is a genuine barrier. |
+| **Navigation** | **9/10** | **[F]** `PROJECT_CONTEXT.md` routing table; every folder with content has a README; canonical sources labelled at point of reference. |
+| **Traceability** | **9/10** | **[F]** Every decision traces to a source; every notice names its authority; git provides commit-level history. **[F]** Deduction: freeze dates recorded as "Not recorded" and no freeze tags exist. |
+| **Version Control** | **7/10** | **[F]** Git present, GitHub remote, working tree clean, synced. **[F]** Deductions: **only one commit** — no granular history of the three implementation batches; empty `.gitignore`; a tracked 0-byte orphan; an untracked duplicate (`AGENTS.md`); no tags. |
+| **Overall** | **8.4/10** | **[I]** Healthy. Defects are hygiene-level, not structural. |
+
+---
+
+# 13. Future Vision
+
+## Repository evidence [F]
+
+**Ten-year vision** (Phase 2 §2): *"The system of record for the world's inventions."* Three conditions: **Custody** (portfolios live on the platform because moving off is dangerous), **Judgement** (the trusted answer, including when it's no), **Liquidity** (patents find licensees) — the third recorded as "the least certain."
+
+**Product roadmap** (Phase 2 §14):
+- **V2 (Months 9–24):** renewals & annuity engine; portfolio subscription; United States; agent SaaS; university/TTO module; first outcome dataset; SOC 2 Type 1; Indian-language content
+- **V3 (Months 24–42):** EPO and EP states, then CN/JP/KR; FTO and infringement monitoring; mid-market IP management; public API; enterprise readiness; outbound corridor at scale
+- **Years 4–10:** monetization marketplace (licensing/sale/cross-licensing, backed by portfolios already in custody); predictive prosecution intelligence; adjacent intangibles (designs, trade secrets, software provenance, dataset rights, AI model provenance); infrastructure position
+
+**Geographic** (Phase 2 §12): India-first for product, users, supply and cost base; US/EP-weighted for revenue from Year 2. **[F]** "India is the beachhead and the factory. It is not the market."
+
+**Architectural extensibility** (Phase 3 §23): new jurisdictions as data-only additions; other IP types via an Invention→Right abstraction; captive practice as one more Agent Org; licensing marketplace via Listing/Offer/Transaction; enterprise deployment; trade secrets pathway. **[F]** The two decisions most protecting optionality are **P5** (Invention as root) and **D1** (rules as data).
+
+## My recommendations [R]
+
+- **Sequence the moat deliberately.** Phase 2 §16.4 states design acquires, the docket retains, outcome data makes you uncopyable — with different time constants (month one, year one, year three). The outcome-data pipeline (Zone 3) must be instrumented from the *first* filed matter, or year three arrives with no dataset.
+- **Treat L3 as strategic, not administrative.** If advertising rules prohibit publishing agent-level statistics, the primary moat mechanism needs an alternative expression. Worth resolving before building the outcome-publication surface.
+- **The licensing marketplace is the highest-upside, lowest-probability element.** Phase 2 §17.2 is candid that IP marketplace liquidity "has defeated everyone who's tried it." Treat V4+ optionality as preserved, not planned.
+
+---
+
+# 14. Things NOT to Do
+
+**[F]** Explicit repository exclusions, plus **[I]** sequencing judgements.
+
+| Do not | Why |
+|---|---|
+| **Start Phase 6 before the §9-A decision and A1–A3 confirmation** | **[F]** Phase 5 §12 items 9–10 require both before Phase 6 finalises affected flows |
+| **Build billing, checkout or marketplace quote screens** | **[F]** L1 unresolved; 21 surfaces affected; three different data models possible |
+| **Build autonomous or fully automated patent drafting** | **[F]** Phase 2 §13.3, §15 Won't-Have; BR-09; T3 prohibited |
+| **Build patent analytics or landscaping** | **[F]** Phase 2 §13.3 — "We lose to PatSnap on data. Don't fight there." |
+| **Add trademarks, copyright or designs** | **[F]** D-2026-009; Phase 2 §13.3 identifies this as the eevatech mistake |
+| **Build the licensing marketplace** | **[F]** Phase 2 §13.3 — zero liquidity, will look empty and damage credibility |
+| **Build enterprise features (SSO, on-prem, custom workflows)** | **[F]** Phase 2 §13.3 — Tier 3 doesn't exist for 24 months |
+| **Build native mobile apps** | **[F]** Phase 2 §13.3; TA-10 — responsive web is sufficient through V2 |
+| **Add jurisdictions beyond IN + PCT** | **[F]** Phase 2 §13.3 — rules complexity explodes before the engine is proven |
+| **Ship any AI feature without source-linking** | **[F]** Phase 2 §13.3 — "No exceptions, including for demos"; BR-02 |
+| **Build a community forum** | **[F]** Phase 2 §13.3 — liability from bad peer advice |
+| **Build multilingual product UI at launch** | **[F]** Phase 2 §13.3 — multilingual *content* yes, UI no |
+| **Build V2 modules (Drafting, Prosecution, Renewals, Institutional)** | **[F]** D-2026-010; Phase 5 §10 |
+| **Reopen frozen Phases 1–4 or the ADR** | **[F]** CLAUDE.md; Decision G — add notices instead |
+| **Resolve the four recorded conflicts unilaterally** | **[F]** All four require business decisions; repository principle forbids silent resolution |
+| **[R] Start development before technical architecture exists** | **[I]** No stack, schema, API or infrastructure decision exists |
+
+---
+
+# 15. Immediate Next Steps
+
+**[R]** Ordered, actionable, unambiguous.
+
+1. **Correct `README.md:153`** — remove the false "not under version control" statement and record the actual position (git present, GitHub remote, commit `271036b`). *This is a factual error in a canonical governance document.*
+2. **Resolve the 0-byte orphan** `01_Strategy/Repository Audit v1.0.md` — delete and commit, or document why it is retained empty.
+3. **Resolve `AGENTS.md`** — commit it as an intentional harness file, or remove it as a duplicate of `CLAUDE.md`.
+4. **Decide L1 (fee-sharing structure)** with specialist counsel. Highest-priority dependency; 21 surfaces blocked.
+5. **Decide §9-A** — how MVP presents the "Responding" state.
+6. **Confirm or reject A1, A2, A3.**
+7. **Define Phase 6 scope and deliverables**, and record it in `Roadmap.md`.
+8. **Resolve the OP-1/OP-2 metric conflict** — assign distinct targets or collapse to one metric. The company's headline metric is currently ambiguous.
+9. **Record P2 and P3** as Decision Log entries.
+10. **Declare Phase 5's freeze status.**
+11. **Tag the current baseline** — `git tag phase-5-frozen` — making Decision N's freeze register enforceable by diff.
+12. **Commission L2, L3, L5** legal opinions in parallel with Phase 6 (they shape AI tiering, the moat, and Zone 1 architecture, and have long lead times).
+13. **Begin Phase 6** with the three flows Phase 4 §26.2 names, unfavourable-verdict branch first.
+
+---
+
+# 16. Final Product Summary
+
+**ALDASSIST is the operating layer between an invention and the patent system.** It is not a filing service, a search engine, or an IP management system — it is the permanent record of what someone invented, the honest judgement of whether it is worth protecting, and the verified professional work to protect it, sustained across a patent's twenty-year life with every AI conclusion traceable to its source.
+
+It serves two audiences as co-equals: **deep-tech startups and technology SMEs**, who have budget and urgency but cannot evaluate patent quality; and **registered patent agents**, whose capacity is the business's hard legal ceiling and who receive purpose-built tooling before they receive any client work. Individual inventors, students and researchers are served free, permanently and deliberately, as a trust and distribution investment.
+
+The problem is structural: patent services are a lemons market where buyers cannot judge quality at purchase or for years afterwards, so price becomes the only visible signal and quality gets bid down. Simultaneously, AI has made expert analysis cheap — but every incumbent has aimed it at organisations that already have IP departments, leaving the front of the funnel, where inventions are actually lost, unserved.
+
+ALDASSIST's difference is enforced honesty: provenance as a type constraint rather than a prompt instruction, mandatory named human review before any verdict reaches a client, "don't file" designed as carefully as "file", and a twenty-year cost shown before the filing fee. Its moat is outcome metadata — objection patterns and allowance rates by agent, examiner and art unit — which cannot be bought or accelerated with capital.
+
+**Maturity:** strategy, architecture, information architecture and user flows are complete and frozen; governance is audited and version-controlled; design, technical architecture and code do not yet exist. **Long-term:** the system of record for the world's inventions — custody first, judgement second, liquidity last.
+
+---
+
+# 17. Final Confidence Review
+
+**[F]** I re-examined the repository and this report against four questions.
+
+**"Have I overlooked anything already present?"** — Yes, and I corrected it before presenting: I had not verified git state. Doing so revealed that the repository *is* under version control with a GitHub remote, that all work is committed and pushed, that a 0-byte orphan file is tracked, and that `AGENTS.md` exists as an untracked duplicate. None of this appeared in my prior audit.
+
+**"Did I miss important work?"** — I added the git/GitHub baseline as milestone 16, and elevated technical planning to its own maturity rating (4/10) after confirming that Phase 1 §8's original "Phase 7 — Technical architecture" is recorded in `Roadmap.md` as **"Disposition not recorded"** — meaning the repository itself does not know where technical architecture went. **[I]** This is the largest genuine gap in the project and is easy to miss because Phase 3 *looks* like technical architecture while deliberately selecting no technologies.
+
+**"Did I invent any decisions?"** — No. Every decision in §5 traces to the Decision Log or the Decision Register. Everything in §6 is recorded as open in the repository. All four conflicts are reported unresolved. Recommendations are marked **[R]** and are sequencing or process suggestions only.
+
+**"Would the owner regret an omission?"** — Three items I made sure to surface: **(1)** the ADR §9.4 free-assessment-versus-Tier-0-capacity tension, which is acknowledged in the repository but never reconciled and has direct COGS consequences; **(2)** that L3 could invalidate the primary moat mechanism; **(3)** that my own README statement is currently wrong and sits in a canonical governance document.
+
+**Limitation of this report [F]:** git contains a single commit, so the three implementation batches have no granular history. Statements about *what changed when* during Batches 1–3 derive from this session's record, not from repository evidence.

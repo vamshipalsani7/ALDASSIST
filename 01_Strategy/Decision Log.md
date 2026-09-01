@@ -13,7 +13,7 @@ Every entry uses these fields:
 | Field | Meaning |
 |---|---|
 | **Decision** | What was decided |
-| **Status** | Accepted · Open · Proposed |
+| **Status** | Accepted · Open · Proposed · Resolved |
 | **Date** | When recorded |
 | **Question** | The question the decision answers |
 | **Options** | Alternatives considered |
@@ -266,6 +266,86 @@ Repository-governance decisions (A1–N) are recorded in `Repository-Audit/Repos
 
 ---
 
+## D-2026-015 — Phase 5 flow assumptions A1–A3 confirmed
+
+| Field | Value |
+|---|---|
+| **Decision** | Phase 5 §11 flow assumptions A1, A2 and A3 are confirmed as written for MVP. **A1:** Account and Workspace are distinct; a verified account can use tools and alerts without a Workspace; a Workspace is created on first Disclosure. **A2:** MVP client↔agent communication is confined to active matters; no general client↔agent messaging and no client↔reviewer channel. **A3:** one Disclosure has one editing owner at a time; additional Named Inventors view but co-edit sequentially; institutional ownership wrappers are V2. |
+| **Status** | Accepted |
+| **Date** | 1 Sep 2026 |
+| **Question** | Phase 5 §11 recorded A1–A3 as conservative narrowings awaiting explicit product confirmation before Phase 6 finalises the affected flows. |
+| **Options** | Confirm as written · reject/replace each (Workspace-upfront for A1; a reviewer→client clarification channel for A2; concurrent multi-inventor editing for A3) |
+| **Resolution** | Each confirmed as the lower-friction, architecture-consistent option. **A3 is confirmed only as an MVP narrowing:** concurrent multi-inventor editing and the co-inventor consent model remain an explicitly deferred gap (Phase 5 §9-B), to be revisited in V2 alongside the institutional flows. |
+| **Impact** | Assumptions §3 (A1–A3 now confirmed) · Phase 5 flows F2/F3 (A1), F17 (A2), F4 (A3) · Phase 6 UX |
+| **References** | Phase 5 §11; Phase 5 §9-B (canonical record of the A3 multi-inventor gap — Phase 5 §9-B itself attributes the gap to the Stage Gate Review, a non-canonical recovered document that is not cited here as a source); Assessment Lifecycle ADR §6 (A2); Phase 4 §5 (A1) |
+| **Owner** | Vamshi |
+
+---
+
+## D-2026-016 — Responding-state handling in MVP (§9-A)
+
+| Field | Value |
+|---|---|
+| **Decision** | When an Application reaches the **Responding** state in MVP, the client sees an **in-product status view** (option a): the Responding status and the examination-response deadline are displayed and tracked by the Deadline Engine, while the agent prepares and files the response off-platform and uploads the filed response. |
+| **Status** | Accepted |
+| **Date** | 1 Sep 2026 |
+| **Question** | Phase 5 §9-A: MVP files and tracks but has no in-product prosecution tooling (drafting/prosecution workspaces are V2); what does the client experience at Responding — an in-product status view (a) or an off-platform bridge (b)? |
+| **Options** | (a) In-product status view + off-platform agent handling · (b) explicit "handled off-platform" bridge |
+| **Resolution** | Option (a) preserves custody and deadline safety (AP-07) through a high-anxiety moment and stays within the calm design language, provided the status copy is honest that drafting is the agent's off-platform work. It is a modest surface (status display + response deadline + agent upload), not prosecution tooling, and does not reopen the V2 boundary. |
+| **Impact** | Phase 6 Application status screens (Responding) · Deadline Engine (India examination-response deadline) · agent upload surface |
+| **References** | Phase 5 §9-A, §1.2; Phase 3 J4 (V2 boundary); AP-07 |
+| **Owner** | Vamshi |
+
+---
+
+## D-2026-017 — Free-assessment capacity gate deferred
+
+| Field | Value |
+|---|---|
+| **Decision** | No eligibility, quota or rate-limit gate is placed on the free, human-reviewed assessment at this time. The standing working assumption is **"no gate"** (ADR §7 "universally free" preserved). The structural decision is **deferred** pending a reviewer cost-per-assessment and Tier-0 volume (COGS/capacity) sizing model. |
+| **Status** | Accepted (deferral with a working assumption) |
+| **Date** | 1 Sep 2026 |
+| **Question** | Repository Audit (2026-07-25) item J: a universally-free, platform-reviewed assessment consumes human-service capacity from the exact cohort Phase 2 §8 said must not exceed ~5% of it. Is there a gate on free assessments, or none? |
+| **Options** | No gate (ADR intact) · per-Invention throttle + queue prioritization · Tier-0 AI-only eligibility gate · defer pending sizing |
+| **Resolution** | The choice trades funnel width against COGS/capacity and depends on figures the repository does not quantify. "No gate" is held as the working assumption so the ADR is untouched and Phase 6 designs the default no-gate assessment flow; the decision is revisited once the sizing model exists. **Any future gate refines ADR §7 and requires an ADR extension.** Follow-up required: a COGS/capacity sizing analysis (reviewer cost-per-assessment × expected Tier-0 volume). |
+| **Impact** | Reviewer capacity planning · COGS model (ADR §8) · Phase 6 assessment flow (F5/F6) — no structural change · ADR §7, §9.4 |
+| **References** | Repository Audit 2026-07-25 item J; ADR §7, §8, §9.4; Phase 2 §8 |
+| **Owner** | Vamshi |
+
+---
+
+## D-2026-018 — Metric conflicts resolved (Metrics §4.1, §4.2, §4.3)
+
+| Field | Value |
+|---|---|
+| **Decision** | The three recorded metric conflicts are resolved. **§4.1:** OP-1 (Disclosure→Filing) retains target >25% / failure ~15%; OP-2 (Released Assessment→Paid Filing) is a distinct, higher metric whose target is **calibrated from early released-assessment cohort data** rather than fixed now. **§4.2:** the headline OP-5 counts **platform-attributable** missed deadlines only (target zero; each a Sev-1 incident per NFR-C01); **total** missed deadlines are tracked as a separate operational measure with no zero bar. **§4.3:** OP-6 target is **<15%** ("falling toward") with a **must-hold threshold of <20%**; a reviewer edit is **"material"** if it changes the verdict outcome, adds/removes/changes a citation (provenance), or changes a substantive client-relied-on conclusion — stylistic, clarity, formatting and reordering edits are non-material; the definition is validated against real reviewer edit diffs during measurement design. |
+| **Status** | Accepted |
+| **Date** | 1 Sep 2026 |
+| **Question** | Metrics §4 recorded three conflicts (identical OP-1/OP-2 targets on different denominators; OP-5 scope; OP-6 dual threshold + undefined "material") as recorded-not-resolved, each requiring an approved Decision Log entry to resolve (Metrics §6). |
+| **Options** | Per conflict — see Metrics §4.1–§4.3 |
+| **Resolution** | OP-1 ≤ OP-2 by construction, so they cannot share a target; OP-1 stays anchored and OP-2 is calibrated from data. OP-5 is split so the company-incident bar applies only to platform-attributable misses while user-inaction misses are still monitored. OP-6 reconciles the two figures as target/threshold (mirroring OP-1's own structure) and adopts a computable, provenance-anchored definition of "material". |
+| **Impact** | Metrics §4.1/§4.2/§4.3 and the OP-1, OP-2, OP-5, OP-6 entries · Phase 3 §6 / Phase 4 §8 `/ops/business` dashboard · NFR-C01 |
+| **References** | Metrics §3, §4, §6; Phase 2 §20; ADR §12; Phase 3 NFR-C01, M4.2 |
+| **Owner** | Vamshi |
+
+---
+
+## D-2026-019 — Minimum sample size for published agent outcome statistics
+
+| Field | Value |
+|---|---|
+| **Decision** | An agent's outcome statistics are published to clients only once at least **20 matters** exist in the relevant category (n≥20 floor, per category). Every published statistic additionally displays its **sample size and a confidence indicator**; below the floor the surface shows "not enough data yet". Go-live remains gated by the L3 advertising-rules legal review. |
+| **Status** | Accepted |
+| **Date** | 1 Sep 2026 |
+| **Question** | Phase 3 §26.3 P5 / M2.4: what minimum sample size must be met before an agent's outcome statistics are published to clients? (Previously tracked as O-2026-002.) |
+| **Options** | n≥20 as proposed · a different floor · n≥20 with mandatory sample-size + confidence display · defer to L3 |
+| **Resolution** | Adopts the proposed n≥20 floor (no new number invented). Below the floor, the surface shows "not enough data yet" and publishes no statistic; at or above the floor, every published statistic displays its sample size and a confidence indicator. This satisfies AP-10 (honest product) and AP-08 (explainability) and materially de-risks the L3 review, without publishing any statistic below the n≥20 floor. Affects display only; no Phase 6 flow-structure change. Resolves O-2026-002 and its recorded conflict. |
+| **Impact** | M2.4 Agent Profile & Outcome Record · Agent Matching profile surface · Phase 3 §26.1 L3 (go-live gate) · Phase 6 display |
+| **References** | Phase 3 M2.4, §26.3 P5, BR-17; O-2026-002; §26.1 L3; AP-08, AP-10 |
+| **Owner** | Vamshi |
+
+---
+
 # Open Decisions
 
 ## O-2026-001 — Pricing presentation (L1)
@@ -273,32 +353,38 @@ Repository-governance decisions (A1–N) are recorded in `Repository-Audit/Repos
 | Field | Value |
 |---|---|
 | **Decision** | Not yet taken. |
-| **Status** | Open — Working Assumption Accepted; pending Final Legal Review |
-| **Date** | Not recorded |
+| **Status** | Open — Working Assumption Accepted; probable direction recorded 1 Sep 2026; pending Final Legal Review |
+| **Date** | Not recorded (opened); direction recorded 1 Sep 2026 |
 | **Question** | Whether customers see one bundled price, or Platform Fee + Professional Fee + Official Fee. |
 | **Options** | One bundled price · Platform Fee + Professional Fee + Official Fee |
-| **Resolution** | Working Assumption: proceed with the configurable pricing model until the legal review is completed. |
+| **Resolution** | Working Assumption: proceed with the configurable pricing model until the legal review is completed. The decision remains **Open**. |
 | **Impact** | Checkout · Pricing · Marketplace · Payment Flow |
 | **References** | Phase 3 §26.1 L1; `06_Legal/L1 Register.md` (all 21 affected surfaces) |
 | **Owner** | Not recorded |
 
+**Recorded direction (1 Sep 2026).** Probable primary rendering mode for Phase 6 to design first: **component pricing** — Platform Fee + Professional Fee + Official Fee, separately identified. Rationale: the honest-product brand rule (AP-10; Product Philosophy §1, "no hidden fees") and marketplace-first / UPL legal caution (D-2026-006 — the platform is technology infrastructure, the professional fee is the independent agent's) both point to separately-identified components. **Both rendering modes remain in scope** per `06_Legal/L1 Register.md` §3 (no route, template, navigation or hierarchy changes with the outcome — only the price component's rendering mode). This is a design-first direction only; the final characterisation awaits the L1 legal review and the decision stays Open.
+
 ---
+
+# Resolved Decisions
+
+Decisions previously tracked under Open Decisions that have since been resolved. Their original identifiers, decision text and history are retained; each cross-references the resolving decision.
 
 ## O-2026-002 — Minimum sample size for published agent outcome statistics
 
 | Field | Value |
 |---|---|
-| **Decision** | Not yet taken. |
-| **Status** | Open — recorded retrospectively |
-| **Date** | Recorded 25 Jul 2026 under Decision M. |
+| **Decision** | **Resolved by D-2026-019 (1 Sep 2026):** n≥20 per category floor, plus mandatory sample-size + confidence display; go-live gated by L3. |
+| **Status** | **Resolved — see D-2026-019** (was Open) |
+| **Date** | Recorded 25 Jul 2026 under Decision M; resolved 1 Sep 2026. |
 | **Question** | What minimum sample size must be met before an agent's outcome statistics are published to clients? |
 | **Options** | Phase 3 M2.4 proposes 20 matters in a category. No alternatives recorded. |
-| **Resolution** | Not resolved. Phase 3 §26.3 P5 requires confirmation and no repository document records that confirmation. |
+| **Resolution** | Resolved by an explicit owner decision in session — see D-2026-019 (Accepted). This entry is retained as the record of the original open question. |
 | **Impact** | M2.4 Agent Profile & Outcome Record · Marketplace · Phase 3 §26.1 L3 (advertising rules may constrain publication) |
-| **References** | Phase 3 M2.4, §26.3 P5, BR-17 |
-| **Owner** | Not recorded |
+| **References** | Phase 3 M2.4, §26.3 P5, BR-17; D-2026-019 |
+| **Owner** | Vamshi |
 
-**Backfill note (recorded conflict).** The Repository Audit Decision Register cites "publication sample size" as an example of a decision to backfill as accepted. The repository records it only as a **proposal** (Phase 3 M2.4: "proposed: 20 matters in a category") with confirmation still outstanding (Phase 3 §26.3 P5). It is therefore recorded here as **Open**, not Accepted. Recording it as accepted would invent a business decision. **This conflict is recorded, not resolved.**
+**Backfill note (recorded conflict — now resolved).** The Repository Audit Decision Register cited "publication sample size" as an example of a decision to backfill as accepted. At 25 Jul 2026 the repository recorded it only as a **proposal** (Phase 3 M2.4) with confirmation outstanding (Phase 3 §26.3 P5), so it was correctly held **Open** rather than backfilled — backfilling would have invented a business decision. **On 1 Sep 2026 the owner made the decision explicitly in session (D-2026-019), so it is now genuinely Accepted rather than backfilled, and the conflict is resolved.**
 
 ---
 
