@@ -346,6 +346,38 @@ Repository-governance decisions (A1–N) are recorded in `Repository-Audit/Repos
 
 ---
 
+## D-2026-020 — Phase 6 (UX & Interaction Design) frozen; DR-01 and DR-02 deferred
+
+| Field | Value |
+|---|---|
+| **Decision** | **Phase 6 — UX & Interaction Design is declared frozen** at version v0.1, comprising the working documents in `03_Design/`: WP-1 (Journey Map & Navigation), WP-2 (Screen Inventory), WP-3 (Interaction Design), WP-4 (Edge Cases, Responsive & Design-System Foundations), WP-5 (Design-Governance & Consolidation), the Interaction Pattern Catalogue, and the Deferred Decision Register. Two Phase-6 owner decisions are **explicitly deferred, not resolved**: **DR-01** (which Workspace role may record a *not-file* Decision) and **DR-02** (docket-import duplicate handling). |
+| **Status** | Accepted |
+| **Date** | 1 Sep 2026 |
+| **Question** | Is Phase 6 complete and frozen as the baseline entering Phase 7 (Design System), and what is the status of the two open Phase-6 interaction/permission questions surfaced during design? |
+| **Options** | Freeze with DR-01/DR-02 resolved now · **Freeze with DR-01/DR-02 explicitly deferred** · defer the freeze until DR-01/DR-02 are resolved |
+| **Resolution** | Frozen with both deferred. Neither DR-01 nor DR-02 is determined by the frozen baseline, and Phase 6 does not resolve owner decisions. The frozen interaction design handles DR-01 **permission-agnostically** (the not-file Decision asserts no specific role) and designs **no de-duplication behaviour** for DR-02, so resolving either later changes only a permission gate / an added import step, with no rework of Phase-6 flows or states. Both remain owner decisions, to be recorded here (an ADR extension where they refine the ADR) when made. Freezing Phase 6 introduced **no change to design substance** and modified no Phase 1–5 document, the ADR, Assumptions, or Metrics. |
+| **Impact** | `01_Strategy/Roadmap.md` (Frozen Baseline; Phase Sequence; Current phase) · `03_Design/` Phase 6 documents (freeze notices) · Phase 7 (Design System) inherits the frozen Phase 6 baseline and the two deferred items |
+| **References** | `03_Design/Phase-6-WP5-Design-Governance-Consolidation-v0.1.md` (Constraint Register, master traceability, Parts D–E) · `03_Design/Phase-6-Deferred-Decision-Register-v0.1.md` (DR-01, DR-02) · Roadmap Frozen Baseline; README traceability requirements |
+| **Owner** | Vamshi |
+
+---
+
+## D-2026-021 — Phase 7 (Design System) frozen; visual design proposals approved
+
+| Field | Value |
+|---|---|
+| **Decision** | **Phase 7 — Design System is declared frozen** at version v0.1, comprising the working documents in `03_DesignSystem/`: Design System, Design Tokens, Component Catalogue, and Design Governance. The owner **approves the Phase 7 visual design proposals**: the **Calm Institutional** direction, **Inter** (UI/body family), **IBM Plex Mono** (monospace), **Lucide** (icon set), the proposed semantic **colour system**, the **spacing / grid / layout** system, the **breakpoints**, and the **≥44×44px** touch-target design target. These `[P7-PROPOSAL]` values are now owner-approved design decisions. Phase 7 converts the Phase 6 information-hierarchy foundations (WP-4 Part C) into a concrete visual design system, filling only the visual `[SLOT]`s Phase 6 left open and preserving every Phase 6 constraint. |
+| **Status** | Accepted |
+| **Date** | 2 Sep 2026 |
+| **Question** | Is Phase 7 (Design System) complete and frozen as the baseline entering Phase 8 (UI), and are the `[P7-PROPOSAL]` brand-defining values approved by the owner? |
+| **Options** | Freeze with the proposals approved · defer the freeze pending changes to the proposals · freeze while holding specific proposals open |
+| **Resolution** | Frozen with all listed proposals approved. Phase 7 makes **visual-system decisions only**; it introduces no product, business, permission, or legal decision. All Phase 6 Constraint-Register items (CR-1…CR-21) and UX principles (UXP-1…UXP-10) are preserved — the two-axis status model, provenance as trust anchor, the mandatory review gate, cross-tenant invisibility, the controlled vocabulary ("Agent Matching / Engagement," never "Marketplace"), Responding status-only, and every V2 fence remain intact. **DR-01, DR-02 and O-2026-001 remain deferred / open** and are not resolved; the design system handles them agnostically. Remaining `[SLOT]` values (confidence-representation scale, committed review turnaround, deadline-ladder timings, notification-channel defaults, edit-session idle timeout, dark-theme values, and the like), `[LEGAL CONTENT SLOT]` items (L1 wording, L6, L1-21, L2/L3/L4/L7), and the L3-gated publication of agent outcome statistics stay open exactly as specified. Freezing Phase 7 introduced **no change to design substance** and modified no Phase 1–6 document, the ADR, Assumptions, or Metrics. **Phase 8 (UI) is not begun in this operation.** |
+| **Impact** | `01_Strategy/Roadmap.md` (Frozen Baseline; Phase Sequence; Current phase) · `03_DesignSystem/` Phase 7 documents (freeze notices) · Phase 8 (UI) inherits the frozen Phase 7 design system and the still-open `[SLOT]` / `[OWNER DECISION]` / `[LEGAL CONTENT SLOT]` items |
+| **References** | `03_DesignSystem/Phase-7-Design-System-v0.1.md`, `Phase-7-Design-Tokens-v0.1.md`, `Phase-7-Component-Catalogue-v0.1.md`, `Phase-7-Design-Governance-v0.1.md`; D-2026-020 (Phase 6 freeze); Roadmap Frozen Baseline; README traceability requirements |
+| **Owner** | Vamshi |
+
+---
+
 # Open Decisions
 
 ## O-2026-001 — Pricing presentation (L1)

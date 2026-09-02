@@ -15,7 +15,7 @@ Current project status is recorded in this document only. Other documents link h
 | **Current status** | Active Development |
 | **Current focus** | Product Architecture & Design |
 | **Repository version** | Pre-MVP |
-| **Current phase** | Phase 5 — User Flows complete and frozen (1 Sep 2026); Phase 6 not started |
+| **Current phase** | Phase 7 — Design System complete and frozen (2 Sep 2026; v0.1); Phase 8 (UI) not started. Phase 6 remains frozen (1 Sep 2026; DR-01 and DR-02 deferred) |
 | **Architecture** | Frozen — see Frozen Baseline below |
 
 Values transcribed from `README.md`, where they were previously recorded, and removed there under Decision L to avoid duplication.
@@ -58,10 +58,14 @@ Recorded under Decision N. This enumerates which documents the repository treats
 | Phase 4 — Information Architecture | Phase 5 header baseline | v1.0 (filename) | Not recorded |
 | Assessment Lifecycle ADR | Phase 5 header baseline | Version 1.0 (in-document) | Not recorded |
 | Phase 5 — User Flows | **Declared frozen 1 Sep 2026 by the repository owner (Vamshi)** as the baseline entering Phase 6; freeze notice in the Phase 5 header | v1.0 (filename) | 1 Sep 2026 |
+| Phase 6 — UX & Interaction Design (`03_Design/`: WP-1…WP-5, Interaction Pattern Catalogue, Deferred Decision Register) | **Declared frozen 1 Sep 2026 by the repository owner (Vamshi)**; recorded in `01_Strategy/Decision Log.md` (D-2026-020); freeze notice in each Phase 6 document header. **DR-01 and DR-02 remain explicitly deferred** (see the Deferred Decision Register). | v0.1 (filename) | 1 Sep 2026 |
+| Phase 7 — Design System (`03_DesignSystem/`: Design System, Design Tokens, Component Catalogue, Design Governance) | **Declared frozen 2 Sep 2026 by the repository owner (Vamshi)**; recorded in `01_Strategy/Decision Log.md` (D-2026-021); freeze notice in each Phase 7 document header. Visual proposals **approved** (Calm Institutional; Inter; IBM Plex Mono; Lucide; colour / spacing / grid / breakpoints; ≥44×44px touch target). Open `[SLOT]` / `[OWNER DECISION]` / `[LEGAL CONTENT SLOT]` items — including **DR-01, DR-02 and O-2026-001** — remain unresolved. | v0.1 (filename) | 2 Sep 2026 |
 
 Before this record, the only enumeration of the frozen baseline in the repository was the header of Phase 5 — User Flows. Phase 5's freeze was declared on 1 September 2026 by the repository owner (Vamshi), effective as the baseline entering Phase 6 (UX & Interaction Design); see the freeze notice in the Phase 5 header.
 
-Freeze dates and freezing authority are recorded for Phase 5 (1 September 2026; repository owner, Vamshi); they remain unrecorded for Phases 1–4 and the Assessment Lifecycle ADR. Traceability requirements for frozen documents are stated in `README.md`.
+Freeze dates and freezing authority are recorded for Phase 5 and Phase 6 (1 September 2026) and Phase 7 (2 September 2026; repository owner, Vamshi); they remain unrecorded for Phases 1–4 and the Assessment Lifecycle ADR. Traceability requirements for frozen documents are stated in `README.md`.
+
+**Phase 6 deferred items.** Phase 6 is frozen with two owner decisions **explicitly deferred**, not resolved: **DR-01** (which role may record a *not-file* Decision) and **DR-02** (docket-import duplicate handling). Both are documented in `03_Design/Phase-6-Deferred-Decision-Register-v0.1.md` and recorded in the Decision Log (D-2026-020). They are carried forward for owner resolution; the frozen Phase 6 interaction design handles DR-01 permission-agnostically and designs no de-duplication behaviour for DR-02.
 
 Living documents are not listed.
 
@@ -78,8 +82,8 @@ Current phase names, standardised under Decision K.
 | 3 | Product Architecture | Complete |
 | 4 | Information Architecture | Complete |
 | 5 | User Flows | Complete |
-| 6 | UX & Interaction Design | Not started |
-| 7 | Design System | Not started |
+| 6 | UX & Interaction Design | Complete — frozen 1 Sep 2026 (v0.1; DR-01, DR-02 deferred) |
+| 7 | Design System | Complete — frozen 2 Sep 2026 (v0.1) |
 | 8 | UI | Not started |
 | 9 | Development | Not started |
 
