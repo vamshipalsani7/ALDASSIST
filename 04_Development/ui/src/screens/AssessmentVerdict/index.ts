@@ -1,0 +1,1 @@
+export { AssessmentVerdictScreen } from './AssessmentVerdictScreen';

@@ -1,0 +1,51 @@
+/* ALDASSIST Phase 8 — global styles. Consumes generated tokens (three-tier chain).
+ * Calm Institutional (Phase 7). Light is the MVP theme. */
+@import './../tokens/tokens.generated.css';
+@import './components.css';
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-400);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-body);
+  background: var(--color-bg-canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tabular figures on data/prices/deadlines/identifiers (Tokens D). */
+.mono, code, .data { font-family: var(--font-family-mono); font-variant-numeric: tabular-nums; }
+
+h1, h2, h3, h4 { color: var(--color-text-heading); line-height: var(--line-height-snug); margin: 0 0 var(--space-4); }
+h1 { color: var(--color-text-title); font-size: var(--font-size-800); line-height: var(--line-height-tight); font-weight: var(--font-weight-semibold); }
+h2 { font-size: var(--font-size-700); font-weight: var(--font-weight-semibold); }
+h3 { font-size: var(--font-size-600); font-weight: var(--font-weight-semibold); }
+h4 { font-size: var(--font-size-500); font-weight: var(--font-weight-semibold); }
+p { margin: 0 0 var(--space-4); }
+
+a { color: var(--color-text-link); }
+
+/* Focus is NEVER suppressed (P4:§22.3). Visible ring: 2px primary + 2px offset. */
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--radius-sm);
+}
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--color-bg-raised); color: var(--color-text-link);
+  padding: var(--space-3) var(--space-5); z-index: 900;
+}
+.skip-link:focus { left: var(--space-5); }
+
+/* Reduced-motion (Tokens B.7): no non-essential motion. */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

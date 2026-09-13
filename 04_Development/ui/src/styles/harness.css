@@ -1,0 +1,10 @@
+/* ALDASSIST Phase 8 — B1 DEMO HARNESS styles (scenario switcher).
+ * This is a review aid, NOT a product component, and is intentionally OUTSIDE the token-hierarchy
+ * enforcement scope (see scripts/check-token-hierarchy.mjs). It is imported only by the demo App, not by
+ * any shipped component. */
+.scenario-bar { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap;
+  background: var(--color-bg-subtle); border-bottom: var(--border-width-hairline) solid var(--color-border-default);
+  padding: var(--space-3) var(--space-6); font-size: var(--font-size-300); }
+.scenario-bar__note { color: var(--color-text-muted); font-size: var(--font-size-200); }
+.scenario-bar select { min-height: var(--size-control-md); border-radius: var(--radius-sm);
+  border: var(--border-width-hairline) solid var(--input-border); padding: 0 var(--space-3); font: inherit; }

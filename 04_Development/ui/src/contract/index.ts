@@ -1,0 +1,5 @@
+/** ALDASSIST Phase 8 — contract barrel. */
+export * from './primitives';
+export * from './invention';
+export * from './assessment';
+export * from './ports';

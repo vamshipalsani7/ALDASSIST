@@ -1,0 +1,159 @@
+/* ALDASSIST Phase 8 — component styles. Every value references a component/semantic token
+ * (never a raw foundation value) — the binding chain (Tokens A.1). Calm Institutional. */
+
+/* ---------- App shell ---------- */
+.app-header {
+  display: flex; align-items: center; gap: var(--space-6);
+  height: 56px; padding: 0 var(--space-6);
+  background: var(--color-bg-raised); border-bottom: var(--border-width-hairline) solid var(--color-border-subtle);
+}
+.app-header__wordmark { font-weight: var(--font-weight-semibold); color: var(--color-text-title); letter-spacing: 0.02em; }
+.app-header__spacer { flex: 1; }
+.app-header__badge {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  color: var(--color-text-secondary); font-size: var(--font-size-300);
+}
+.client-layout { display: grid; grid-template-columns: 232px 1fr; min-height: calc(100vh - 56px); }
+.client-sidebar {
+  background: var(--color-bg-raised); border-right: var(--border-width-hairline) solid var(--color-border-subtle);
+  padding: var(--space-5) var(--space-3); display: flex; flex-direction: column; gap: var(--space-1);
+}
+.client-sidebar__item {
+  display: block; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md);
+  color: var(--color-text-body); text-decoration: none; font-size: var(--font-size-300);
+}
+.client-sidebar__item[aria-current='page'] { background: var(--state-selected-surface); color: var(--color-text-title); font-weight: var(--font-weight-medium); }
+.client-sidebar__sep { height: var(--border-width-hairline); background: var(--color-border-subtle); margin: var(--space-3) var(--space-2); }
+.client-main { padding: var(--space-7) var(--space-8); max-width: var(--layout-container-app-max); width: 100%; }
+
+/* ---------- Breadcrumbs / tabs ---------- */
+.breadcrumbs { font-size: var(--font-size-300); color: var(--color-text-muted); margin-bottom: var(--space-4); }
+.breadcrumbs a { color: var(--color-text-link); text-decoration: none; }
+.breadcrumbs__sep { margin: 0 var(--space-2); color: var(--color-text-muted); }
+.tabs { display: flex; gap: var(--space-5); border-bottom: var(--border-width-hairline) solid var(--color-border-subtle); overflow-x: auto; }
+.tabs__tab {
+  appearance: none; background: none; border: none; cursor: pointer;
+  padding: var(--space-3) 0; font-size: var(--font-size-300); color: var(--color-text-secondary);
+  border-bottom: var(--border-width-focus) solid transparent; white-space: nowrap;
+}
+.tabs__tab[aria-current='true'] { color: var(--color-text-title); border-bottom-color: var(--color-action-primary); font-weight: var(--font-weight-medium); }
+
+/* ---------- Object header (skeleton) ---------- */
+.object-header { display: flex; flex-direction: column; gap: var(--space-4); margin-bottom: var(--space-6); }
+.object-header__identity-grid { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-6); }
+.kv { font-size: var(--font-size-300); }
+.kv__label { color: var(--color-text-muted); margin-right: var(--space-2); }
+.kv__value { color: var(--color-text-body); }
+.status-pair { display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
+.next-action-row { display: flex; align-items: center; gap: var(--space-4); margin-top: var(--space-3); }
+
+/* ---------- Layout: content + relationship rail ---------- */
+.detail-grid { display: grid; grid-template-columns: 1fr 240px; gap: var(--space-8); }
+.rel-rail { border-left: var(--border-width-hairline) solid var(--color-border-subtle); padding-left: var(--space-5); }
+.rel-rail__title { font-size: var(--font-size-200); text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-text-muted); margin-bottom: var(--space-3); }
+.rel-rail__item { display: block; padding: var(--space-2) 0; color: var(--color-text-link); text-decoration: none; font-size: var(--font-size-300); }
+
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; gap: var(--space-2); min-height: var(--size-touch-min);
+  padding: var(--space-3) var(--space-5); border-radius: var(--radius-md); font: inherit; font-weight: var(--font-weight-medium);
+  cursor: pointer; border: var(--border-width-hairline) solid transparent; }
+.btn--primary { background: var(--button-primary-bg); color: var(--button-primary-fg); }
+.btn--primary:hover { background: var(--button-primary-bg-hover); }
+.btn--secondary { background: transparent; color: var(--button-secondary-fg); border-color: var(--button-secondary-border); }
+.btn:disabled { background: var(--state-disabled-surface); color: var(--state-disabled-fg); cursor: not-allowed; }
+
+/* ---------- Two-axis status: lifecycle chip + attention marker ---------- */
+.state-chip { display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-2) var(--space-4); border-radius: var(--statechip-radius);
+  font-size: var(--font-size-200); font-weight: var(--font-weight-medium);
+  border: var(--border-width-hairline) solid var(--color-border-default); background: var(--color-bg-subtle); color: var(--color-text-body); }
+.state-chip__icon { display: inline-flex; }
+.attention { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--font-size-300); }
+.attention--on-track { color: var(--color-attention-on-track-fg); }
+.attention--on-track .attention__icon { color: var(--color-attention-on-track-icon); }
+.attention--action-needed { color: var(--color-attention-action-needed-fg); font-weight: var(--font-weight-medium); }
+.attention--action-needed .attention__icon { color: var(--color-attention-action-needed-icon); }
+.attention--at-risk { color: var(--color-attention-at-risk-fg); font-weight: var(--font-weight-medium); }
+.attention--at-risk .attention__icon { color: var(--color-attention-at-risk-icon); }
+
+/* ---------- Whose-turn ---------- */
+.whose-turn { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--font-size-300); color: var(--color-text-secondary); }
+.whose-turn__estimate { color: var(--color-text-muted); }
+
+/* ---------- Provenance citation + evidence + panel ---------- */
+.citation { display: inline-flex; align-items: center; gap: var(--space-2);
+  color: var(--citation-fg); background: var(--color-provenance-bg); border: var(--border-width-hairline) solid var(--color-provenance-accent);
+  border-radius: var(--radius-sm); padding: var(--space-1) var(--space-3); font-size: var(--font-size-200);
+  font-weight: var(--font-weight-medium); cursor: pointer; text-align: left; }
+.citation__icon { color: var(--citation-icon); }
+.assertion { margin: 0 0 var(--space-4); }
+.assertion--unverified { color: var(--color-unverified-fg); }
+.assertion__pending { color: var(--color-text-muted); font-size: var(--font-size-200); }
+.assertion__unverified-mark { display: inline-flex; align-items: center; gap: var(--space-2);
+  font-size: var(--font-size-200); color: var(--color-unverified-fg); font-weight: var(--font-weight-medium); }
+.evidence-block { background: var(--color-provenance-bg); border: var(--border-width-hairline) solid var(--color-provenance-accent);
+  border-radius: var(--radius-md); padding: var(--space-5); }
+.evidence-block__coverage { margin-top: var(--space-4); padding-top: var(--space-4); border-top: var(--border-width-hairline) solid var(--color-provenance-accent); }
+
+/* FLAG — Phase 7 design-system GAP: no approved scrim/backdrop token exists. Left transparent and
+   UNRESOLVED for owner/design review (do not invent an opacity/colour/token). The dialog still traps
+   focus and centres content; only the dim overlay is absent pending an approved token. */
+.dialog-backdrop { position: fixed; inset: 0; background: transparent; display: flex; align-items: center; justify-content: center; z-index: 400; }
+.dialog { background: var(--color-bg-raised); border-radius: var(--radius-lg); box-shadow: var(--elevation-3);
+  max-width: 560px; width: calc(100% - var(--space-8)); max-height: 80vh; overflow: auto; padding: var(--space-6); }
+.dialog__passage { background: var(--color-provenance-bg); border-radius: var(--radius-sm); padding: var(--space-4); font-size: var(--font-size-300); }
+
+/* ---------- Human-review indicator ---------- */
+.review-seal { display: inline-flex; align-items: center; gap: var(--space-2);
+  color: var(--reviewseal-fg); background: var(--color-status-success-bg); border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-4); font-size: var(--font-size-300); font-weight: var(--font-weight-medium); }
+.review-seal__icon { color: var(--color-review-released-accent); }
+
+/* ---------- Confidence ---------- */
+.confidence { display: flex; flex-direction: column; gap: var(--space-2); font-size: var(--font-size-300);
+  border: var(--border-width-hairline) solid var(--color-border-default); border-radius: var(--radius-md);
+  padding: var(--space-4); background: var(--color-bg-subtle); }
+.confidence__label { font-weight: var(--font-weight-medium); color: var(--color-text-body); }
+.confidence__slot { color: var(--color-text-muted); font-size: var(--font-size-200); }
+
+/* ---------- AI marker ---------- */
+.ai-marker { border-left: var(--border-width-strong) solid var(--color-ai-marker); padding-left: var(--space-4); }
+.ai-marker__label { display: inline-block; font-size: var(--font-size-200); color: var(--color-text-muted);
+  text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: var(--space-2); }
+
+/* ---------- Verdict / depth disclosure ---------- */
+.verdict__label { font-size: var(--font-size-700); font-weight: var(--font-weight-semibold); color: var(--color-text-title); }
+.verdict__meaning { font-size: var(--font-size-450); line-height: var(--line-height-relaxed); max-width: var(--layout-container-reading-max); }
+.depth { border-top: var(--border-width-hairline) solid var(--color-border-subtle); padding: var(--space-5) 0; }
+.depth__toggle { appearance: none; background: none; border: none; cursor: pointer; font: inherit; font-weight: var(--font-weight-medium);
+  color: var(--color-text-title); display: flex; align-items: center; gap: var(--space-2); padding: 0; }
+.depth__marker { font-size: var(--font-size-200); color: var(--color-text-muted); }
+.depth__body { margin-top: var(--space-4); }
+.reasoning-el { margin-bottom: var(--space-4); }
+.reasoning-el__el { font-weight: var(--font-weight-medium); }
+.alternatives { margin-top: var(--space-5); }
+.alternatives__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+/* `background` maps exactly to the approved component token card.bg (→ color.bg.raised). The remaining
+   properties (border/radius/padding/font-size) have NO approved component token — see check:tokens gap. */
+.alternatives__card { border: var(--border-width-hairline) solid var(--color-border-default); border-radius: var(--radius-md);
+  padding: var(--space-4); font-size: var(--font-size-300); background: var(--card-bg); }
+.alternatives__card h4 { margin-bottom: var(--space-2); }
+
+/* ---------- Availability states ---------- */
+.state-panel { border: var(--border-width-hairline) solid var(--color-border-subtle); border-radius: var(--radius-md);
+  padding: var(--space-8); text-align: center; background: var(--color-bg-raised); }
+.state-panel--locked { border-color: var(--color-status-warning-icon); }
+.skeleton { background: var(--color-bg-subtle); border-radius: var(--radius-sm); height: 14px; margin-bottom: var(--space-3); }
+.skeleton--title { height: 28px; width: 40%; }
+.skeleton--wide { width: 80%; }
+
+/* (The B1 demo scenario-switcher styles live in src/styles/harness.css — NOT a product component,
+   and outside the token-hierarchy enforcement scope.) */
+
+/* ---------- Responsive: verdict/detail collapse (WP-4 B.3) ---------- */
+@media (max-width: 1023px) {
+  .client-layout { grid-template-columns: 1fr; }
+  .detail-grid { grid-template-columns: 1fr; }
+  .rel-rail { border-left: none; border-top: var(--border-width-hairline) solid var(--color-border-subtle); padding-left: 0; padding-top: var(--space-5); }
+  .alternatives__grid { grid-template-columns: 1fr; }
+}

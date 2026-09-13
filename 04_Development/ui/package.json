@@ -1,0 +1,42 @@
+{
+  "name": "aldassist-ui",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "ALDASSIST Phase 8 UI — B1 first slice (design-system spine + Assessment Verdict). Fixture-driven; no back end.",
+  "scripts": {
+    "build:tokens": "node scripts/build-tokens.mjs",
+    "prebuild": "npm run build:tokens",
+    "dev": "npm run build:tokens && vite",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview",
+    "storybook": "npm run build:tokens && storybook dev -p 6006",
+    "build-storybook": "npm run build:tokens && storybook build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check:tokens": "node scripts/check-token-hierarchy.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "0.454.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@storybook/react": "8.4.7",
+    "@storybook/react-vite": "8.4.7",
+    "@testing-library/dom": "10.4.0",
+    "@testing-library/jest-dom": "6.6.3",
+    "@testing-library/react": "16.0.1",
+    "@testing-library/user-event": "14.5.2",
+    "@types/node": "22.9.0",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "@vitejs/plugin-react": "4.3.3",
+    "jsdom": "25.0.1",
+    "storybook": "8.4.7",
+    "typescript": "5.6.3",
+    "vite": "5.4.11",
+    "vitest": "2.1.8"
+  }
+}
