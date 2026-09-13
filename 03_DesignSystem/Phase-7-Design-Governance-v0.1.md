@@ -39,6 +39,7 @@
 
 ## B.1 Naming
 - Tokens: `category.role[.variant][.state]`, lowercase, dot-separated, hyphenated words (`Phase-7-Design-Tokens` A.2). Components bind to **component tokens → semantic tokens → foundation tokens**; a component may **never** reference a raw/foundation value.
+  - **Amendment `[D-2026-023]` (2026-09-13, Option B).** The bind rule above is preserved and clarified into **two distinct rules**: *(a) component styles* reference **component tokens only** and may **never** reference a semantic, foundation, or raw value — **no exception**; *(b) component-token definitions* resolve to a **semantic token**, except that they may resolve **directly to a foundation token** for the five families for which Phase 7 establishes no semantic tier (`radius`, `elevation`, `sizing`, `motion`, `z-index`), per §B.14. For all other families a direct foundation reference is prohibited.
 - Components: PascalCase conceptual names matching this catalogue; screen-level names use the Phase 6 SC-/AT-/PT- codes.
 - UI labels: **controlled vocabulary only** `[P4:§10/D-2026-011]` — new concepts require a lexicon entry before they appear; **"Agent Matching / Engagement," never "Marketplace"; ALDASSIST wordmark, never `[Mark]`/`[Platform]`** `[CR-16]`.
 
@@ -96,6 +97,17 @@
 
 ## B.13 Deferred-decision discipline
 - **DR-01** (not-file Decision role) and **DR-02** (docket-import duplicate handling) remain **[OWNER DECISION]** — the system provides permission-agnostic / dedup-agnostic components (Confirmation dialog 8.3; Matter-import via the Data/Feedback components) and **presupposes no resolution**. When the owner resolves either, only a permission gate (DR-01) or an added import state (DR-02) changes — no component redesign.
+
+## B.14 Closed-family allowance for direct component-token→foundation resolution `[D-2026-023]`
+Added 2026-09-13 under Option B (Decision Log D-2026-023) to resolve the specification conflict between Design Tokens §A.1 ("component tokens resolve to semantic tokens only; components never reference foundation directly") and Part G, whose table already resolves four component tokens directly to foundation.
+
+1. **Two rules, never conflated.** *(a)* A **component style** references **component tokens only** — never a semantic, foundation, or raw value; this has **no exception**. *(b)* A **component-token definition** resolves to a **semantic token**, with the single closed exception in clause 2. §B.14 governs only rule *(b)*; it does **not** loosen rule *(a)*.
+2. **The closed list (exactly five).** A component-token definition may resolve **directly to a foundation token** only when its target family is one of: **`radius`**, **`elevation`**, **`sizing`** (`size.control.*`, `size.touch.*`, `size.icon.*`), **`motion`** (`motion.duration.*`, `motion.easing.*`, `motion.reduced`), **`z-index`** (`z.*`). **The authoritative eligibility criterion is that Phase 7 establishes no semantic tier over the target family** — confirmed for each of the five against Design Tokens Parts B–F. (Non-normative rationale: for these families a semantic token would be a pass-through alias adding no theming value; this rationale does not itself decide eligibility — the closed list in this clause is authoritative and exhaustive.) **No other family** is permitted.
+3. **Fail-closed default.** Any component-token→foundation binding whose target family is **not** in clause 2 is a specification violation and MUST fail the token-hierarchy gate. Absence from the list means prohibited; the list is exhaustive.
+4. **Excluded by validation.** `border-width` is **excluded** — the semantic token `focus.ring.width → border.width.focus` (Design Tokens Part F) establishes a semantic tier over it, so component tokens needing the focus-ring width resolve to `focus.ring.width`, not to the foundation primitive. `breakpoint` is **not** on the list — although Phase 7 establishes no semantic tier over it, it is never consumed as a component token (CSS custom properties cannot appear in `@media` conditions).
+5. **Component styles are unaffected.** This clause governs *component-token definitions* only. A component **style** still consumes **component tokens only** — never a semantic or foundation token directly (the §A.1 rule (1) / rule B.1(a) consumption rule is unchanged).
+6. **Adding a family is an architectural decision.** Extending this list requires a new Decision Log entry and the same source-grounded validation (foundation-only, with **no** semantic token over **any** of the family's roles). Implementation may not add a family.
+7. **Change-control class.** This touches a cross-cutting binding rule → a **major** design-system change per B.11. The exact resulting design-system version is determined from the currently recorded Phase 7 version at implementation time; **no version number is invented here**, and the increment is applied per the repository's existing versioning convention when the change is recorded in the Roadmap.
 
 ---
 

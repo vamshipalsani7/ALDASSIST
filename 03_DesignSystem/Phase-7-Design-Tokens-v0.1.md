@@ -39,6 +39,14 @@ COMPONENT tokens         per-component values bound to semantic tokens
 
 **Binding rule `[P7-DESIGN-DECISION]`:** a component reads **component tokens**; component tokens resolve to **semantic tokens**; semantic tokens resolve to **foundation tokens**. Components never reference a foundation token directly. This is what lets a theme (or an owner colour change) propagate without editing components — and it is why STEP 8 forbids tying every component directly to raw values.
 
+> **Amendment `[D-2026-023]` (2026-09-13, Option B).** The binding rule above is preserved; this note refines it into **two explicit rules that apply to different subjects and must never be conflated**, resolving the specification conflict between this rule and Part G (which already resolves `card.elevation`, `statechip.radius`, and the two `table.*.row.height` tokens directly to foundation):
+>
+> **(1) Component styles — foundation is never referenced (unchanged, absolute).** What a component *renders* (its CSS / markup) references **component tokens only**. A component style that references a semantic token, a foundation token, or a raw value is prohibited. **This rule has no exceptions**; the allowance in rule (2) does not apply to component styles.
+>
+> **(2) Component-token definitions — semantic, with a closed foundation allowance.** A *component token* resolves to a **semantic token**, *except* that it may resolve **directly to a foundation token** when its target belongs to one of the five **families for which Phase 7 establishes no semantic tier**: `radius`, `elevation`, `sizing`, `motion`, `z-index` (the closed list governed in Design Governance §B.14). For **every other family** — including any family that has a semantic tier (colour, typography, spacing, layout, state, focus) and **`border-width`** (which has the semantic role `focus.ring.width`) — a component token **must** resolve to a semantic token; a direct foundation reference is prohibited. The list is **closed** and **fail-closed**: any family not named is prohibited, and adding one is an architectural decision, not an implementation choice.
+>
+> See Design Governance §B.14 and Decision Log D-2026-023.
+
 ## A.2 Naming convention `[P7-DESIGN-DECISION]`
 
 `category.role[.variant][.state]`, lowercase, dot-separated, hyphenated words.
@@ -416,6 +424,8 @@ Rules: exactly one `type.title`/`h1` per page; no heading level skipping; headin
 # PART G — Component tokens (representative; full anatomy in the Component Catalogue)
 
 Component tokens resolve to semantic tokens only. A representative set (the catalogue defines the rest):
+
+> **Amendment `[D-2026-023]` (2026-09-13, Option B).** "Semantic tokens only" is preserved as the default, with **one closed exception**: for the five families for which Phase 7 establishes no semantic tier — `radius`, `elevation`, `sizing`, `motion`, `z-index` (governed in Design Governance §B.14) — a component token resolves **directly to foundation**, as the rows below for `card.elevation`, `statechip.radius`, `table.compact.row.height`, and `table.comfortable.row.height` do. This is the token-*definition* rule; a component's rendered *style* still consumes component tokens only (Design Tokens §A.1, rule (1)). No row value below changes.
 
 | Component token | Resolves to |
 |---|---|

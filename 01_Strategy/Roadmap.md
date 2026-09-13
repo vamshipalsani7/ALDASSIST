@@ -15,7 +15,7 @@ Current project status is recorded in this document only. Other documents link h
 | **Current status** | Active Development |
 | **Current focus** | Product Architecture & Design |
 | **Repository version** | Pre-MVP |
-| **Current phase** | Phase 7 — Design System complete and frozen (2 Sep 2026; v0.1); Phase 8 (UI) not started. Phase 6 remains frozen (1 Sep 2026; DR-01 and DR-02 deferred) |
+| **Current phase** | Phase 7 — Design System complete and frozen (2 Sep 2026; v0.1; **amended 13 Sep 2026 by D-2026-023 — closed five-family component-token→foundation allowance, new Design Governance §B.14; major per B.11, version-number increment deferred**). **Phase 8 (UI) — Active Development: kickoff decisions approved 3 Sep 2026 (D-2026-022); B1 implementation in progress (not complete); remaining work governed by the Phase 8 batch sequence (B0→B9).** Phase 6 remains frozen (1 Sep 2026; DR-01 and DR-02 deferred) |
 | **Architecture** | Frozen — see Frozen Baseline below |
 
 Values transcribed from `README.md`, where they were previously recorded, and removed there under Decision L to avoid duplication.
@@ -59,7 +59,7 @@ Recorded under Decision N. This enumerates which documents the repository treats
 | Assessment Lifecycle ADR | Phase 5 header baseline | Version 1.0 (in-document) | Not recorded |
 | Phase 5 — User Flows | **Declared frozen 1 Sep 2026 by the repository owner (Vamshi)** as the baseline entering Phase 6; freeze notice in the Phase 5 header | v1.0 (filename) | 1 Sep 2026 |
 | Phase 6 — UX & Interaction Design (`03_Design/`: WP-1…WP-5, Interaction Pattern Catalogue, Deferred Decision Register) | **Declared frozen 1 Sep 2026 by the repository owner (Vamshi)**; recorded in `01_Strategy/Decision Log.md` (D-2026-020); freeze notice in each Phase 6 document header. **DR-01 and DR-02 remain explicitly deferred** (see the Deferred Decision Register). | v0.1 (filename) | 1 Sep 2026 |
-| Phase 7 — Design System (`03_DesignSystem/`: Design System, Design Tokens, Component Catalogue, Design Governance) | **Declared frozen 2 Sep 2026 by the repository owner (Vamshi)**; recorded in `01_Strategy/Decision Log.md` (D-2026-021); freeze notice in each Phase 7 document header. Visual proposals **approved** (Calm Institutional; Inter; IBM Plex Mono; Lucide; colour / spacing / grid / breakpoints; ≥44×44px touch target). Open `[SLOT]` / `[OWNER DECISION]` / `[LEGAL CONTENT SLOT]` items — including **DR-01, DR-02 and O-2026-001** — remain unresolved. | v0.1 (filename) | 2 Sep 2026 |
+| Phase 7 — Design System (`03_DesignSystem/`: Design System, Design Tokens, Component Catalogue, Design Governance) | **Declared frozen 2 Sep 2026 by the repository owner (Vamshi)**; recorded in `01_Strategy/Decision Log.md` (D-2026-021); freeze notice in each Phase 7 document header. Visual proposals **approved** (Calm Institutional; Inter; IBM Plex Mono; Lucide; colour / spacing / grid / breakpoints; ≥44×44px touch target). Open `[SLOT]` / `[OWNER DECISION]` / `[LEGAL CONTENT SLOT]` items — including **DR-01, DR-02 and O-2026-001** — remain unresolved. **Amended 13 Sep 2026 by D-2026-023 (Option B):** Design Tokens §A.1 / Part G and Design Governance B.1 gain a closed five-family (`radius`, `elevation`, `sizing`, `motion`, `z-index`) component-token→foundation allowance, governed by new Design Governance §B.14; original frozen wording is preserved with appended amendment notes and no token value is changed. | v0.1 (filename). D-2026-023 is a **major** change per B.11; the design-system version number is **not** incremented in-place here — the repository encodes the version in the filename, and renaming the frozen Phase 7 documents (with all cross-references) is outside D-2026-023's authorised edit scope and is deferred to a separate owner-authorised step. | 2 Sep 2026; amended 13 Sep 2026 |
 
 Before this record, the only enumeration of the frozen baseline in the repository was the header of Phase 5 — User Flows. Phase 5's freeze was declared on 1 September 2026 by the repository owner (Vamshi), effective as the baseline entering Phase 6 (UX & Interaction Design); see the freeze notice in the Phase 5 header.
 
@@ -83,8 +83,8 @@ Current phase names, standardised under Decision K.
 | 4 | Information Architecture | Complete |
 | 5 | User Flows | Complete |
 | 6 | UX & Interaction Design | Complete — frozen 1 Sep 2026 (v0.1; DR-01, DR-02 deferred) |
-| 7 | Design System | Complete — frozen 2 Sep 2026 (v0.1) |
-| 8 | UI | Not started |
+| 7 | Design System | Complete — frozen 2 Sep 2026 (v0.1); amended 13 Sep 2026 (D-2026-023 — five-family component-token→foundation allowance, §B.14; major per B.11, version-number deferred) |
+| 8 | UI | Active Development — kickoff decisions approved 3 Sep 2026 (D-2026-022); B1 implementation in progress (not complete); remaining work governed by the Phase 8 batch sequence (B0→B9) |
 | 9 | Development | Not started |
 
 Phase 6 is named **UX & Interaction Design**, per Phase 5 §12 — the handoff that defines what Phase 6 receives. Earlier sources use "Wireframes" (`README.md`) and "UX Design" (Assessment Lifecycle ADR header). Those are historical usages in documents that predate Phase 5 or are frozen relative to it.

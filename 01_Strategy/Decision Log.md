@@ -378,6 +378,40 @@ Repository-governance decisions (A1–N) are recorded in `Repository-Audit/Repos
 
 ---
 
+## D-2026-022 — Phase 8 (UI) kickoff decisions approved; implementation not yet begun
+
+| Field | Value |
+|---|---|
+| **Decision** | The owner **approves the Phase 8 (UI) kickoff decisions** recorded in `04_Development/Phase-8-Kickoff-Audit.md` (audited at the frozen baseline `e0f8caf`). Specifically: **(1) UI stack** — React + TypeScript + Vite, design tokens implemented as CSS custom properties (foundation → semantic → component chain), headless/unstyled accessible primitives styled entirely from tokens, Storybook as the component-catalogue surface, and a fixture-driven typed view-model layer, for the authenticated surfaces (Client/Agent/Ops) and the design-system core; **(2) the presentation-data contract** — the UI is mock/fixture-driven behind typed view-models, with Phase 9 later supplying the real services behind the same contract; **(3) the first implementation slice** — the design-system token spine + trust primitives + the Assessment-detail/verdict screen (SC-C08) in its Client shell; **(4) the controlled batch plan** — B0 (scaffold & decisions) → B1 (first slice) → B2–B5 (Client) → B6 (Agent) → B7 (Ops) → B8 (Public) → B9 (verification), each ending at a constraint-gated review. **Phase 8 is cleared to begin; no UI code has been written and none is authorised by this entry — implementation begins on the owner's explicit go.** |
+| **Status** | Accepted |
+| **Date** | 3 Sep 2026 |
+| **Question** | Is the frozen `e0f8caf` baseline ready to enter Phase 8 (UI), and are the UI stack, data-contract approach, first slice and batch plan approved? |
+| **Options** | Per the Kickoff Audit §7 — Option A (React + TS + Vite) · Option B (SvelteKit) · Option C (Vue 3); begin with the trust-spine/verdict slice vs. the Public-surface slice; approve now vs. defer. |
+| **Resolution** | Option A adopted for the authenticated surfaces and the design-system core (mainstream accessible-primitive ecosystem, first-class Lucide/React support, largest hiring pool for an India-based team, and a token-first styling model that honours the framework-neutral token architecture and AP-12 maintainability). The trust-spine/verdict first slice is chosen because it exercises the hardest constraints (CR-2 review gate, CR-4 two-axis status, CR-6 provenance) on the highest-stakes screen and needs no resolved DR-/O- item and no legal copy. **The Public-surface rendering strategy (SSR/SSG vs SPA) is deliberately held as a separate, later decision so no hosting/domain work is implied at kickoff.** DR-01, DR-02 and O-2026-001 remain **open** and the UI is built agnostic to all three; every `[SLOT]` / `[LEGAL CONTENT SLOT]` stays open and is rendered as a container, never an invented value; no V2 feature enters MVP; no frozen Phase 1–7 document is modified. |
+| **Impact** | `04_Development/` (Phase 8 UI work begins here) · `01_Strategy/Roadmap.md` (Phase 8 status: kickoff approved, implementation not begun) · inherits the frozen Phase 6 (D-2026-020) and Phase 7 (D-2026-021) baselines and every open `[SLOT]` / `[OWNER DECISION]` / `[LEGAL CONTENT SLOT]` |
+| **References** | `04_Development/Phase-8-Kickoff-Audit.md`; D-2026-020 (Phase 6 freeze); D-2026-021 (Phase 7 freeze); Roadmap Frozen Baseline & Phase Sequence; AP-02/AP-09/AP-11/AP-12/TA-6/TA-10; O-2026-001, DR-01, DR-02 (remain open) |
+| **Owner** | Vamshi |
+
+**Follow-up (owner, not resolved here):** confirm that Phase 3 §26.3 product decisions **P2 and P3** are not UI-affecting (Assumptions §5); decide the Public-surface rendering strategy before that surface ships; the legal-dependent surfaces (Pricing, checkout, published agent statistics, Trust/Legal) remain buildable now but go **live** only after L1/L3/L4 land.
+
+---
+
+## D-2026-023 — Phase 7 §A.1 amended (Option B): closed five-family component-token→foundation allowance
+
+| Field | Value |
+|---|---|
+| **Decision** | **Phase 7 §A.1 (and its restatements in Design Tokens Part G and Design Governance) is amended under Option B** to permit a **component token** to resolve **directly to a foundation token** when — and only when — its target belongs to one of five **families for which Phase 7 establishes no semantic tier**: `radius`, `elevation`, `sizing`, `motion`, `z-index`. This resolves the internal §A.1 ↔ Part G specification conflict, in which Part G already resolves `card.elevation → elevation.0/1`, `statechip.radius → radius.pill`, `table.compact.row.height → size.control.sm`, and `table.comfortable.row.height → size.control.md` directly to foundation. The allowance is a **closed list** and **fail-closed**: any family not named is prohibited. The rule governing **component styles** is unchanged and absolute — a component style references component tokens only and never a semantic, foundation, or raw value. `border-width` is **excluded** (the semantic token `focus.ring.width` establishes a semantic tier over it); `breakpoint` is **not** included (never consumed as a component token). No token is added, renamed, or revalued; no component CSS is changed. |
+| **Status** | Accepted |
+| **Date** | 13 Sep 2026 |
+| **Question** | How should the §A.1 binding rule ("component tokens resolve to semantic tokens only; components never reference foundation directly") be reconciled with Part G, which itself resolves four component tokens directly to foundation? |
+| **Options** | Option A — preserve §A.1 and introduce semantic-tier tokens for the affected roles · **Option B — amend §A.1 to permit component-token→foundation for a closed list of families for which Phase 7 establishes no semantic tier** · leave the conflict open |
+| **Resolution** | **Option B**, scoped to the closed five-family list validated against all four frozen Phase 7 sources (each family is foundation-only in Design Tokens Part B, with no semantic token in Parts C–F). The component-style consumption rule is preserved unchanged and stated separately from the component-token-definition rule to remove ambiguity. The amendment is **major** per the Design Governance versioning rule (B.11 — it touches a cross-cutting binding rule); the exact resulting design-system version is determined from the currently recorded Phase 7 design-system version at implementation time (no version number is invented here), applying the repository's existing versioning convention, and the increment is recorded when the amendment is implemented. This is a **design-system architecture decision only** — it introduces no product, business, permission, or legal decision, and resolves none of DR-01, DR-02, O-2026-001, or any `[SLOT]` / `[LEGAL CONTENT SLOT]`. All Phase 6 constraints (CR-1…CR-21) and UX principles (UXP-1…UXP-10) remain intact. |
+| **Impact** | `03_DesignSystem/Phase-7-Design-Tokens-v0.1.md` (§A.1 binding-rule amendment note; Part G intro amendment note) · `03_DesignSystem/Phase-7-Design-Governance-v0.1.md` (B.1 amendment note; new §B.14) · `01_Strategy/Roadmap.md` (Frozen Baseline amendment note; design-system version classified major, number deferred) · `04_Development/ui/scripts/check-token-hierarchy.mjs` (allow-condition: five-family test — separate implementation step) · `04_Development/Phase-8-B1-TokenHierarchy-Traceability.md` (four tokens reclassified Class D→A; new sanctioned endpoint category) |
+| **References** | `04_Development/Phase-8-B1-A1-Amendment-FINAL.md` (this amendment's exact wording); `Phase-8-B1-A1-Conflict-Options-Brief.md` (Option A vs B analysis); `Phase-8-B1-TokenHierarchy-Traceability.md`; D-2026-021 (Phase 7 freeze); D-2026-022 (Phase 8 kickoff); README traceability requirements |
+| **Owner** | Vamshi |
+
+---
+
 # Open Decisions
 
 ## O-2026-001 — Pricing presentation (L1)
