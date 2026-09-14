@@ -222,6 +222,34 @@ const component = {
   'reviewseal.fg': ref('color.review.released.fg'),
   'table.compact.row.height': ref('size.control.sm'),
   'table.comfortable.row.height': ref('size.control.md'),
+
+  // ---- B2 (Client Vault path) component tokens -----------------------------
+  // Component-tier tokens for the B2 screens. Each resolves to a SEMANTIC token (colour / spacing role /
+  // layout / state) or — per D-2026-023 §B.14 — directly to a foundation token in a permitted family
+  // (radius, sizing). No new token family; no frozen-definition change. Component styles consume ONLY
+  // these (Gate A), keeping B2 off the deferred Bucket-1/2 direct-reference debt.
+  // Colours → semantic
+  'vault.text.body': ref('color.text.body'),
+  'vault.text.secondary': ref('color.text.secondary'),
+  'vault.text.muted': ref('color.text.muted'),
+  'vault.link.fg': ref('color.text.link'),
+  'vault.required.fg': ref('color.attention.action-needed.fg'),
+  'vault.surface.raised': ref('color.bg.raised'),
+  'vault.surface.subtle': ref('color.bg.subtle'),
+  'vault.selected.surface': ref('state.selected.surface'),
+  // Spacing → semantic spacing roles (Part E)
+  'vault.gap.tight': ref('space.stack.tight'),
+  'vault.gap.default': ref('space.stack.default'),
+  'vault.inset.control': ref('space.inset.control'),
+  'vault.inset.card': ref('space.inset.card'),
+  'vault.section.gap': ref('space.section-gap'),
+  // Radius / sizing → foundation, permitted families only (D-2026-023 §B.14)
+  'vault.radius.control': ref('radius.sm'),
+  'vault.radius.card': ref('radius.md'),
+  'vault.radius.panel': ref('radius.lg'),
+  'vault.touch.min': ref('size.touch.min'),
+  // Layout → semantic
+  'vault.reading.max': ref('layout.container.reading.max'),
 };
 
 // ---------------------------------------------------------------------------

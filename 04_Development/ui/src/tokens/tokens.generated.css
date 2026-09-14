@@ -196,4 +196,22 @@
   --reviewseal-fg: var(--color-review-released-fg);
   --table-compact-row-height: var(--size-control-sm);
   --table-comfortable-row-height: var(--size-control-md);
+  --vault-text-body: var(--color-text-body);
+  --vault-text-secondary: var(--color-text-secondary);
+  --vault-text-muted: var(--color-text-muted);
+  --vault-link-fg: var(--color-text-link);
+  --vault-required-fg: var(--color-attention-action-needed-fg);
+  --vault-surface-raised: var(--color-bg-raised);
+  --vault-surface-subtle: var(--color-bg-subtle);
+  --vault-selected-surface: var(--state-selected-surface);
+  --vault-gap-tight: var(--space-stack-tight);
+  --vault-gap-default: var(--space-stack-default);
+  --vault-inset-control: var(--space-inset-control);
+  --vault-inset-card: var(--space-inset-card);
+  --vault-section-gap: var(--space-section-gap);
+  --vault-radius-control: var(--radius-sm);
+  --vault-radius-card: var(--radius-md);
+  --vault-radius-panel: var(--radius-lg);
+  --vault-touch-min: var(--size-touch-min);
+  --vault-reading-max: var(--layout-container-reading-max);
 }

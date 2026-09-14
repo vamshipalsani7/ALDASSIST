@@ -1,0 +1,1 @@
+export { InventionsIndexScreen } from './InventionsIndexScreen';

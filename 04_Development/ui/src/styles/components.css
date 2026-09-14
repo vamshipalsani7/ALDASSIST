@@ -150,6 +150,91 @@
 /* (The B1 demo scenario-switcher styles live in src/styles/harness.css — NOT a product component,
    and outside the token-hierarchy enforcement scope.) */
 
+/* ============================================================================
+   B2 — Client Vault path (SC-C00, C02, C03, C04, C05, C06, C07, C09)
+   Component styles consume COMPONENT tokens only (the `vault.*` layer → semantic, or → foundation for
+   the §B.14-permitted radius/sizing families). Typography comes from the global element styles (h1/h2/h3
+   /p, body) — Phase 7 has no semantic type tier, so B2 sets no font-size/weight in component styles.
+   Row/section separation uses surface striping/backgrounds rather than hairline borders, and form inputs
+   use a filled surface (border: none) instead of a hairline border (Phase 7 has no semantic border-width
+   tier). B2 therefore introduces ZERO new Gate-A references — every B2 component style consumes component
+   tokens only, and Gate A stays at B1's inherited baseline.
+   ============================================================================ */
+
+/* Utilities */
+.text-muted { color: var(--vault-text-muted); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.section-heading { text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--vault-text-muted); margin: var(--vault-inset-card) 0 var(--vault-gap-tight); }
+.plain-list { list-style: none; padding: 0; margin: 0; }
+
+/* Forms (labels always visible — never placeholder-only) */
+.field { display: flex; flex-direction: column; gap: var(--vault-gap-tight); margin: var(--vault-gap-default) 0; border: none; padding: 0; }
+.field > label, .field > legend { color: var(--vault-text-body); }
+.field input[type='text'], .field textarea {
+  font: inherit; color: var(--vault-text-body); border: none;
+  /* Filled affordance (subtle surface fill) instead of a hairline border — Phase 7 has no semantic
+     border-width tier, so a filled input keeps B2 component styles on component tokens only. The visible
+     focus ring is provided globally by :focus-visible. */
+  background: var(--vault-surface-subtle); border-radius: var(--vault-radius-control);
+  padding: var(--vault-gap-tight) var(--vault-inset-control); max-width: var(--vault-reading-max); width: 100%;
+}
+.checkbox, .radio { display: flex; align-items: center; gap: var(--vault-inset-control);
+  padding: var(--vault-gap-tight) 0; min-height: var(--vault-touch-min); }
+
+/* SC-C00 interstitial */
+.interstitial { display: flex; justify-content: center; padding: var(--vault-section-gap) var(--vault-inset-control); }
+.interstitial__card { background: var(--vault-surface-raised); border-radius: var(--vault-radius-panel);
+  padding: var(--vault-inset-card); max-width: var(--vault-reading-max); width: 100%; }
+.interstitial__role { margin: var(--vault-gap-default) 0; }
+.interstitial__defer { margin-top: var(--vault-gap-default); }
+
+/* SC-C02 / SC-C07 index tables (row separation via surface striping — no border tier in Phase 7) */
+.index-head { display: flex; align-items: center; justify-content: space-between; gap: var(--vault-gap-default); margin-bottom: var(--vault-gap-default); }
+.facets { display: flex; flex-wrap: wrap; gap: var(--vault-gap-tight) var(--vault-gap-default); margin-bottom: var(--vault-gap-default); }
+.facet { color: var(--vault-text-secondary); }
+.facet__count { color: var(--vault-text-muted); }
+.index-table { width: 100%; border-collapse: collapse; }
+.index-table th, .index-table td { text-align: left; padding: var(--vault-gap-tight) var(--vault-inset-control); vertical-align: top; }
+.index-table th { color: var(--vault-text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.index-table tbody tr:nth-child(even) { background: var(--vault-surface-subtle); }
+
+/* SC-C03 capture: steps, lock banner */
+.steps { list-style: none; padding: 0; margin: var(--vault-gap-default) 0; display: flex; flex-direction: column; gap: var(--vault-gap-tight); }
+.step { display: flex; align-items: center; gap: var(--vault-inset-control); padding: var(--vault-gap-tight) var(--vault-inset-control);
+  border-radius: var(--vault-radius-card); }
+.step--current { background: var(--vault-selected-surface); }
+.step__marker { display: inline-flex; color: var(--vault-text-muted); }
+.step__label { flex: 1; }
+.step__required { color: var(--vault-required-fg); }
+.lock-banner { display: flex; align-items: flex-start; gap: var(--vault-inset-control); background: var(--vault-surface-subtle);
+  border-radius: var(--vault-radius-card); padding: var(--vault-inset-control); margin: var(--vault-gap-default) 0; }
+
+/* SC-C05 versions (striping instead of per-row borders) */
+.version-list { list-style: none; padding: 0; margin: 0 0 var(--vault-gap-default); }
+.version { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--vault-gap-tight) var(--vault-gap-default);
+  padding: var(--vault-gap-tight) var(--vault-inset-control); }
+.version:nth-child(even) { background: var(--vault-surface-subtle); }
+.version__current { color: var(--vault-text-muted); }
+.version__time { color: var(--vault-text-secondary); }
+.version__lock { display: inline-flex; align-items: center; gap: var(--vault-gap-tight); color: var(--vault-text-secondary); }
+
+/* SC-C06 / SC-C09 trust copy */
+.trust-copy { display: inline-flex; align-items: center; gap: var(--vault-gap-tight); color: var(--vault-text-body); }
+
+/* SC-C04 tabpanel + Not-pursued */
+.tabpanel { padding-top: var(--vault-gap-default); }
+.tabpanel[hidden] { display: none; }
+.notpursued { background: var(--vault-surface-subtle); border-radius: var(--vault-radius-card); padding: var(--vault-inset-control); margin: var(--vault-gap-default) 0; }
+
+/* SC-C09 not-file */
+.decision-notfile { margin-top: var(--vault-gap-default); }
+
+@media (max-width: 1023px) {
+  .index-head { flex-direction: column; align-items: flex-start; }
+}
+
 /* ---------- Responsive: verdict/detail collapse (WP-4 B.3) ---------- */
 @media (max-width: 1023px) {
   .client-layout { grid-template-columns: 1fr; }

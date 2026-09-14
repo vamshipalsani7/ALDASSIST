@@ -18,10 +18,13 @@ export interface ObjectHeaderProps {
   tabs: TabRef[];
   activeTab: string;
   onTab: (id: string) => void;
+  /** When false, the header omits its own nav tabs so a screen can render a real tab/tabpanel widget
+   * below it (SC-C04). Defaults to true — B1 usage (SC-C08) is unchanged. */
+  showTabs?: boolean;
 }
 
 export function ObjectHeader(props: ObjectHeaderProps) {
-  const { title, identity, lifecycle, attention, whoseTurn, nextAction, tabs, activeTab, onTab } = props;
+  const { title, identity, lifecycle, attention, whoseTurn, nextAction, tabs, activeTab, onTab, showTabs = true } = props;
   return (
     <div className="object-header">
       <h1>{title}</h1>
@@ -51,7 +54,7 @@ export function ObjectHeader(props: ObjectHeaderProps) {
         )}
       </div>
 
-      <Tabs tabs={tabs} active={activeTab} onSelect={onTab} />
+      {showTabs && <Tabs tabs={tabs} active={activeTab} onSelect={onTab} />}
     </div>
   );
 }

@@ -6,10 +6,52 @@
  */
 import type { Loaded, OpaqueId, SourcePassageRef, ResolvedPassage } from './primitives';
 import type { AssessmentVM } from './assessment';
+import type {
+  WorkspaceSetupVM, InventionsIndexVM, DisclosureCaptureVM, InventionDetailVM,
+  DisclosureVersionsVM, AssessmentRequestVM, AssessmentsListVM, DecisionVM,
+} from './vault';
 
 export interface AssessmentProvider {
   /** One assessment for one invention. `not-found` if outside the actor's tenancy/grant. */
   get(inventionId: OpaqueId, assessmentId: OpaqueId): Promise<Loaded<AssessmentVM>>;
+}
+
+/* ── B2 · Client Vault-path ports ──────────────────────────────────────────
+   Every object-scoped port returns Loaded's `not-found` for a cross-tenant object (CR-5) —
+   it never throws or reveals existence. FixtureProviders implement these now; Phase 9 adds
+   ApiProviders behind the identical interfaces. */
+
+/** SC-C00 — workspace creation/join interstitial (tenancy born on first disclosure). */
+export interface WorkspaceSetupProvider {
+  get(mode: 'create' | 'accept-invitation'): Promise<Loaded<WorkspaceSetupVM>>;
+}
+/** SC-C02 — the inventions index (tenancy-scoped list). */
+export interface InventionsProvider {
+  list(): Promise<Loaded<InventionsIndexVM>>;
+}
+/** SC-C04 — invention detail hub. `not-found` when cross-tenant / Named-Inventor out of scope. */
+export interface InventionDetailProvider {
+  get(inventionId: OpaqueId): Promise<Loaded<InventionDetailVM>>;
+}
+/** SC-C03 — guided disclosure capture. */
+export interface DisclosureCaptureProvider {
+  get(inventionId: OpaqueId): Promise<Loaded<DisclosureCaptureVM>>;
+}
+/** SC-C05 — current disclosure + immutable version history. */
+export interface DisclosureVersionsProvider {
+  get(inventionId: OpaqueId): Promise<Loaded<DisclosureVersionsVM>>;
+}
+/** SC-C06 — request assessment. */
+export interface AssessmentRequestProvider {
+  get(inventionId: OpaqueId): Promise<Loaded<AssessmentRequestVM>>;
+}
+/** SC-C07 — assessments list for one invention. */
+export interface AssessmentsListProvider {
+  list(inventionId: OpaqueId): Promise<Loaded<AssessmentsListVM>>;
+}
+/** SC-C09 — record decision (DR-01-agnostic; capability is a pending slot in the VM). */
+export interface DecisionProvider {
+  get(inventionId: OpaqueId): Promise<Loaded<DecisionVM>>;
 }
 
 /**
@@ -22,10 +64,7 @@ export interface CitationResolver {
 }
 
 /**
- * DR-01 seam (not resolved): whether the current actor may record a not-file Decision is a
- * reported capability sourced from an owner-decision slot — never a hard-coded role here.
- * Included as a type only; wired in B2 with the decision screen (SC-C09).
+ * DR-01 seam (not resolved): realised in B2 as `DecisionCapabilityVM` in ./vault — whether the
+ * current actor may record a not-file Decision is a reported capability sourced from an
+ * owner-decision slot, never a hard-coded role. Consumed by SC-C09 (DecisionRecordScreen).
  */
-export interface DecisionCapabilitiesVM {
-  mayRecordNotFileDecision: { status: 'pending-slot'; slotId: 'DR-01'; source: 'owner-decision' };
-}
