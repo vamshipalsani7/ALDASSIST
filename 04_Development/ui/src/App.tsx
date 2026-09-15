@@ -24,6 +24,14 @@ import {
   inventionDetailScenarios, disclosureVersionsScenarios, assessmentRequestScenarios,
   assessmentsListScenarios, decisionScenarios,
 } from './fixtures/scenarios/vault';
+// B3
+import { PortfolioIndexScreen } from './screens/PortfolioIndex';
+import { ApplicationDetailScreen } from './screens/ApplicationDetail';
+import { DeadlinesIndexScreen } from './screens/DeadlinesIndex';
+import { DeadlineDetailScreen } from './screens/DeadlineDetail';
+import {
+  portfolioScenarios, applicationDetailScenarios, deadlinesScenarios, deadlineDetailScenarios,
+} from './fixtures/scenarios/portfolio';
 
 interface ScreenDef {
   id: string;
@@ -80,6 +88,26 @@ const SCREENS: ScreenDef[] = [
     id: 'SC-C09', label: 'SC-C09 · Record decision',
     scenarios: keys(decisionScenarios),
     render: (s) => <DecisionRecordScreen loaded={(decisionScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-C10', label: 'SC-C10 · Portfolio index',
+    scenarios: keys(portfolioScenarios),
+    render: (s) => <PortfolioIndexScreen loaded={(portfolioScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-C11', label: 'SC-C11 · Application detail',
+    scenarios: keys(applicationDetailScenarios),
+    render: (s) => <ApplicationDetailScreen loaded={(applicationDetailScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-C12', label: 'SC-C12 · Deadlines index',
+    scenarios: keys(deadlinesScenarios),
+    render: (s) => <DeadlinesIndexScreen loaded={(deadlinesScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-C13', label: 'SC-C13 · Deadline detail (trace)',
+    scenarios: keys(deadlineDetailScenarios),
+    render: (s) => <DeadlineDetailScreen loaded={(deadlineDetailScenarios as never)[s]} />,
   },
 ];
 

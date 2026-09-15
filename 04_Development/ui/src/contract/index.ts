@@ -3,4 +3,5 @@ export * from './primitives';
 export * from './invention';
 export * from './assessment';
 export * from './vault';
+export * from './portfolio';
 export * from './ports';

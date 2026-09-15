@@ -10,6 +10,9 @@ import type {
   WorkspaceSetupVM, InventionsIndexVM, DisclosureCaptureVM, InventionDetailVM,
   DisclosureVersionsVM, AssessmentRequestVM, AssessmentsListVM, DecisionVM,
 } from './vault';
+import type {
+  PortfolioIndexVM, ApplicationDetailVM, DeadlinesIndexVM, DeadlineDetailVM,
+} from './portfolio';
 
 export interface AssessmentProvider {
   /** One assessment for one invention. `not-found` if outside the actor's tenancy/grant. */
@@ -54,6 +57,18 @@ export interface DecisionProvider {
   get(inventionId: OpaqueId): Promise<Loaded<DecisionVM>>;
 }
 
+/* ── B3 · Client Portfolio / Deadlines ports ────────────────────────────────
+   Object-scoped ports return Loaded's `not-found` for a cross-tenant object (CR-5). Deadline dates are
+   computed by the Rules Engine and only rendered here (never authored). */
+
+/** SC-C10 — portfolio index (filed applications). */
+export interface PortfolioProvider { list(): Promise<Loaded<PortfolioIndexVM>>; }
+/** SC-C11 — application detail (active / quiet-silence / responding-status-only). */
+export interface ApplicationDetailProvider { get(applicationId: OpaqueId): Promise<Loaded<ApplicationDetailVM>>; }
+/** SC-C12 — deadlines index (safety-critical visibility). */
+export interface DeadlinesProvider { list(): Promise<Loaded<DeadlinesIndexVM>>; }
+/** SC-C13 — deadline detail with the full computation trace (may be `unavailable`). */
+export interface DeadlineDetailProvider { get(deadlineId: OpaqueId): Promise<Loaded<DeadlineDetailVM>>; }
 /**
  * Resolves a citation's passage reference to its exact cited content (B0 §3.5 / CR-6).
  * FixtureCitationResolver implements this now; Phase 9 resolves against the register/corpus.

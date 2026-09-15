@@ -3,7 +3,7 @@
  * Lifecycle labels come from the frozen object taxonomy — no invented states (P5:X8). Icons are
  * decorative reinforcement; the text label always carries the meaning (CR-4).
  */
-import type { InventionLifecycle, AssessmentLifecycle, VerdictLabel } from '../contract';
+import type { InventionLifecycle, AssessmentLifecycle, VerdictLabel, DeadlineState } from '../contract';
 import type { IconName } from '../components';
 
 export const INVENTION_CHIP: Record<InventionLifecycle, { label: string; icon: IconName }> = {
@@ -30,4 +30,12 @@ export const VERDICT_LABEL: Record<VerdictLabel, string> = {
   'protectable-with-changes': 'Protectable with changes',
   'unlikely-to-be-protectable': 'Unlikely to be protectable',
   'not-enough-to-assess': 'Not enough to assess',
+};
+
+/** Deadline state axis (P4:§11.5) — the enumerated frozen set. Icon + text, never colour-only (CR-4). */
+export const DEADLINE_STATE_CHIP: Record<DeadlineState, { label: string; icon: IconName }> = {
+  upcoming: { label: 'Upcoming', icon: 'waiting' }, approaching: { label: 'Approaching', icon: 'waiting' },
+  due: { label: 'Due', icon: 'action-needed' }, confirmed: { label: 'Confirmed', icon: 'success' },
+  met: { label: 'Met', icon: 'success' }, missed: { label: 'Missed', icon: 'at-risk' },
+  superseded: { label: 'Superseded', icon: 'info' }, na: { label: 'N/A', icon: 'info' },
 };
