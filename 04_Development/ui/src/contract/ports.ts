@@ -13,6 +13,9 @@ import type {
 import type {
   PortfolioIndexVM, ApplicationDetailVM, DeadlinesIndexVM, DeadlineDetailVM,
 } from './portfolio';
+import type {
+  MattersIndexVM, MatterWorkspaceVM, CostsVM, MatchingVM, QuoteEngagementVM,
+} from './matters';
 
 export interface AssessmentProvider {
   /** One assessment for one invention. `not-found` if outside the actor's tenancy/grant. */
@@ -69,6 +72,21 @@ export interface ApplicationDetailProvider { get(applicationId: OpaqueId): Promi
 export interface DeadlinesProvider { list(): Promise<Loaded<DeadlinesIndexVM>>; }
 /** SC-C13 — deadline detail with the full computation trace (may be `unavailable`). */
 export interface DeadlineDetailProvider { get(deadlineId: OpaqueId): Promise<Loaded<DeadlineDetailVM>>; }
+/* ── B4 · Client Matter / Costs / Matching ports ────────────────────────────
+   Object-scoped ports return Loaded's `not-found` for a cross-tenant object (CR-5). Costs and engage/pay
+   are role-gated: a role without access is represented by Loaded's `permission-denied` (IP-15), never a
+   silent escalation. No provider composes price logic — they return PriceDisplayVM containers (P5:X12). */
+
+/** SC-C14 — matters index. */
+export interface MattersProvider { list(): Promise<Loaded<MattersIndexVM>>; }
+/** SC-C15 — matter workspace. */
+export interface MatterWorkspaceProvider { get(matterId: OpaqueId): Promise<Loaded<MatterWorkspaceVM>>; }
+/** SC-C16 — costs (Owner/Admin only; Member/Viewer → permission-denied). */
+export interface CostsProvider { get(): Promise<Loaded<CostsVM>>; }
+/** SC-C18 — agent matching (Owner-only; `error` = conflict check could not complete, fails closed). */
+export interface MatchingProvider { get(): Promise<Loaded<MatchingVM>>; }
+/** SC-C19 — quote & engagement (Owner-only; non-Owner → permission-denied, routed to Owner). */
+export interface QuoteEngagementProvider { get(agentId: OpaqueId): Promise<Loaded<QuoteEngagementVM>>; }
 /**
  * Resolves a citation's passage reference to its exact cited content (B0 §3.5 / CR-6).
  * FixtureCitationResolver implements this now; Phase 9 resolves against the register/corpus.

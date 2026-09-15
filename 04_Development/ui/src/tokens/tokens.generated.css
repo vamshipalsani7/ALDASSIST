@@ -196,6 +196,7 @@
   --reviewseal-fg: var(--color-review-released-fg);
   --table-compact-row-height: var(--size-control-sm);
   --table-comfortable-row-height: var(--size-control-md);
+  --vault-text-title: var(--color-text-title);
   --vault-text-body: var(--color-text-body);
   --vault-text-secondary: var(--color-text-secondary);
   --vault-text-muted: var(--color-text-muted);

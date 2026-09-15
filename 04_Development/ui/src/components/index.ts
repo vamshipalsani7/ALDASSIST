@@ -13,3 +13,4 @@ export { EvidenceBlock } from './EvidenceBlock';
 export { AssertionView } from './AssertionView';
 export { ReferenceView } from './ReferenceView';
 export { CitationResolverProvider, useCitationResolver } from './CitationResolverContext';
+export { PriceDisplay } from './PriceDisplay';

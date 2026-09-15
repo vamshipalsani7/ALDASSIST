@@ -231,6 +231,27 @@
 /* SC-C09 not-file */
 .decision-notfile { margin-top: var(--vault-gap-default); }
 
+/* B4 — PriceDisplay + matter/costs/matching (component tokens only) */
+.price { max-width: var(--vault-reading-max); }
+.price__lines { margin: 0; }
+.price__line { display: flex; align-items: baseline; justify-content: space-between; gap: var(--vault-gap-default);
+  padding: var(--vault-gap-tight) 0; }
+.price__line:nth-child(even) { background: var(--vault-surface-subtle); }
+.price__label { color: var(--vault-text-body); }
+.price__amount { color: var(--vault-text-body); }
+.price__total .price__label, .price__total .price__amount { color: var(--vault-text-title); }
+.price__official { color: var(--vault-text-secondary); }
+.price__disclosure { margin-top: var(--vault-gap-tight); }
+.four-cell { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--vault-gap-default);
+  padding: var(--vault-inset-control); background: var(--vault-surface-subtle); border-radius: var(--vault-radius-card);
+  margin-bottom: var(--vault-gap-default); }
+.four-cell__cell { display: flex; flex-direction: column; gap: var(--vault-gap-tight); }
+.four-cell__label { color: var(--vault-text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.match-card { padding: var(--vault-inset-control); background: var(--vault-surface-subtle);
+  border-radius: var(--vault-radius-card); margin-bottom: var(--vault-gap-default); }
+.match-card__rationale { color: var(--vault-text-secondary); }
+@media (max-width: 1023px) { .four-cell { grid-template-columns: 1fr 1fr; } }
+
 @media (max-width: 1023px) {
   .index-head { flex-direction: column; align-items: flex-start; }
 }

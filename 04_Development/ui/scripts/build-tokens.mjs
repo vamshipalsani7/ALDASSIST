@@ -229,6 +229,7 @@ const component = {
   // (radius, sizing). No new token family; no frozen-definition change. Component styles consume ONLY
   // these (Gate A), keeping B2 off the deferred Bucket-1/2 direct-reference debt.
   // Colours → semantic
+  'vault.text.title': ref('color.text.title'),
   'vault.text.body': ref('color.text.body'),
   'vault.text.secondary': ref('color.text.secondary'),
   'vault.text.muted': ref('color.text.muted'),

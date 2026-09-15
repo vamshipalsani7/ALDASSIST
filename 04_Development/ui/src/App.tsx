@@ -32,6 +32,15 @@ import { DeadlineDetailScreen } from './screens/DeadlineDetail';
 import {
   portfolioScenarios, applicationDetailScenarios, deadlinesScenarios, deadlineDetailScenarios,
 } from './fixtures/scenarios/portfolio';
+// B4
+import { MattersIndexScreen } from './screens/MattersIndex';
+import { MatterWorkspaceScreen } from './screens/MatterWorkspace';
+import { CostsScreen } from './screens/Costs';
+import { MatchingScreen } from './screens/Matching';
+import { QuoteEngagementScreen } from './screens/QuoteEngagement';
+import {
+  mattersScenarios, matterWorkspaceScenarios, costsScenarios, matchingScenarios, quoteScenarios,
+} from './fixtures/scenarios/matters';
 
 interface ScreenDef {
   id: string;
@@ -108,6 +117,31 @@ const SCREENS: ScreenDef[] = [
     id: 'SC-C13', label: 'SC-C13 · Deadline detail (trace)',
     scenarios: keys(deadlineDetailScenarios),
     render: (s) => <DeadlineDetailScreen loaded={(deadlineDetailScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-C14', label: 'SC-C14 · Matters index',
+    scenarios: keys(mattersScenarios),
+    render: (s) => <MattersIndexScreen loaded={(mattersScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-C15', label: 'SC-C15 · Matter workspace',
+    scenarios: keys(matterWorkspaceScenarios),
+    render: (s) => <MatterWorkspaceScreen loaded={(matterWorkspaceScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-C16', label: 'SC-C16 · Costs',
+    scenarios: keys(costsScenarios),
+    render: (s) => <CostsScreen loaded={(costsScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-C18', label: 'SC-C18 · Agent matching',
+    scenarios: keys(matchingScenarios),
+    render: (s) => <MatchingScreen loaded={(matchingScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-C19', label: 'SC-C19 · Quote & engagement',
+    scenarios: keys(quoteScenarios),
+    render: (s) => <QuoteEngagementScreen loaded={(quoteScenarios as never)[s]} />,
   },
 ];
 
