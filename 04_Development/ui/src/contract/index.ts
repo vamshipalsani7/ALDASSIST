@@ -5,4 +5,5 @@ export * from './assessment';
 export * from './vault';
 export * from './portfolio';
 export * from './matters';
+export * from './home';
 export * from './ports';

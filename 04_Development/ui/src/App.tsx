@@ -41,6 +41,14 @@ import { QuoteEngagementScreen } from './screens/QuoteEngagement';
 import {
   mattersScenarios, matterWorkspaceScenarios, costsScenarios, matchingScenarios, quoteScenarios,
 } from './fixtures/scenarios/matters';
+// B5
+import { HomeScreen } from './screens/Home';
+import { DocumentsScreen } from './screens/Documents';
+import { SettingsScreen } from './screens/Settings';
+import { NotificationsScreen } from './screens/Notifications';
+import {
+  homeScenarios, documentsScenarios, settingsScenarios, notificationsScenarios,
+} from './fixtures/scenarios/home';
 
 interface ScreenDef {
   id: string;
@@ -57,6 +65,11 @@ const SCREENS: ScreenDef[] = [
     id: 'SC-C00', label: 'SC-C00 · Workspace setup', standalone: true,
     scenarios: keys(workspaceSetupScenarios),
     render: (s) => <WorkspaceSetupScreen loaded={(workspaceSetupScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-C01', label: 'SC-C01 · Home / action queue ★',
+    scenarios: keys(homeScenarios),
+    render: (s) => <HomeScreen loaded={(homeScenarios as never)[s]} />,
   },
   {
     id: 'SC-C02', label: 'SC-C02 · Inventions index',
@@ -139,9 +152,24 @@ const SCREENS: ScreenDef[] = [
     render: (s) => <MatchingScreen loaded={(matchingScenarios as never)[s]} />,
   },
   {
+    id: 'SC-C17', label: 'SC-C17 · Documents',
+    scenarios: keys(documentsScenarios),
+    render: (s) => <DocumentsScreen loaded={(documentsScenarios as never)[s]} />,
+  },
+  {
     id: 'SC-C19', label: 'SC-C19 · Quote & engagement',
     scenarios: keys(quoteScenarios),
     render: (s) => <QuoteEngagementScreen loaded={(quoteScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-C20', label: 'SC-C20 · Settings',
+    scenarios: keys(settingsScenarios),
+    render: (s) => <SettingsScreen loaded={(settingsScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-C21', label: 'SC-C21 · Notifications',
+    scenarios: keys(notificationsScenarios),
+    render: (s) => <NotificationsScreen loaded={(notificationsScenarios as never)[s]} />,
   },
 ];
 

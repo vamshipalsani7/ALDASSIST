@@ -16,6 +16,9 @@ import type {
 import type {
   MattersIndexVM, MatterWorkspaceVM, CostsVM, MatchingVM, QuoteEngagementVM,
 } from './matters';
+import type {
+  HomeVM, DocumentsIndexVM, SettingsVM, NotificationsVM,
+} from './home';
 
 export interface AssessmentProvider {
   /** One assessment for one invention. `not-found` if outside the actor's tenancy/grant. */
@@ -65,28 +68,68 @@ export interface DecisionProvider {
    computed by the Rules Engine and only rendered here (never authored). */
 
 /** SC-C10 — portfolio index (filed applications). */
-export interface PortfolioProvider { list(): Promise<Loaded<PortfolioIndexVM>>; }
+export interface PortfolioProvider {
+  list(): Promise<Loaded<PortfolioIndexVM>>;
+}
 /** SC-C11 — application detail (active / quiet-silence / responding-status-only). */
-export interface ApplicationDetailProvider { get(applicationId: OpaqueId): Promise<Loaded<ApplicationDetailVM>>; }
+export interface ApplicationDetailProvider {
+  get(applicationId: OpaqueId): Promise<Loaded<ApplicationDetailVM>>;
+}
 /** SC-C12 — deadlines index (safety-critical visibility). */
-export interface DeadlinesProvider { list(): Promise<Loaded<DeadlinesIndexVM>>; }
+export interface DeadlinesProvider {
+  list(): Promise<Loaded<DeadlinesIndexVM>>;
+}
 /** SC-C13 — deadline detail with the full computation trace (may be `unavailable`). */
-export interface DeadlineDetailProvider { get(deadlineId: OpaqueId): Promise<Loaded<DeadlineDetailVM>>; }
+export interface DeadlineDetailProvider {
+  get(deadlineId: OpaqueId): Promise<Loaded<DeadlineDetailVM>>;
+}
+
 /* ── B4 · Client Matter / Costs / Matching ports ────────────────────────────
    Object-scoped ports return Loaded's `not-found` for a cross-tenant object (CR-5). Costs and engage/pay
    are role-gated: a role without access is represented by Loaded's `permission-denied` (IP-15), never a
    silent escalation. No provider composes price logic — they return PriceDisplayVM containers (P5:X12). */
 
 /** SC-C14 — matters index. */
-export interface MattersProvider { list(): Promise<Loaded<MattersIndexVM>>; }
+export interface MattersProvider {
+  list(): Promise<Loaded<MattersIndexVM>>;
+}
 /** SC-C15 — matter workspace. */
-export interface MatterWorkspaceProvider { get(matterId: OpaqueId): Promise<Loaded<MatterWorkspaceVM>>; }
+export interface MatterWorkspaceProvider {
+  get(matterId: OpaqueId): Promise<Loaded<MatterWorkspaceVM>>;
+}
 /** SC-C16 — costs (Owner/Admin only; Member/Viewer → permission-denied). */
-export interface CostsProvider { get(): Promise<Loaded<CostsVM>>; }
+export interface CostsProvider {
+  get(): Promise<Loaded<CostsVM>>;
+}
 /** SC-C18 — agent matching (Owner-only; `error` = conflict check could not complete, fails closed). */
-export interface MatchingProvider { get(): Promise<Loaded<MatchingVM>>; }
+export interface MatchingProvider {
+  get(): Promise<Loaded<MatchingVM>>;
+}
 /** SC-C19 — quote & engagement (Owner-only; non-Owner → permission-denied, routed to Owner). */
-export interface QuoteEngagementProvider { get(agentId: OpaqueId): Promise<Loaded<QuoteEngagementVM>>; }
+export interface QuoteEngagementProvider {
+  get(agentId: OpaqueId): Promise<Loaded<QuoteEngagementVM>>;
+}
+
+/* ── B5 · Client Home / Documents / Settings / Notifications ports ──────────
+   Home and Notifications aggregate across the B2–B4 object surfaces; a role gap is `permission-denied`. */
+
+/** SC-C01 — home / action queue. */
+export interface HomeProvider {
+  get(): Promise<Loaded<HomeVM>>;
+}
+/** SC-C17 — documents index. */
+export interface DocumentsProvider {
+  list(): Promise<Loaded<DocumentsIndexVM>>;
+}
+/** SC-C20 — settings. */
+export interface SettingsProvider {
+  get(): Promise<Loaded<SettingsVM>>;
+}
+/** SC-C21 — notification centre. */
+export interface NotificationsProvider {
+  list(): Promise<Loaded<NotificationsVM>>;
+}
+
 /**
  * Resolves a citation's passage reference to its exact cited content (B0 §3.5 / CR-6).
  * FixtureCitationResolver implements this now; Phase 9 resolves against the register/corpus.
