@@ -7,4 +7,5 @@ export * from './portfolio';
 export * from './matters';
 export * from './home';
 export * from './agent';
+export * from './ops';
 export * from './ports';

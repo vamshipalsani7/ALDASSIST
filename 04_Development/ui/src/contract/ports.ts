@@ -24,6 +24,9 @@ import type {
   AgentMatterDetailVM, ReviewsQueueVM, ReviewWorkspaceVM, OpportunitiesVM, PracticeVM,
   AgentSettingsVM, AgentNotificationsVM,
 } from './agent';
+import type {
+  DocketHealthVM, AgentVerificationVM, RuleAuthoringVM, QualityConsoleVM, BusinessDashboardVM,
+} from './ops';
 
 export interface AssessmentProvider {
   /** One assessment for one invention. `not-found` if outside the actor's tenancy/grant. */
@@ -189,6 +192,33 @@ export interface AgentSettingsProvider {
 /** SC-A14 — agent notification centre + context switcher. */
 export interface AgentNotificationsProvider {
   list(): Promise<Loaded<AgentNotificationsVM>>;
+}
+
+/* ── B7 · Operations surface (`/ops`) ports ─────────────────────────────────
+   Internal-only (MFA + justification, P4:§2.3); every access audited/justified. Ops may aggregate across
+   tenants where the frozen model permits (docket health), but Disclosure bodies stay consent-gated
+   (BR-16) — the VMs carry metadata/refs/status only. Slots (metric values, OP-2 target, OP-6 validation)
+   are containers, never invented (CR-19). FixtureProviders implement these now; Phase 9 adds ApiProviders. */
+
+/** SC-O01 — Docket Health Console (unconfirmed / discrepancies / undelivered / escalations). */
+export interface DocketHealthProvider {
+  get(): Promise<Loaded<DocketHealthVM>>;
+}
+/** SC-O02 — Agent Verification (register check → hold when unavailable; never auto-approve). */
+export interface AgentVerificationProvider {
+  get(): Promise<Loaded<AgentVerificationVM>>;
+}
+/** SC-O03 — Rule Authoring Console (rules-as-data; publish gated by tests + impact + dual control). */
+export interface RuleAuthoringProvider {
+  get(): Promise<Loaded<RuleAuthoringVM>>;
+}
+/** SC-O04 — Quality & Review Console (OP-6 measured; validation step is a pending slot). */
+export interface QualityConsoleProvider {
+  get(): Promise<Loaded<QualityConsoleVM>>;
+}
+/** SC-O05 — Business metrics dashboard (Metrics.md definitions; OP-2 uncalibrated; OP-5 split). */
+export interface BusinessDashboardProvider {
+  get(): Promise<Loaded<BusinessDashboardVM>>;
 }
 
 /**

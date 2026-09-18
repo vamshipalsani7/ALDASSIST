@@ -68,12 +68,23 @@ import {
   matterImportScenarios, agentMatterDetailScenarios, reviewsQueueScenarios, reviewWorkspaceScenarios,
   opportunitiesScenarios, practiceScenarios, agentSettingsScenarios, agentNotificationsScenarios,
 } from './fixtures/scenarios/agent';
+// B7 — Operations surface
+import { DocketHealthScreen } from './screens/DocketHealth';
+import { AgentVerificationScreen } from './screens/AgentVerification';
+import { RuleAuthoringScreen } from './screens/RuleAuthoring';
+import { QualityConsoleScreen } from './screens/QualityConsole';
+import { BusinessDashboardScreen } from './screens/BusinessDashboard';
+import { OpsShell } from './shell/OpsShell';
+import {
+  docketHealthScenarios, agentVerificationScenarios, ruleAuthoringScenarios, qualityScenarios,
+  businessScenarios,
+} from './fixtures/scenarios/ops';
 
 interface ScreenDef {
   id: string;
   label: string;
   standalone?: boolean; // rendered outside the Client shell (SC-C00 is pre-workspace)
-  surface?: 'agent'; // rendered in the Agent shell (B6); default is the Client shell
+  surface?: 'agent' | 'ops'; // rendered in the Agent (B6) / Ops (B7) shell; default is the Client shell
   scenarios: { id: string; label: string }[];
   render: (scenarioId: string) => ReactNode;
 }
@@ -252,6 +263,32 @@ const SCREENS: ScreenDef[] = [
     scenarios: keys(agentNotificationsScenarios),
     render: (s) => <AgentNotificationsScreen loaded={(agentNotificationsScenarios as never)[s]} />,
   },
+  // ── B7 · Operations surface (rendered in the Ops shell) ──
+  {
+    id: 'SC-O01', label: 'SC-O01 · Docket Health ★', surface: 'ops',
+    scenarios: keys(docketHealthScenarios),
+    render: (s) => <DocketHealthScreen loaded={(docketHealthScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-O02', label: 'SC-O02 · Agent Verification', surface: 'ops',
+    scenarios: keys(agentVerificationScenarios),
+    render: (s) => <AgentVerificationScreen loaded={(agentVerificationScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-O03', label: 'SC-O03 · Rule Authoring ★', surface: 'ops',
+    scenarios: keys(ruleAuthoringScenarios),
+    render: (s) => <RuleAuthoringScreen loaded={(ruleAuthoringScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-O04', label: 'SC-O04 · Quality & Review', surface: 'ops',
+    scenarios: keys(qualityScenarios),
+    render: (s) => <QualityConsoleScreen loaded={(qualityScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-O05', label: 'SC-O05 · Business metrics', surface: 'ops',
+    scenarios: keys(businessScenarios),
+    render: (s) => <BusinessDashboardScreen loaded={(businessScenarios as never)[s]} />,
+  },
 ];
 
 export function App() {
@@ -284,7 +321,9 @@ export function App() {
         ? body
         : screen.surface === 'agent'
           ? <AgentShell>{body}</AgentShell>
-          : <ClientShell>{body}</ClientShell>}
+          : screen.surface === 'ops'
+            ? <OpsShell>{body}</OpsShell>
+            : <ClientShell>{body}</ClientShell>}
     </>
   );
 }
