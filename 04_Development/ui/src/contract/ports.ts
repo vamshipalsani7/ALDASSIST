@@ -19,6 +19,11 @@ import type {
 import type {
   HomeVM, DocumentsIndexVM, SettingsVM, NotificationsVM,
 } from './home';
+import type {
+  AgentOnboardingVM, AgentTodayVM, AgentDocketVM, AgentMattersIndexVM, MatterImportVM,
+  AgentMatterDetailVM, ReviewsQueueVM, ReviewWorkspaceVM, OpportunitiesVM, PracticeVM,
+  AgentSettingsVM, AgentNotificationsVM,
+} from './agent';
 
 export interface AssessmentProvider {
   /** One assessment for one invention. `not-found` if outside the actor's tenancy/grant. */
@@ -128,6 +133,62 @@ export interface SettingsProvider {
 /** SC-C21 — notification centre. */
 export interface NotificationsProvider {
   list(): Promise<Loaded<NotificationsVM>>;
+}
+
+/* ── B6 · Agent surface (`/agent`) ports ────────────────────────────────────
+   Every object-scoped port returns Loaded's `not-found` for a cross-tenant / out-of-grant object (CR-5) —
+   a review grant exposes exactly one Disclosure version + analysis (IP-16). Slots (turnaround, stat
+   confidence, settlement) and fees (PriceDisplay) are containers, never invented (CR-19). DR-02 stays
+   agnostic (import performs no de-duplication). FixtureProviders implement these now; Phase 9 adds
+   ApiProviders behind the identical interfaces. */
+
+/** SC-A00 — agent onboarding & verification. */
+export interface AgentOnboardingProvider {
+  get(): Promise<Loaded<AgentOnboardingVM>>;
+}
+/** SC-A01 — agent Today (risk-ranked queue across docket / matters / reviews). */
+export interface AgentTodayProvider {
+  get(): Promise<Loaded<AgentTodayVM>>;
+}
+/** SC-A02 — agent docket (+ deadline detail). */
+export interface AgentDocketProvider {
+  get(): Promise<Loaded<AgentDocketVM>>;
+}
+/** SC-A03 — agent matters index (platform + own). */
+export interface AgentMattersProvider {
+  list(): Promise<Loaded<AgentMattersIndexVM>>;
+}
+/** SC-A04 — matter import (DR-02-agnostic; no de-duplication). */
+export interface MatterImportProvider {
+  get(): Promise<Loaded<MatterImportVM>>;
+}
+/** SC-A05 — agent matter detail (brief + work). `not-found` when not the assigned agent (CR-5). */
+export interface AgentMatterDetailProvider {
+  get(matterId: OpaqueId): Promise<Loaded<AgentMatterDetailVM>>;
+}
+/** SC-A06 — reviews queue (domain-matched; conflicted items never appear). */
+export interface ReviewsQueueProvider {
+  list(): Promise<Loaded<ReviewsQueueVM>>;
+}
+/** SC-A07 — review workspace (review grant only; the CR-2/BR-01 gate). `not-found` outside the grant. */
+export interface ReviewWorkspaceProvider {
+  get(reviewId: OpaqueId): Promise<Loaded<ReviewWorkspaceVM>>;
+}
+/** SC-A08 — opportunities (Agent Matching / Engagement). */
+export interface OpportunitiesProvider {
+  list(): Promise<Loaded<OpportunitiesVM>>;
+}
+/** SC-A09–A12 — Practice (profile / outcomes / capacity / earnings). */
+export interface PracticeProvider {
+  get(): Promise<Loaded<PracticeVM>>;
+}
+/** SC-A13 — agent settings. */
+export interface AgentSettingsProvider {
+  get(): Promise<Loaded<AgentSettingsVM>>;
+}
+/** SC-A14 — agent notification centre + context switcher. */
+export interface AgentNotificationsProvider {
+  list(): Promise<Loaded<AgentNotificationsVM>>;
 }
 
 /**

@@ -49,11 +49,31 @@ import { NotificationsScreen } from './screens/Notifications';
 import {
   homeScenarios, documentsScenarios, settingsScenarios, notificationsScenarios,
 } from './fixtures/scenarios/home';
+// B6 — Agent surface
+import { AgentOnboardingScreen } from './screens/AgentOnboarding';
+import { AgentTodayScreen } from './screens/AgentToday';
+import { AgentDocketScreen } from './screens/AgentDocket';
+import { AgentMattersIndexScreen } from './screens/AgentMattersIndex';
+import { MatterImportScreen } from './screens/MatterImport';
+import { AgentMatterDetailScreen } from './screens/AgentMatterDetail';
+import { ReviewsQueueScreen } from './screens/ReviewsQueue';
+import { ReviewWorkspaceScreen } from './screens/ReviewWorkspace';
+import { OpportunitiesScreen } from './screens/Opportunities';
+import { AgentPracticeScreen } from './screens/AgentPractice';
+import { AgentSettingsScreen } from './screens/AgentSettings';
+import { AgentNotificationsScreen } from './screens/AgentNotifications';
+import { AgentShell } from './shell/AgentShell';
+import {
+  agentOnboardingScenarios, agentTodayScenarios, agentDocketScenarios, agentMattersScenarios,
+  matterImportScenarios, agentMatterDetailScenarios, reviewsQueueScenarios, reviewWorkspaceScenarios,
+  opportunitiesScenarios, practiceScenarios, agentSettingsScenarios, agentNotificationsScenarios,
+} from './fixtures/scenarios/agent';
 
 interface ScreenDef {
   id: string;
   label: string;
   standalone?: boolean; // rendered outside the Client shell (SC-C00 is pre-workspace)
+  surface?: 'agent'; // rendered in the Agent shell (B6); default is the Client shell
   scenarios: { id: string; label: string }[];
   render: (scenarioId: string) => ReactNode;
 }
@@ -171,6 +191,67 @@ const SCREENS: ScreenDef[] = [
     scenarios: keys(notificationsScenarios),
     render: (s) => <NotificationsScreen loaded={(notificationsScenarios as never)[s]} />,
   },
+  // ── B6 · Agent surface (rendered in the Agent shell) ──
+  {
+    id: 'SC-A00', label: 'SC-A00 · Agent onboarding & verification', surface: 'agent',
+    scenarios: keys(agentOnboardingScenarios),
+    render: (s) => <AgentOnboardingScreen loaded={(agentOnboardingScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-A01', label: 'SC-A01 · Today', surface: 'agent',
+    scenarios: keys(agentTodayScenarios),
+    render: (s) => <AgentTodayScreen loaded={(agentTodayScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-A02', label: 'SC-A02 · Docket + deadline detail', surface: 'agent',
+    scenarios: keys(agentDocketScenarios),
+    render: (s) => <AgentDocketScreen loaded={(agentDocketScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-A03', label: 'SC-A03 · Matters index', surface: 'agent',
+    scenarios: keys(agentMattersScenarios),
+    render: (s) => <AgentMattersIndexScreen loaded={(agentMattersScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-A04', label: 'SC-A04 · Matter import ★', surface: 'agent',
+    scenarios: keys(matterImportScenarios),
+    render: (s) => <MatterImportScreen loaded={(matterImportScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-A05', label: 'SC-A05 · Agent matter detail', surface: 'agent',
+    scenarios: keys(agentMatterDetailScenarios),
+    render: (s) => <AgentMatterDetailScreen loaded={(agentMatterDetailScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-A06', label: 'SC-A06 · Reviews queue ★', surface: 'agent',
+    scenarios: keys(reviewsQueueScenarios),
+    render: (s) => <ReviewsQueueScreen loaded={(reviewsQueueScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-A07', label: 'SC-A07 · Review workspace ★★', surface: 'agent',
+    scenarios: keys(reviewWorkspaceScenarios),
+    render: (s) => <ReviewWorkspaceScreen loaded={(reviewWorkspaceScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-A08', label: 'SC-A08 · Opportunities', surface: 'agent',
+    scenarios: keys(opportunitiesScenarios),
+    render: (s) => <OpportunitiesScreen loaded={(opportunitiesScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-A09', label: 'SC-A09–A12 · Practice', surface: 'agent',
+    scenarios: keys(practiceScenarios),
+    render: (s) => <AgentPracticeScreen loaded={(practiceScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-A13', label: 'SC-A13 · Agent settings', surface: 'agent',
+    scenarios: keys(agentSettingsScenarios),
+    render: (s) => <AgentSettingsScreen loaded={(agentSettingsScenarios as never)[s]} />,
+  },
+  {
+    id: 'SC-A14', label: 'SC-A14 · Notifications + context switcher', surface: 'agent',
+    scenarios: keys(agentNotificationsScenarios),
+    render: (s) => <AgentNotificationsScreen loaded={(agentNotificationsScenarios as never)[s]} />,
+  },
 ];
 
 export function App() {
@@ -199,7 +280,11 @@ export function App() {
         </select>
         <span className="scenario-bar__note">B1+B2 review harness — not a product surface.</span>
       </div>
-      {screen.standalone ? body : <ClientShell>{body}</ClientShell>}
+      {screen.standalone
+        ? body
+        : screen.surface === 'agent'
+          ? <AgentShell>{body}</AgentShell>
+          : <ClientShell>{body}</ClientShell>}
     </>
   );
 }

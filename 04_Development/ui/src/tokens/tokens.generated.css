@@ -215,4 +215,5 @@
   --vault-radius-panel: var(--radius-lg);
   --vault-touch-min: var(--size-touch-min);
   --vault-reading-max: var(--layout-container-reading-max);
+  --reviewpane-gap: var(--space-section-gap);
 }

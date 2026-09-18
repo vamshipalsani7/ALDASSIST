@@ -251,6 +251,12 @@ const component = {
   'vault.touch.min': ref('size.touch.min'),
   // Layout → semantic
   'vault.reading.max': ref('layout.container.reading.max'),
+
+  // ── B6 · Agent review workspace (SC-A07) two-pane component tokens ──
+  // Component tokens resolving to SEMANTIC (Gate B allowed). The only new component styling B6 needs:
+  // the two-equal-pane layout. Consumed by `.review-pane` in components.css via var(--reviewpane-*)
+  // (component-token refs — Gate A clean), so B6 adds ZERO new Gate-A debt.
+  'reviewpane.gap': ref('space.section-gap'),
 };
 
 // ---------------------------------------------------------------------------

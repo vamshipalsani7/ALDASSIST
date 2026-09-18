@@ -252,6 +252,11 @@
 .match-card__rationale { color: var(--vault-text-secondary); }
 @media (max-width: 1023px) { .four-cell { grid-template-columns: 1fr 1fr; } }
 
+/* ---------- B6 · Agent review workspace (SC-A07) two-pane (AT-5) ---------- */
+/* Two equal panes: source (granted material) | work (assertions + decision). Gap via a component token
+   (--reviewpane-gap → semantic) so Gate A stays clean. Stacks on narrow; the source pane is never removed. */
+.review-pane { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--reviewpane-gap); align-items: start; }
+
 @media (max-width: 1023px) {
   .index-head { flex-direction: column; align-items: flex-start; }
 }
@@ -260,6 +265,7 @@
 @media (max-width: 1023px) {
   .client-layout { grid-template-columns: 1fr; }
   .detail-grid { grid-template-columns: 1fr; }
+  .review-pane { grid-template-columns: 1fr; }
   .rel-rail { border-left: none; border-top: var(--border-width-hairline) solid var(--color-border-subtle); padding-left: 0; padding-top: var(--space-5); }
   .alternatives__grid { grid-template-columns: 1fr; }
 }
