@@ -1,0 +1,1 @@
+export { CompanyLegalScreen } from './CompanyLegalScreen';

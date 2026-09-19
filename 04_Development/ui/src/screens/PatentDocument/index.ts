@@ -1,0 +1,1 @@
+export { PatentDocumentScreen } from './PatentDocumentScreen';

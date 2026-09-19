@@ -27,6 +27,11 @@ import type {
 import type {
   DocketHealthVM, AgentVerificationVM, RuleAuthoringVM, QualityConsoleVM, BusinessDashboardVM,
 } from './ops';
+import type {
+  PublicHomeVM, PatentSearchVM, PatentDocumentVM, StageLandingVM, SegmentLandingVM, PricingVM,
+  CostPlannerVM, FindYourPathVM, GuidesVM, GlossaryVM, JurisdictionGuideVM, ReportsVM,
+  AgentDirectoryVM, AgentPublicProfileVM, TrustPageVM, CompanyLegalVM, AuthVM,
+} from './public';
 
 export interface AssessmentProvider {
   /** One assessment for one invention. `not-found` if outside the actor's tenancy/grant. */
@@ -220,6 +225,46 @@ export interface QualityConsoleProvider {
 export interface BusinessDashboardProvider {
   get(): Promise<Loaded<BusinessDashboardVM>>;
 }
+
+/* ── B8 · Public surface (`/`) ports ────────────────────────────────────────
+   Public/anonymous read. Register data carries source + freshness; upstream failure → cached + staleness,
+   never an error page. Fees/timelines from the Rules Engine and legal wording (L1/L3/L4) are containers,
+   never invented (CR-19). The SSR/SSG rendering strategy is NOT modelled — these return fixture-driven
+   view-models like every other surface. FixtureProviders implement these now; Phase 9 adds ApiProviders. */
+
+/** SC-P01 — public home. */
+export interface PublicHomeProvider { get(): Promise<Loaded<PublicHomeVM>>; }
+/** SC-P02 — Zone-2 register search. */
+export interface PatentSearchProvider { search(query: string): Promise<Loaded<PatentSearchVM>>; }
+/** SC-P03 — patent document page. */
+export interface PatentDocumentProvider { get(jurisdiction: string, number: string): Promise<Loaded<PatentDocumentVM>>; }
+/** SC-P04 — stage landings (grouped). */
+export interface StageLandingProvider { get(stage: string): Promise<Loaded<StageLandingVM>>; }
+/** SC-P05 — segment landings (grouped). */
+export interface SegmentLandingProvider { get(segment: string): Promise<Loaded<SegmentLandingVM>>; }
+/** SC-P06 — pricing. */
+export interface PricingProvider { get(): Promise<Loaded<PricingVM>>; }
+/** SC-P07 — cost planner (ungated). */
+export interface CostPlannerProvider { get(): Promise<Loaded<CostPlannerVM>>; }
+/** SC-P08 — find-your-path. */
+export interface FindYourPathProvider { get(): Promise<Loaded<FindYourPathVM>>; }
+/** SC-P09 — learn / guides (index + article). */
+export interface GuidesProvider { get(slug?: string): Promise<Loaded<GuidesVM>>; }
+/** SC-P10 — glossary (index + term); shares the in-product tooltip record. */
+export interface GlossaryProvider { get(term?: string): Promise<Loaded<GlossaryVM>>; }
+/** SC-P11 — jurisdiction guide (India / PCT). */
+export interface JurisdictionGuideProvider { get(jurisdiction: string): Promise<Loaded<JurisdictionGuideVM>>; }
+/** SC-P12 — reports. */
+export interface ReportsProvider { get(slug: string): Promise<Loaded<ReportsVM>>; }
+/** SC-P13 — public agent directory + profile. */
+export interface AgentDirectoryProvider { list(): Promise<Loaded<AgentDirectoryVM>>; }
+export interface AgentPublicProfileProvider { get(slug: string): Promise<Loaded<AgentPublicProfileVM>>; }
+/** SC-P14 — trust pages (grouped). */
+export interface TrustProvider { get(page: string): Promise<Loaded<TrustPageVM>>; }
+/** SC-P15 — company + legal (grouped). */
+export interface CompanyLegalProvider { get(page: string): Promise<Loaded<CompanyLegalVM>>; }
+/** SC-P16 — account creation & sign-in (no Workspace created here, A1). */
+export interface AuthProvider { get(mode: string): Promise<Loaded<AuthVM>>; }
 
 /**
  * Resolves a citation's passage reference to its exact cited content (B0 §3.5 / CR-6).

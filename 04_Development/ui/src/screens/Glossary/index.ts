@@ -1,0 +1,1 @@
+export { GlossaryScreen } from './GlossaryScreen';

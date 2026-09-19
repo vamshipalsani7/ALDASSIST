@@ -8,4 +8,5 @@ export * from './matters';
 export * from './home';
 export * from './agent';
 export * from './ops';
+export * from './public';
 export * from './ports';

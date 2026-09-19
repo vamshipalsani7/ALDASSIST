@@ -79,12 +79,37 @@ import {
   docketHealthScenarios, agentVerificationScenarios, ruleAuthoringScenarios, qualityScenarios,
   businessScenarios,
 } from './fixtures/scenarios/ops';
+// B8 — Public surface
+import { PublicHomeScreen } from './screens/PublicHome';
+import { PatentSearchScreen } from './screens/PatentSearch';
+import { PatentDocumentScreen } from './screens/PatentDocument';
+import { StageLandingScreen } from './screens/StageLanding';
+import { SegmentLandingScreen } from './screens/SegmentLanding';
+import { PricingScreen } from './screens/Pricing';
+import { CostPlannerScreen } from './screens/CostPlanner';
+import { FindYourPathScreen } from './screens/FindYourPath';
+import { GuidesScreen } from './screens/Guides';
+import { GlossaryScreen } from './screens/Glossary';
+import { JurisdictionGuideScreen } from './screens/JurisdictionGuide';
+import { ReportsScreen } from './screens/Reports';
+import { AgentDirectoryScreen } from './screens/AgentDirectory';
+import { AgentPublicProfileScreen } from './screens/AgentPublicProfile';
+import { TrustPagesScreen } from './screens/TrustPages';
+import { CompanyLegalScreen } from './screens/CompanyLegal';
+import { AuthScreen } from './screens/Auth';
+import { PublicShell } from './shell/PublicShell';
+import {
+  publicHomeScenarios, patentSearchScenarios, patentDocumentScenarios, stageLandingScenarios,
+  segmentLandingScenarios, pricingScenarios, costPlannerScenarios, findYourPathScenarios, guidesScenarios,
+  glossaryScenarios, jurisdictionScenarios, reportsScenarios, agentDirectoryScenarios, agentProfileScenarios,
+  trustScenarios, companyLegalScenarios, authScenarios,
+} from './fixtures/scenarios/public';
 
 interface ScreenDef {
   id: string;
   label: string;
   standalone?: boolean; // rendered outside the Client shell (SC-C00 is pre-workspace)
-  surface?: 'agent' | 'ops'; // rendered in the Agent (B6) / Ops (B7) shell; default is the Client shell
+  surface?: 'agent' | 'ops' | 'public'; // Agent (B6) / Ops (B7) / Public (B8) shell; default is Client
   scenarios: { id: string; label: string }[];
   render: (scenarioId: string) => ReactNode;
 }
@@ -289,6 +314,24 @@ const SCREENS: ScreenDef[] = [
     scenarios: keys(businessScenarios),
     render: (s) => <BusinessDashboardScreen loaded={(businessScenarios as never)[s]} />,
   },
+  // ── B8 · Public surface (rendered in the Public shell) ──
+  { id: 'SC-P01', label: 'SC-P01 · Public Home', surface: 'public', scenarios: keys(publicHomeScenarios), render: (s) => <PublicHomeScreen loaded={(publicHomeScenarios as never)[s]} /> },
+  { id: 'SC-P02', label: 'SC-P02 · Patent Search', surface: 'public', scenarios: keys(patentSearchScenarios), render: (s) => <PatentSearchScreen loaded={(patentSearchScenarios as never)[s]} /> },
+  { id: 'SC-P03', label: 'SC-P03 · Patent Document ★', surface: 'public', scenarios: keys(patentDocumentScenarios), render: (s) => <PatentDocumentScreen loaded={(patentDocumentScenarios as never)[s]} /> },
+  { id: 'SC-P04', label: 'SC-P04 · Stage landing', surface: 'public', scenarios: keys(stageLandingScenarios), render: (s) => <StageLandingScreen loaded={(stageLandingScenarios as never)[s]} /> },
+  { id: 'SC-P05', label: 'SC-P05 · Segment landing', surface: 'public', scenarios: keys(segmentLandingScenarios), render: (s) => <SegmentLandingScreen loaded={(segmentLandingScenarios as never)[s]} /> },
+  { id: 'SC-P06', label: 'SC-P06 · Pricing', surface: 'public', scenarios: keys(pricingScenarios), render: (s) => <PricingScreen loaded={(pricingScenarios as never)[s]} /> },
+  { id: 'SC-P07', label: 'SC-P07 · Cost Planner', surface: 'public', scenarios: keys(costPlannerScenarios), render: (s) => <CostPlannerScreen loaded={(costPlannerScenarios as never)[s]} /> },
+  { id: 'SC-P08', label: 'SC-P08 · Find-your-path', surface: 'public', scenarios: keys(findYourPathScenarios), render: (s) => <FindYourPathScreen loaded={(findYourPathScenarios as never)[s]} /> },
+  { id: 'SC-P09', label: 'SC-P09 · Guides', surface: 'public', scenarios: keys(guidesScenarios), render: (s) => <GuidesScreen loaded={(guidesScenarios as never)[s]} /> },
+  { id: 'SC-P10', label: 'SC-P10 · Glossary', surface: 'public', scenarios: keys(glossaryScenarios), render: (s) => <GlossaryScreen loaded={(glossaryScenarios as never)[s]} /> },
+  { id: 'SC-P11', label: 'SC-P11 · Jurisdiction guide', surface: 'public', scenarios: keys(jurisdictionScenarios), render: (s) => <JurisdictionGuideScreen loaded={(jurisdictionScenarios as never)[s]} /> },
+  { id: 'SC-P12', label: 'SC-P12 · Reports', surface: 'public', scenarios: keys(reportsScenarios), render: (s) => <ReportsScreen loaded={(reportsScenarios as never)[s]} /> },
+  { id: 'SC-P13a', label: 'SC-P13 · Agent directory', surface: 'public', scenarios: keys(agentDirectoryScenarios), render: (s) => <AgentDirectoryScreen loaded={(agentDirectoryScenarios as never)[s]} /> },
+  { id: 'SC-P13b', label: 'SC-P13 · Agent profile', surface: 'public', scenarios: keys(agentProfileScenarios), render: (s) => <AgentPublicProfileScreen loaded={(agentProfileScenarios as never)[s]} /> },
+  { id: 'SC-P14', label: 'SC-P14 · Trust pages', surface: 'public', scenarios: keys(trustScenarios), render: (s) => <TrustPagesScreen loaded={(trustScenarios as never)[s]} /> },
+  { id: 'SC-P15', label: 'SC-P15 · Company + Legal', surface: 'public', scenarios: keys(companyLegalScenarios), render: (s) => <CompanyLegalScreen loaded={(companyLegalScenarios as never)[s]} /> },
+  { id: 'SC-P16', label: 'SC-P16 · Account & sign-in', surface: 'public', scenarios: keys(authScenarios), render: (s) => <AuthScreen loaded={(authScenarios as never)[s]} /> },
 ];
 
 export function App() {
@@ -323,7 +366,9 @@ export function App() {
           ? <AgentShell>{body}</AgentShell>
           : screen.surface === 'ops'
             ? <OpsShell>{body}</OpsShell>
-            : <ClientShell>{body}</ClientShell>}
+            : screen.surface === 'public'
+              ? <PublicShell>{body}</PublicShell>
+              : <ClientShell>{body}</ClientShell>}
     </>
   );
 }
