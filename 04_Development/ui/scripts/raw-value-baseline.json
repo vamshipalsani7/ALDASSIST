@@ -1,0 +1,21 @@
+{
+  "_note": "INHERITED raw design-value baseline (B9). Per-file multiset of raw literals in the product-style scope that predate B9. NOT a clean state — these are structural literals the token system does not yet name. B9 neither invents tokens nor remediates them (a decision deferred to the Phase 8 audit). Regenerate ONLY by deliberate review (Decision-Log matter); `verify` never updates it.",
+  "_generatedBy": "scripts/check-raw-values.mjs --update-baseline",
+  "baseline": {
+    "src/styles/components.css": {
+      "56px": 2,
+      "0.02em": 1,
+      "232px": 1,
+      "240px": 1,
+      "0.04em": 5,
+      "560px": 1,
+      "14px": 1,
+      "28px": 1,
+      "1px": 3,
+      "1023px": 3
+    },
+    "src/components/Button.tsx": {
+      "44px": 1
+    }
+  }
+}

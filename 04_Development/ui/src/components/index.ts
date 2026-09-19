@@ -8,6 +8,7 @@ export { WhoseTurn } from './WhoseTurn';
 export { ProvenanceCitation } from './ProvenanceCitation';
 export { CitationPanel } from './CitationPanel';
 export { HumanReviewIndicator } from './HumanReviewIndicator';
+export { AiAuthorshipMarker } from './AiAuthorshipMarker';
 export { ConfidenceIndicator } from './ConfidenceIndicator';
 export { EvidenceBlock } from './EvidenceBlock';
 export { AssertionView } from './AssertionView';

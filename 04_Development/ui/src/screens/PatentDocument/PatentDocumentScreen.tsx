@@ -7,7 +7,7 @@
  */
 import { useState } from 'react';
 import type { Loaded, PatentDocumentVM } from '../../contract';
-import { Button, Icon } from '../../components';
+import { Button, Icon, AiAuthorshipMarker } from '../../components';
 import { Breadcrumbs } from '../../shell/Breadcrumbs';
 import { Tabs } from '../../shell/Tabs';
 import { ScreenState } from '../../shell/ScreenState';
@@ -37,10 +37,9 @@ export function PatentDocumentScreen({ loaded }: { loaded: Loaded<PatentDocument
       {tab === 'overview' && (
         <section className="tabpanel">
           <h2 className="section-heading">Plain-language summary</h2>
-          <div className="ai-marker">
-            <span className="ai-marker__label">AI-generated</span>
+          <AiAuthorshipMarker block>
             <p>{vm.aiSummary.text}</p>
-          </div>
+          </AiAuthorshipMarker>
         </section>
       )}
       {tab === 'claims' && (

@@ -15,7 +15,12 @@
     "build-storybook": "npm run build:tokens && storybook build",
     "test": "vitest run",
     "test:watch": "vitest",
-    "check:tokens": "node scripts/check-token-hierarchy.mjs"
+    "check:tokens": "node scripts/check-token-hierarchy.mjs",
+    "check:raw": "node scripts/check-raw-values.mjs",
+    "check:raw:update": "node scripts/check-raw-values.mjs --update-baseline",
+    "check:vocab": "vitest run src/test/vocabulary.crosscutting.test.ts",
+    "verify": "node scripts/verify.mjs",
+    "verify:fast": "node scripts/verify.mjs --fast"
   },
   "dependencies": {
     "lucide-react": "0.454.0",

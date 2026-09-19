@@ -8,7 +8,7 @@
  */
 import { useState } from 'react';
 import type { Loaded, AgentMatterDetailVM, Authorship } from '../../contract';
-import { StateChip, AttentionMarker, WhoseTurn, PriceDisplay, Button, Icon } from '../../components';
+import { StateChip, AttentionMarker, WhoseTurn, PriceDisplay, Button, Icon, AiAuthorshipMarker } from '../../components';
 import { Breadcrumbs } from '../../shell/Breadcrumbs';
 import { RelationshipRail } from '../../shell/RelationshipRail';
 import { Tabs } from '../../shell/Tabs';
@@ -17,7 +17,7 @@ import { MATTER_CHIP, DEADLINE_STATE_CHIP } from '../labels';
 
 function Author({ a }: { a: Authorship }) {
   return a.by === 'ai'
-    ? <span className="ai-marker__label">AI-generated</span>
+    ? <AiAuthorshipMarker />
     : <span>Human · {a.reviewerName}</span>;
 }
 

@@ -7,7 +7,7 @@
  * `not-found` → outside the grant (CR-5). Two panes stack on narrow; the source pane is never removed.
  */
 import type { Loaded, ReviewWorkspaceVM } from '../../contract';
-import { EvidenceBlock, ConfidenceIndicator, AssertionView, ReferenceView, Button, Icon } from '../../components';
+import { EvidenceBlock, ConfidenceIndicator, AssertionView, ReferenceView, Button, Icon, AiAuthorshipMarker } from '../../components';
 import { Breadcrumbs } from '../../shell/Breadcrumbs';
 import { ScreenState } from '../../shell/ScreenState';
 import { REVIEW_DECISION } from '../agent-labels';
@@ -30,8 +30,7 @@ export function ReviewWorkspaceScreen({ loaded }: { loaded: Loaded<ReviewWorkspa
           <p className="text-muted">Disclosure {vm.source.grantedDisclosure.version} · saved {vm.source.grantedDisclosure.savedAt}{vm.source.grantedDisclosure.immutable && <> · <Icon name="locked" /> immutable</>}</p>
 
           <h3 className="section-heading">Analysis</h3>
-          <div className="ai-marker">
-            <span className="ai-marker__label">AI-generated analysis</span>
+          <AiAuthorshipMarker block label="AI-generated analysis">
             {vm.source.aiAnalysis.elements.map((el, i) => (
               <div className="reasoning-el" key={i}>
                 <div className="reasoning-el__el">{el.element}</div>
@@ -42,7 +41,7 @@ export function ReviewWorkspaceScreen({ loaded }: { loaded: Loaded<ReviewWorkspa
             {vm.source.aiAnalysis.statutoryExclusion.map((s, i) => (
               <p key={i}><strong>{s.provision}.</strong> {s.analysis}</p>
             ))}
-          </div>
+          </AiAuthorshipMarker>
 
           <h3 className="section-heading">Evidence</h3>
           <EvidenceBlock evidence={vm.source.evidence} />

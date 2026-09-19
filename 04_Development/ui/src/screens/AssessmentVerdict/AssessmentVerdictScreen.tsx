@@ -13,11 +13,12 @@ import { useState } from 'react';
 import type { Loaded, AssessmentVM, AssessmentLifecycle, VerdictLabel, WhoseTurn as WhoseTurnVM } from '../../contract';
 import type { IconName } from '../../components';
 import {
-  HumanReviewIndicator, ConfidenceIndicator, EvidenceBlock, WhoseTurn, Button, ReferenceView,
+  HumanReviewIndicator, ConfidenceIndicator, EvidenceBlock, WhoseTurn, ReferenceView, AiAuthorshipMarker,
 } from '../../components';
 import { Breadcrumbs } from '../../shell/Breadcrumbs';
 import { ObjectHeader } from '../../shell/ObjectHeader';
 import { RelationshipRail } from '../../shell/RelationshipRail';
+import { ScreenState } from '../../shell/ScreenState';
 import { DepthDisclosure } from './DepthDisclosure';
 
 const LIFECYCLE_CHIP: Record<AssessmentLifecycle, { label: string; icon: IconName }> = {
@@ -39,49 +40,10 @@ export function AssessmentVerdictScreen({ loaded }: { loaded: Loaded<AssessmentV
   const [activeTab, setActiveTab] = useState('overview');
 
   // --- availability states: NO object-derived context is rendered ----------
-  if (loaded.state === 'not-found') {
-    // Cross-tenant 404: uniform "does not exist" — reveals nothing about the object (CR-5).
-    return (
-      <div className="state-panel" role="status">
-        <p>This page does not exist.</p>
-      </div>
-    );
-  }
-  if (loaded.state === 'loading') {
-    return (
-      <div aria-busy="true" aria-label="Loading">
-        <div className="skeleton skeleton--title" />
-        <div className="skeleton skeleton--wide" />
-        <div className="skeleton" />
-        <div className="skeleton skeleton--wide" />
-      </div>
-    );
-  }
-  if (loaded.state === 'empty') {
-    return (
-      <div className="state-panel">
-        <p>{loaded.empty.teaches}</p>
-        <Button variant="primary">{loaded.empty.action.label}</Button>
-      </div>
-    );
-  }
-  if (loaded.state === 'error') {
-    return (
-      <div className="state-panel">
-        <p>{loaded.error.reason}</p>
-        <p style={{ color: 'var(--color-text-muted)' }}>{loaded.error.nextStep}</p>
-      </div>
-    );
-  }
-  if (loaded.state === 'permission-denied') {
-    // Same-tenancy: visible-but-locked, with a reason and who to ask — distinct from the 404 (CR-12).
-    return (
-      <div className="state-panel state-panel--locked" role="status">
-        <p>{loaded.denied.reason}</p>
-        <p style={{ color: 'var(--color-text-muted)' }}>{loaded.denied.whoCanAct}</p>
-      </div>
-    );
-  }
+  // Every non-ready branch is delegated to the shared ScreenState so the cross-tenant 404 (CR-5) and the
+  // visible-but-locked permission page (CR-12) stay identical to every other screen. Object-derived
+  // context (incl. the breadcrumb) is rendered ONLY in the `ready` branch below.
+  if (loaded.state !== 'ready') return <ScreenState loaded={loaded} />;
 
   // --- ready: object-derived context is safe to render ---------------------
   const a = loaded.data;
@@ -176,8 +138,7 @@ function Verdict({
       {/* Depth 2 — AI-authored reasoning; references presented with a resolvable citation carry the
           same provenance affordance (CR-6). */}
       <DepthDisclosure depth={2} title="Reasoning">
-        <div className="ai-marker">
-          <span className="ai-marker__label">AI-generated analysis</span>
+        <AiAuthorshipMarker block label="AI-generated analysis">
           {v.depth2.elements.map((el, i) => (
             <div className="reasoning-el" key={i}>
               <div className="reasoning-el__el">{el.element}</div>
@@ -194,7 +155,7 @@ function Verdict({
               <strong>{s.provision}.</strong> {s.analysis}
             </p>
           ))}
-        </div>
+        </AiAuthorshipMarker>
       </DepthDisclosure>
 
       {/* Depth 3 — evidence. Default-open on unfavourable so coverage is never collapsed by default. */}

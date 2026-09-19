@@ -5,14 +5,14 @@
  * name. A version referenced by a released assessment / filing is immutable (BR-20). Real table semantics.
  */
 import type { Loaded, DocumentsIndexVM, Authorship } from '../../contract';
-import { Icon } from '../../components';
+import { Icon, AiAuthorshipMarker } from '../../components';
 import { Breadcrumbs } from '../../shell/Breadcrumbs';
 import { ScreenState } from '../../shell/ScreenState';
 
 function AuthorCell({ authorship }: { authorship: Authorship }) {
   if (authorship.by === 'ai') {
     // AI-authored — a distinct marker, never shown as human-authored (IP-07).
-    return <span className="ai-marker__label">AI-generated</span>;
+    return <AiAuthorshipMarker />;
   }
   return <span>Human · {authorship.reviewerName}</span>;
 }
