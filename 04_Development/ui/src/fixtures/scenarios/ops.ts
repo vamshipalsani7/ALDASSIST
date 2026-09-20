@@ -13,7 +13,9 @@ import type {
 } from '../../contract';
 
 const pending = (slotId: string): SlotValue<string> => ({ status: 'pending-slot', slotId, source: 'measurement' });
-// Targets/thresholds are transcribed from the canonical Metrics.md definitions (config source).
+// Targets/thresholds are transcribed from the canonical Metrics.md definitions (config source). These
+// externally-sourced values are enumerated for traceability in Phase-8-External-Source-Traceability.md
+// (audit M3): Metrics.md is not in this repository, so their fidelity depends on that external source.
 const val = (v: string): SlotValue<string> => ({ status: 'resolved', value: v, source: 'config' });
 
 /* ── SC-O01 · Docket Health Console ─────────────────────────────────────────*/

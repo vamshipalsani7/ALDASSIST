@@ -12,10 +12,12 @@
  * live in this repository. Per the B9 instruction, this test does NOT invent or reconstruct that list and
  * does NOT declare a partial list authoritative. The terms below are a PROVISIONAL SEED, grounded only in
  * the banned terms already asserted by pre-existing per-screen tests. `LEXICON_IS_AUTHORITATIVE = false`
- * records this: the gate is a regression guard over grounded terms, NOT a complete CR-16 check. When the
- * frozen lexicon is supplied, replace BANNED_SEED with it and set the flag true.
+ * records this: the gate is a regression guard over grounded terms, NOT a complete CR-16 check. The lexicon
+ * itself now lives in its own module — `./vocabulary.lexicon.ts`, the single swap-in point: paste the frozen
+ * lexicon there and flip the flag to make this gate authoritative (audit M2).
  */
 import { describe, it, expect } from 'vitest';
+import { BANNED_SEED, LEXICON_IS_AUTHORITATIVE } from './vocabulary.lexicon';
 
 import * as publicScenarios from '../fixtures/scenarios/public';
 import * as homeScenarios from '../fixtures/scenarios/home';
@@ -31,15 +33,7 @@ import * as agentLabels from '../screens/agent-labels';
 import * as opsLabels from '../screens/ops-labels';
 import * as publicLabels from '../screens/public-labels';
 
-/** PROVISIONAL — grounded seed only; NOT the authoritative frozen CR-16/P4:§10.3 lexicon. */
-export const LEXICON_IS_AUTHORITATIVE = false;
-const BANNED_SEED: RegExp[] = [
-  /marketplace/i,
-  /\baffordable\b/i,
-  /\bcheap\b/i,
-  /starting from/i,
-  /\btestimonial/i,
-];
+// BANNED_SEED and LEXICON_IS_AUTHORITATIVE are imported from ./vocabulary.lexicon (the single swap-in point).
 
 /** Recursively collect every string in a plain-data value; functions/symbols are skipped. */
 function collectStrings(value: unknown, out: string[], seen = new Set<unknown>()): string[] {

@@ -3,7 +3,7 @@
  *
  * Runs every gate and prints ONE explicit table. Its defining behaviour (B9 mandate): it DISTINGUISHES a
  * passing gate from an intentional INHERITED BASELINE, and never reports the whole run clean just because a
- * sub-command exited. In particular the token checker exits 1 BY DESIGN (Gate A carries 211 inherited
+ * sub-command exited. In particular the token checker exits 1 BY DESIGN (Gate A carries 209 inherited
  * deferred refs); this orchestrator treats that as PASS *only* when Gate A == the inherited baseline and
  * Gate B == 0 — and FAILS the moment Gate A grows (new debt) or Gate B regresses. Likewise the raw-value
  * gate passes only when no NEW raw values appear beyond its committed baseline.
@@ -18,10 +18,12 @@ import { fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const FAST = process.argv.includes('--fast');
 
-// The INHERITED, documented Gate-A baseline (deferred component-style debt predating B9). B9 introduces
-// ZERO new Gate-A debt: verification passes only while Gate A == this number. Reducing it is an
-// improvement (still passes); exceeding it is NEW DEBT (fails). Changing this constant is a Decision-Log act.
-const INHERITED_GATE_A_BASELINE = 211;
+// The INHERITED, documented Gate-A baseline (deferred component-style debt). Verification passes only while
+// Gate A == this number; reducing it is an improvement (still passes), exceeding it is NEW DEBT (fails).
+// Provenance (audit L5): pre-B9 inherited baseline was 211; the approved B9 AssessmentVerdict→ScreenState
+// refactor removed two inline `var(--color-text-muted)` refs (−2); current floor is 209; new debt 0.
+// Changing this constant is a Decision-Log act.
+const INHERITED_GATE_A_BASELINE = 209;
 
 function sh(cmd) {
   try {
