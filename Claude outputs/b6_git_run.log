@@ -1,0 +1,228 @@
+B6 git run v2 @ 2026-09-18T17:28:28.6728981+05:30
+cwd = R:\ALDASSIST\04_Development\ui
+repo toplevel = R:/ALDASSIST
+branch = main
+HEAD = 67eac0a910ec62bc703374e28081c2dd8bba22ab
+== STEP 0: git status --porcelain ==
+ M 04_Development/ui/scripts/build-tokens.mjs
+ M 04_Development/ui/src/App.tsx
+ M 04_Development/ui/src/contract/index.ts
+ M 04_Development/ui/src/contract/ports.ts
+ M 04_Development/ui/src/styles/components.css
+ M 04_Development/ui/src/tokens/tokens.generated.css
+?? 04_Development/ui/src/contract/agent.ts
+?? 04_Development/ui/src/fixtures/providers/FixtureAgentProviders.ts
+?? 04_Development/ui/src/fixtures/scenarios/agent.ts
+?? 04_Development/ui/src/screens/AgentDocket/
+?? 04_Development/ui/src/screens/AgentMatterDetail/
+?? 04_Development/ui/src/screens/AgentMattersIndex/
+?? 04_Development/ui/src/screens/AgentNotifications/
+?? 04_Development/ui/src/screens/AgentOnboarding/
+?? 04_Development/ui/src/screens/AgentPractice/
+?? 04_Development/ui/src/screens/AgentSettings/
+?? 04_Development/ui/src/screens/AgentToday/
+?? 04_Development/ui/src/screens/MatterImport/
+?? 04_Development/ui/src/screens/Opportunities/
+?? 04_Development/ui/src/screens/ReviewWorkspace/
+?? 04_Development/ui/src/screens/ReviewsQueue/
+?? 04_Development/ui/src/screens/agent-labels.ts
+?? 04_Development/ui/src/shell/AgentShell.tsx
+?? 04_Development/ui/src/shell/AgentSidebar.tsx
+?? 04_Development/ui/src/shell/ContextSwitcher.tsx
+?? "Claude outputs/"
+expected shared=6 new=50 total=56
+== unstaged tracked modifications (expect exactly the 6 shared) ==
+04_Development/ui/scripts/build-tokens.mjs
+04_Development/ui/src/App.tsx
+04_Development/ui/src/contract/index.ts
+04_Development/ui/src/contract/ports.ts
+04_Development/ui/src/styles/components.css
+04_Development/ui/src/tokens/tokens.generated.css
+== staging 56 explicit paths ==
+warning: in the working copy of '04_Development/ui/scripts/build-tokens.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/App.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/contract/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/contract/ports.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/styles/components.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/tokens/tokens.generated.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/contract/agent.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/fixtures/providers/FixtureAgentProviders.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/fixtures/scenarios/agent.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentDocket/AgentDocket.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentDocket/AgentDocketScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentDocket/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentMatterDetail/AgentMatterDetail.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentMatterDetail/AgentMatterDetailScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentMatterDetail/agentMatterDetail.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentMatterDetail/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentMattersIndex/AgentMattersIndex.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentMattersIndex/AgentMattersIndexScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentMattersIndex/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentNotifications/AgentNotifications.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentNotifications/AgentNotificationsScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentNotifications/agentNotifications.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentNotifications/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentOnboarding/AgentOnboarding.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentOnboarding/AgentOnboardingScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentOnboarding/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentPractice/AgentPractice.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentPractice/AgentPracticeScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentPractice/agentPractice.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentPractice/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentSettings/AgentSettings.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentSettings/AgentSettingsScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentSettings/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentToday/AgentToday.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentToday/AgentTodayScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentToday/agentToday.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentToday/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/MatterImport/MatterImport.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/MatterImport/MatterImportScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/MatterImport/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/MatterImport/matterImport.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Opportunities/Opportunities.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Opportunities/OpportunitiesScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Opportunities/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Opportunities/opportunities.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/ReviewWorkspace/ReviewWorkspace.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/ReviewWorkspace/ReviewWorkspaceScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/ReviewWorkspace/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/ReviewWorkspace/reviewWorkspace.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/ReviewsQueue/ReviewsQueue.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/ReviewsQueue/ReviewsQueueScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/ReviewsQueue/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/agent-labels.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/shell/AgentShell.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/shell/AgentSidebar.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/shell/ContextSwitcher.tsx', LF will be replaced by CRLF the next time Git touches it
+== staged set ==
+04_Development/ui/scripts/build-tokens.mjs
+04_Development/ui/src/App.tsx
+04_Development/ui/src/contract/agent.ts
+04_Development/ui/src/contract/index.ts
+04_Development/ui/src/contract/ports.ts
+04_Development/ui/src/fixtures/providers/FixtureAgentProviders.ts
+04_Development/ui/src/fixtures/scenarios/agent.ts
+04_Development/ui/src/screens/AgentDocket/AgentDocket.stories.tsx
+04_Development/ui/src/screens/AgentDocket/AgentDocketScreen.tsx
+04_Development/ui/src/screens/AgentDocket/index.ts
+04_Development/ui/src/screens/agent-labels.ts
+04_Development/ui/src/screens/AgentMatterDetail/AgentMatterDetail.stories.tsx
+04_Development/ui/src/screens/AgentMatterDetail/agentMatterDetail.test.tsx
+04_Development/ui/src/screens/AgentMatterDetail/AgentMatterDetailScreen.tsx
+04_Development/ui/src/screens/AgentMatterDetail/index.ts
+04_Development/ui/src/screens/AgentMattersIndex/AgentMattersIndex.stories.tsx
+04_Development/ui/src/screens/AgentMattersIndex/AgentMattersIndexScreen.tsx
+04_Development/ui/src/screens/AgentMattersIndex/index.ts
+04_Development/ui/src/screens/AgentNotifications/AgentNotifications.stories.tsx
+04_Development/ui/src/screens/AgentNotifications/agentNotifications.test.tsx
+04_Development/ui/src/screens/AgentNotifications/AgentNotificationsScreen.tsx
+04_Development/ui/src/screens/AgentNotifications/index.ts
+04_Development/ui/src/screens/AgentOnboarding/AgentOnboarding.stories.tsx
+04_Development/ui/src/screens/AgentOnboarding/AgentOnboardingScreen.tsx
+04_Development/ui/src/screens/AgentOnboarding/index.ts
+04_Development/ui/src/screens/AgentPractice/AgentPractice.stories.tsx
+04_Development/ui/src/screens/AgentPractice/agentPractice.test.tsx
+04_Development/ui/src/screens/AgentPractice/AgentPracticeScreen.tsx
+04_Development/ui/src/screens/AgentPractice/index.ts
+04_Development/ui/src/screens/AgentSettings/AgentSettings.stories.tsx
+04_Development/ui/src/screens/AgentSettings/AgentSettingsScreen.tsx
+04_Development/ui/src/screens/AgentSettings/index.ts
+04_Development/ui/src/screens/AgentToday/AgentToday.stories.tsx
+04_Development/ui/src/screens/AgentToday/agentToday.test.tsx
+04_Development/ui/src/screens/AgentToday/AgentTodayScreen.tsx
+04_Development/ui/src/screens/AgentToday/index.ts
+04_Development/ui/src/screens/MatterImport/index.ts
+04_Development/ui/src/screens/MatterImport/MatterImport.stories.tsx
+04_Development/ui/src/screens/MatterImport/matterImport.test.tsx
+04_Development/ui/src/screens/MatterImport/MatterImportScreen.tsx
+04_Development/ui/src/screens/Opportunities/index.ts
+04_Development/ui/src/screens/Opportunities/Opportunities.stories.tsx
+04_Development/ui/src/screens/Opportunities/opportunities.test.tsx
+04_Development/ui/src/screens/Opportunities/OpportunitiesScreen.tsx
+04_Development/ui/src/screens/ReviewsQueue/index.ts
+04_Development/ui/src/screens/ReviewsQueue/ReviewsQueue.stories.tsx
+04_Development/ui/src/screens/ReviewsQueue/ReviewsQueueScreen.tsx
+04_Development/ui/src/screens/ReviewWorkspace/index.ts
+04_Development/ui/src/screens/ReviewWorkspace/ReviewWorkspace.stories.tsx
+04_Development/ui/src/screens/ReviewWorkspace/reviewWorkspace.test.tsx
+04_Development/ui/src/screens/ReviewWorkspace/ReviewWorkspaceScreen.tsx
+04_Development/ui/src/shell/AgentShell.tsx
+04_Development/ui/src/shell/AgentSidebar.tsx
+04_Development/ui/src/shell/ContextSwitcher.tsx
+04_Development/ui/src/styles/components.css
+04_Development/ui/src/tokens/tokens.generated.css
+staged count = 56
+== commit ==
+[main 72c8937] Phase 8 B6: implement Agent surface
+ 56 files changed, 2017 insertions(+), 1 deletion(-)
+ create mode 100644 04_Development/ui/src/contract/agent.ts
+ create mode 100644 04_Development/ui/src/fixtures/providers/FixtureAgentProviders.ts
+ create mode 100644 04_Development/ui/src/fixtures/scenarios/agent.ts
+ create mode 100644 04_Development/ui/src/screens/AgentDocket/AgentDocket.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentDocket/AgentDocketScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentDocket/index.ts
+ create mode 100644 04_Development/ui/src/screens/AgentMatterDetail/AgentMatterDetail.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentMatterDetail/AgentMatterDetailScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentMatterDetail/agentMatterDetail.test.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentMatterDetail/index.ts
+ create mode 100644 04_Development/ui/src/screens/AgentMattersIndex/AgentMattersIndex.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentMattersIndex/AgentMattersIndexScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentMattersIndex/index.ts
+ create mode 100644 04_Development/ui/src/screens/AgentNotifications/AgentNotifications.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentNotifications/AgentNotificationsScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentNotifications/agentNotifications.test.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentNotifications/index.ts
+ create mode 100644 04_Development/ui/src/screens/AgentOnboarding/AgentOnboarding.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentOnboarding/AgentOnboardingScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentOnboarding/index.ts
+ create mode 100644 04_Development/ui/src/screens/AgentPractice/AgentPractice.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentPractice/AgentPracticeScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentPractice/agentPractice.test.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentPractice/index.ts
+ create mode 100644 04_Development/ui/src/screens/AgentSettings/AgentSettings.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentSettings/AgentSettingsScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentSettings/index.ts
+ create mode 100644 04_Development/ui/src/screens/AgentToday/AgentToday.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentToday/AgentTodayScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentToday/agentToday.test.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentToday/index.ts
+ create mode 100644 04_Development/ui/src/screens/MatterImport/MatterImport.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/MatterImport/MatterImportScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/MatterImport/index.ts
+ create mode 100644 04_Development/ui/src/screens/MatterImport/matterImport.test.tsx
+ create mode 100644 04_Development/ui/src/screens/Opportunities/Opportunities.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/Opportunities/OpportunitiesScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/Opportunities/index.ts
+ create mode 100644 04_Development/ui/src/screens/Opportunities/opportunities.test.tsx
+ create mode 100644 04_Development/ui/src/screens/ReviewWorkspace/ReviewWorkspace.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/ReviewWorkspace/ReviewWorkspaceScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/ReviewWorkspace/index.ts
+ create mode 100644 04_Development/ui/src/screens/ReviewWorkspace/reviewWorkspace.test.tsx
+ create mode 100644 04_Development/ui/src/screens/ReviewsQueue/ReviewsQueue.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/ReviewsQueue/ReviewsQueueScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/ReviewsQueue/index.ts
+ create mode 100644 04_Development/ui/src/screens/agent-labels.ts
+ create mode 100644 04_Development/ui/src/shell/AgentShell.tsx
+ create mode 100644 04_Development/ui/src/shell/AgentSidebar.tsx
+ create mode 100644 04_Development/ui/src/shell/ContextSwitcher.tsx
+new HEAD = 72c8937fab1cb52fde1309ba830f9f0777a69e7c
+parent   = 67eac0a910ec62bc703374e28081c2dd8bba22ab
+== push origin main ==
+To https://github.com/vamshipalsani7/ALDASSIST.git
+   67eac0a..72c8937  main -> main
+origin/main = 72c8937fab1cb52fde1309ba830f9f0777a69e7c
+== final status ==
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	../../Claude outputs/
+
+nothing added to commit but untracked files present (use "git add" to track)
+== final log ==
+72c8937 Phase 8 B6: implement Agent surface
+67eac0a Phase 8 B5: implement Client Home, Documents and Settings
+9b85cbd Phase 8 B4: implement Client Matters, Costs and Matching
+RESULT=SUCCESS commit=72c8937fab1cb52fde1309ba830f9f0777a69e7c parent=67eac0a910ec62bc703374e28081c2dd8bba22ab

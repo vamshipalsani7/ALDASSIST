@@ -1,0 +1,348 @@
+B8 git run @ 2026-09-19T07:35:13.7994208+05:30
+cwd = R:\ALDASSIST\04_Development\ui
+branch = main
+HEAD = f3b1c271ebe021a329bed5da569cf0930c1fa74e
+== STEP 0: git status --porcelain ==
+ M 04_Development/ui/src/App.tsx
+ M 04_Development/ui/src/contract/index.ts
+ M 04_Development/ui/src/contract/ports.ts
+?? 04_Development/ui/src/contract/public.ts
+?? 04_Development/ui/src/fixtures/providers/FixturePublicProviders.ts
+?? 04_Development/ui/src/fixtures/scenarios/public.ts
+?? 04_Development/ui/src/screens/AgentDirectory/
+?? 04_Development/ui/src/screens/AgentPublicProfile/
+?? 04_Development/ui/src/screens/Auth/
+?? 04_Development/ui/src/screens/CompanyLegal/
+?? 04_Development/ui/src/screens/CostPlanner/
+?? 04_Development/ui/src/screens/FindYourPath/
+?? 04_Development/ui/src/screens/Glossary/
+?? 04_Development/ui/src/screens/Guides/
+?? 04_Development/ui/src/screens/JurisdictionGuide/
+?? 04_Development/ui/src/screens/PatentDocument/
+?? 04_Development/ui/src/screens/PatentSearch/
+?? 04_Development/ui/src/screens/Pricing/
+?? 04_Development/ui/src/screens/PublicHome/
+?? 04_Development/ui/src/screens/Reports/
+?? 04_Development/ui/src/screens/SegmentLanding/
+?? 04_Development/ui/src/screens/StageLanding/
+?? 04_Development/ui/src/screens/TrustPages/
+?? 04_Development/ui/src/screens/public-labels.ts
+?? 04_Development/ui/src/shell/PublicFooter.tsx
+?? 04_Development/ui/src/shell/PublicHeader.tsx
+?? 04_Development/ui/src/shell/PublicShell.tsx
+?? "Claude outputs/"
+expected shared=3 new=68 total=71
+== unstaged tracked modifications (expect exactly the 3 shared) ==
+04_Development/ui/src/App.tsx
+04_Development/ui/src/contract/index.ts
+04_Development/ui/src/contract/ports.ts
+== staging 71 explicit paths ==
+warning: in the working copy of '04_Development/ui/src/App.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/contract/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/contract/ports.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/contract/public.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/fixtures/providers/FixturePublicProviders.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/fixtures/scenarios/public.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentDirectory/AgentDirectory.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentDirectory/AgentDirectoryScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentDirectory/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentPublicProfile/AgentPublicProfile.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentPublicProfile/AgentPublicProfileScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentPublicProfile/agentPublicProfile.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentPublicProfile/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Auth/Auth.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Auth/AuthScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Auth/auth.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Auth/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/CompanyLegal/CompanyLegal.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/CompanyLegal/CompanyLegalScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/CompanyLegal/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/CostPlanner/CostPlanner.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/CostPlanner/CostPlannerScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/CostPlanner/costPlanner.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/CostPlanner/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/FindYourPath/FindYourPath.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/FindYourPath/FindYourPathScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/FindYourPath/findYourPath.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/FindYourPath/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Glossary/Glossary.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Glossary/GlossaryScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Glossary/glossary.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Glossary/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Guides/Guides.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Guides/GuidesScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Guides/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/JurisdictionGuide/JurisdictionGuide.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/JurisdictionGuide/JurisdictionGuideScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/JurisdictionGuide/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/PatentDocument/PatentDocument.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/PatentDocument/PatentDocumentScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/PatentDocument/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/PatentDocument/patentDocument.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/PatentSearch/PatentSearch.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/PatentSearch/PatentSearchScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/PatentSearch/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/PatentSearch/patentSearch.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Pricing/Pricing.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Pricing/PricingScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Pricing/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Pricing/pricing.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/PublicHome/PublicHome.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/PublicHome/PublicHomeScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/PublicHome/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/PublicHome/publicHome.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Reports/Reports.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Reports/ReportsScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/Reports/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/SegmentLanding/SegmentLanding.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/SegmentLanding/SegmentLandingScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/SegmentLanding/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/StageLanding/StageLanding.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/StageLanding/StageLandingScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/StageLanding/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/TrustPages/TrustPages.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/TrustPages/TrustPagesScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/TrustPages/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/TrustPages/trustPages.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/public-labels.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/shell/PublicFooter.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/shell/PublicHeader.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/shell/PublicShell.tsx', LF will be replaced by CRLF the next time Git touches it
+== staged set ==
+04_Development/ui/src/App.tsx
+04_Development/ui/src/contract/index.ts
+04_Development/ui/src/contract/ports.ts
+04_Development/ui/src/contract/public.ts
+04_Development/ui/src/fixtures/providers/FixturePublicProviders.ts
+04_Development/ui/src/fixtures/scenarios/public.ts
+04_Development/ui/src/screens/AgentDirectory/AgentDirectory.stories.tsx
+04_Development/ui/src/screens/AgentDirectory/AgentDirectoryScreen.tsx
+04_Development/ui/src/screens/AgentDirectory/index.ts
+04_Development/ui/src/screens/AgentPublicProfile/AgentPublicProfile.stories.tsx
+04_Development/ui/src/screens/AgentPublicProfile/agentPublicProfile.test.tsx
+04_Development/ui/src/screens/AgentPublicProfile/AgentPublicProfileScreen.tsx
+04_Development/ui/src/screens/AgentPublicProfile/index.ts
+04_Development/ui/src/screens/Auth/Auth.stories.tsx
+04_Development/ui/src/screens/Auth/auth.test.tsx
+04_Development/ui/src/screens/Auth/AuthScreen.tsx
+04_Development/ui/src/screens/Auth/index.ts
+04_Development/ui/src/screens/CompanyLegal/CompanyLegal.stories.tsx
+04_Development/ui/src/screens/CompanyLegal/CompanyLegalScreen.tsx
+04_Development/ui/src/screens/CompanyLegal/index.ts
+04_Development/ui/src/screens/CostPlanner/CostPlanner.stories.tsx
+04_Development/ui/src/screens/CostPlanner/costPlanner.test.tsx
+04_Development/ui/src/screens/CostPlanner/CostPlannerScreen.tsx
+04_Development/ui/src/screens/CostPlanner/index.ts
+04_Development/ui/src/screens/FindYourPath/FindYourPath.stories.tsx
+04_Development/ui/src/screens/FindYourPath/findYourPath.test.tsx
+04_Development/ui/src/screens/FindYourPath/FindYourPathScreen.tsx
+04_Development/ui/src/screens/FindYourPath/index.ts
+04_Development/ui/src/screens/Glossary/Glossary.stories.tsx
+04_Development/ui/src/screens/Glossary/glossary.test.tsx
+04_Development/ui/src/screens/Glossary/GlossaryScreen.tsx
+04_Development/ui/src/screens/Glossary/index.ts
+04_Development/ui/src/screens/Guides/Guides.stories.tsx
+04_Development/ui/src/screens/Guides/GuidesScreen.tsx
+04_Development/ui/src/screens/Guides/index.ts
+04_Development/ui/src/screens/JurisdictionGuide/index.ts
+04_Development/ui/src/screens/JurisdictionGuide/JurisdictionGuide.stories.tsx
+04_Development/ui/src/screens/JurisdictionGuide/JurisdictionGuideScreen.tsx
+04_Development/ui/src/screens/PatentDocument/index.ts
+04_Development/ui/src/screens/PatentDocument/PatentDocument.stories.tsx
+04_Development/ui/src/screens/PatentDocument/patentDocument.test.tsx
+04_Development/ui/src/screens/PatentDocument/PatentDocumentScreen.tsx
+04_Development/ui/src/screens/PatentSearch/index.ts
+04_Development/ui/src/screens/PatentSearch/PatentSearch.stories.tsx
+04_Development/ui/src/screens/PatentSearch/patentSearch.test.tsx
+04_Development/ui/src/screens/PatentSearch/PatentSearchScreen.tsx
+04_Development/ui/src/screens/Pricing/index.ts
+04_Development/ui/src/screens/Pricing/Pricing.stories.tsx
+04_Development/ui/src/screens/Pricing/pricing.test.tsx
+04_Development/ui/src/screens/Pricing/PricingScreen.tsx
+04_Development/ui/src/screens/PublicHome/index.ts
+04_Development/ui/src/screens/PublicHome/PublicHome.stories.tsx
+04_Development/ui/src/screens/PublicHome/publicHome.test.tsx
+04_Development/ui/src/screens/PublicHome/PublicHomeScreen.tsx
+04_Development/ui/src/screens/public-labels.ts
+04_Development/ui/src/screens/Reports/index.ts
+04_Development/ui/src/screens/Reports/Reports.stories.tsx
+04_Development/ui/src/screens/Reports/ReportsScreen.tsx
+04_Development/ui/src/screens/SegmentLanding/index.ts
+04_Development/ui/src/screens/SegmentLanding/SegmentLanding.stories.tsx
+04_Development/ui/src/screens/SegmentLanding/SegmentLandingScreen.tsx
+04_Development/ui/src/screens/StageLanding/index.ts
+04_Development/ui/src/screens/StageLanding/StageLanding.stories.tsx
+04_Development/ui/src/screens/StageLanding/StageLandingScreen.tsx
+04_Development/ui/src/screens/TrustPages/index.ts
+04_Development/ui/src/screens/TrustPages/TrustPages.stories.tsx
+04_Development/ui/src/screens/TrustPages/trustPages.test.tsx
+04_Development/ui/src/screens/TrustPages/TrustPagesScreen.tsx
+04_Development/ui/src/shell/PublicFooter.tsx
+04_Development/ui/src/shell/PublicHeader.tsx
+04_Development/ui/src/shell/PublicShell.tsx
+staged count = 71
+== commit ==
+[main 723c6d0] Phase 8 B8: implement Public surface
+ 71 files changed, 1895 insertions(+), 2 deletions(-)
+ create mode 100644 04_Development/ui/src/contract/public.ts
+ create mode 100644 04_Development/ui/src/fixtures/providers/FixturePublicProviders.ts
+ create mode 100644 04_Development/ui/src/fixtures/scenarios/public.ts
+ create mode 100644 04_Development/ui/src/screens/AgentDirectory/AgentDirectory.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentDirectory/AgentDirectoryScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentDirectory/index.ts
+ create mode 100644 04_Development/ui/src/screens/AgentPublicProfile/AgentPublicProfile.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentPublicProfile/AgentPublicProfileScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentPublicProfile/agentPublicProfile.test.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentPublicProfile/index.ts
+ create mode 100644 04_Development/ui/src/screens/Auth/Auth.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/Auth/AuthScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/Auth/auth.test.tsx
+ create mode 100644 04_Development/ui/src/screens/Auth/index.ts
+ create mode 100644 04_Development/ui/src/screens/CompanyLegal/CompanyLegal.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/CompanyLegal/CompanyLegalScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/CompanyLegal/index.ts
+ create mode 100644 04_Development/ui/src/screens/CostPlanner/CostPlanner.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/CostPlanner/CostPlannerScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/CostPlanner/costPlanner.test.tsx
+ create mode 100644 04_Development/ui/src/screens/CostPlanner/index.ts
+ create mode 100644 04_Development/ui/src/screens/FindYourPath/FindYourPath.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/FindYourPath/FindYourPathScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/FindYourPath/findYourPath.test.tsx
+ create mode 100644 04_Development/ui/src/screens/FindYourPath/index.ts
+ create mode 100644 04_Development/ui/src/screens/Glossary/Glossary.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/Glossary/GlossaryScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/Glossary/glossary.test.tsx
+ create mode 100644 04_Development/ui/src/screens/Glossary/index.ts
+ create mode 100644 04_Development/ui/src/screens/Guides/Guides.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/Guides/GuidesScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/Guides/index.ts
+ create mode 100644 04_Development/ui/src/screens/JurisdictionGuide/JurisdictionGuide.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/JurisdictionGuide/JurisdictionGuideScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/JurisdictionGuide/index.ts
+ create mode 100644 04_Development/ui/src/screens/PatentDocument/PatentDocument.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/PatentDocument/PatentDocumentScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/PatentDocument/index.ts
+ create mode 100644 04_Development/ui/src/screens/PatentDocument/patentDocument.test.tsx
+ create mode 100644 04_Development/ui/src/screens/PatentSearch/PatentSearch.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/PatentSearch/PatentSearchScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/PatentSearch/index.ts
+ create mode 100644 04_Development/ui/src/screens/PatentSearch/patentSearch.test.tsx
+ create mode 100644 04_Development/ui/src/screens/Pricing/Pricing.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/Pricing/PricingScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/Pricing/index.ts
+ create mode 100644 04_Development/ui/src/screens/Pricing/pricing.test.tsx
+ create mode 100644 04_Development/ui/src/screens/PublicHome/PublicHome.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/PublicHome/PublicHomeScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/PublicHome/index.ts
+ create mode 100644 04_Development/ui/src/screens/PublicHome/publicHome.test.tsx
+ create mode 100644 04_Development/ui/src/screens/Reports/Reports.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/Reports/ReportsScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/Reports/index.ts
+ create mode 100644 04_Development/ui/src/screens/SegmentLanding/SegmentLanding.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/SegmentLanding/SegmentLandingScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/SegmentLanding/index.ts
+ create mode 100644 04_Development/ui/src/screens/StageLanding/StageLanding.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/StageLanding/StageLandingScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/StageLanding/index.ts
+ create mode 100644 04_Development/ui/src/screens/TrustPages/TrustPages.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/TrustPages/TrustPagesScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/TrustPages/index.ts
+ create mode 100644 04_Development/ui/src/screens/TrustPages/trustPages.test.tsx
+ create mode 100644 04_Development/ui/src/screens/public-labels.ts
+ create mode 100644 04_Development/ui/src/shell/PublicFooter.tsx
+ create mode 100644 04_Development/ui/src/shell/PublicHeader.tsx
+ create mode 100644 04_Development/ui/src/shell/PublicShell.tsx
+new HEAD = 723c6d0253abcfff8444dc29a8f1ec1b30663df9
+parent   = f3b1c271ebe021a329bed5da569cf0930c1fa74e
+== push origin main ==
+To https://github.com/vamshipalsani7/ALDASSIST.git
+   f3b1c27..723c6d0  main -> main
+origin/main = 723c6d0253abcfff8444dc29a8f1ec1b30663df9
+== final status ==
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	../../Claude outputs/
+
+nothing added to commit but untracked files present (use "git add" to track)
+== files in the commit ==
+723c6d0 Phase 8 B8: implement Public surface
+ 04_Development/ui/src/App.tsx                      |  49 +++-
+ 04_Development/ui/src/contract/index.ts            |   1 +
+ 04_Development/ui/src/contract/ports.ts            |  45 ++++
+ 04_Development/ui/src/contract/public.ts           | 229 ++++++++++++++++
+ .../fixtures/providers/FixturePublicProviders.ts   |  91 +++++++
+ 04_Development/ui/src/fixtures/scenarios/public.ts | 289 +++++++++++++++++++++
+ .../AgentDirectory/AgentDirectory.stories.tsx      |   9 +
+ .../AgentDirectory/AgentDirectoryScreen.tsx        |  42 +++
+ .../ui/src/screens/AgentDirectory/index.ts         |   1 +
+ .../AgentPublicProfile.stories.tsx                 |  10 +
+ .../AgentPublicProfileScreen.tsx                   |  45 ++++
+ .../AgentPublicProfile/agentPublicProfile.test.tsx |  30 +++
+ .../ui/src/screens/AgentPublicProfile/index.ts     |   1 +
+ .../ui/src/screens/Auth/Auth.stories.tsx           |   9 +
+ 04_Development/ui/src/screens/Auth/AuthScreen.tsx  |  34 +++
+ 04_Development/ui/src/screens/Auth/auth.test.tsx   |  22 ++
+ 04_Development/ui/src/screens/Auth/index.ts        |   1 +
+ .../screens/CompanyLegal/CompanyLegal.stories.tsx  |  10 +
+ .../screens/CompanyLegal/CompanyLegalScreen.tsx    |  31 +++
+ .../ui/src/screens/CompanyLegal/index.ts           |   1 +
+ .../screens/CostPlanner/CostPlanner.stories.tsx    |   9 +
+ .../src/screens/CostPlanner/CostPlannerScreen.tsx  |  30 +++
+ .../src/screens/CostPlanner/costPlanner.test.tsx   |  22 ++
+ 04_Development/ui/src/screens/CostPlanner/index.ts |   1 +
+ .../screens/FindYourPath/FindYourPath.stories.tsx  |   9 +
+ .../screens/FindYourPath/FindYourPathScreen.tsx    |  39 +++
+ .../src/screens/FindYourPath/findYourPath.test.tsx |  21 ++
+ .../ui/src/screens/FindYourPath/index.ts           |   1 +
+ .../ui/src/screens/Glossary/Glossary.stories.tsx   |  10 +
+ .../ui/src/screens/Glossary/GlossaryScreen.tsx     |  40 +++
+ .../ui/src/screens/Glossary/glossary.test.tsx      |  17 ++
+ 04_Development/ui/src/screens/Glossary/index.ts    |   1 +
+ .../ui/src/screens/Guides/Guides.stories.tsx       |  10 +
+ .../ui/src/screens/Guides/GuidesScreen.tsx         |  50 ++++
+ 04_Development/ui/src/screens/Guides/index.ts      |   1 +
+ .../JurisdictionGuide.stories.tsx                  |   9 +
+ .../JurisdictionGuide/JurisdictionGuideScreen.tsx  |  30 +++
+ .../ui/src/screens/JurisdictionGuide/index.ts      |   1 +
+ .../PatentDocument/PatentDocument.stories.tsx      |  10 +
+ .../PatentDocument/PatentDocumentScreen.tsx        |  83 ++++++
+ .../ui/src/screens/PatentDocument/index.ts         |   1 +
+ .../screens/PatentDocument/patentDocument.test.tsx |  34 +++
+ .../screens/PatentSearch/PatentSearch.stories.tsx  |  11 +
+ .../screens/PatentSearch/PatentSearchScreen.tsx    |  58 +++++
+ .../ui/src/screens/PatentSearch/index.ts           |   1 +
+ .../src/screens/PatentSearch/patentSearch.test.tsx |  35 +++
+ .../ui/src/screens/Pricing/Pricing.stories.tsx     |   9 +
+ .../ui/src/screens/Pricing/PricingScreen.tsx       |  31 +++
+ 04_Development/ui/src/screens/Pricing/index.ts     |   1 +
+ .../ui/src/screens/Pricing/pricing.test.tsx        |  25 ++
+ .../src/screens/PublicHome/PublicHome.stories.tsx  |   9 +
+ .../ui/src/screens/PublicHome/PublicHomeScreen.tsx |  40 +++
+ 04_Development/ui/src/screens/PublicHome/index.ts  |   1 +
+ .../ui/src/screens/PublicHome/publicHome.test.tsx  |  16 ++
+ .../ui/src/screens/Reports/Reports.stories.tsx     |   9 +
+ .../ui/src/screens/Reports/ReportsScreen.tsx       |  27 ++
+ 04_Development/ui/src/screens/Reports/index.ts     |   1 +
+ .../SegmentLanding/SegmentLanding.stories.tsx      |  10 +
+ .../SegmentLanding/SegmentLandingScreen.tsx        |  31 +++
+ .../ui/src/screens/SegmentLanding/index.ts         |   1 +
+ .../screens/StageLanding/StageLanding.stories.tsx  |   9 +
+ .../screens/StageLanding/StageLandingScreen.tsx    |  26 ++
+ .../ui/src/screens/StageLanding/index.ts           |   1 +
+ .../src/screens/TrustPages/TrustPages.stories.tsx  |  10 +
+ .../ui/src/screens/TrustPages/TrustPagesScreen.tsx |  34 +++
+ 04_Development/ui/src/screens/TrustPages/index.ts  |   1 +
+ .../ui/src/screens/TrustPages/trustPages.test.tsx  |  21 ++
+ 04_Development/ui/src/screens/public-labels.ts     |  38 +++
+ 04_Development/ui/src/shell/PublicFooter.tsx       |  21 ++
+ 04_Development/ui/src/shell/PublicHeader.tsx       |  21 ++
+ 04_Development/ui/src/shell/PublicShell.tsx        |  20 ++
+ 71 files changed, 1895 insertions(+), 2 deletions(-)
+== final log ==
+723c6d0 Phase 8 B8: implement Public surface
+f3b1c27 Phase 8 B7: implement Operations surface
+72c8937 Phase 8 B6: implement Agent surface
+RESULT=SUCCESS commit=723c6d0253abcfff8444dc29a8f1ec1b30663df9 parent=f3b1c271ebe021a329bed5da569cf0930c1fa74e

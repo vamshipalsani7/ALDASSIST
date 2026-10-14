@@ -99,7 +99,35 @@ function record(gate, pass, detail) {
     r.code === 0 ? 'O-2026-001 / L1 / L1-04 / S-3 / MFA / Rules-Engine all UNRESOLVED' : `exit ${r.code}`);
 }
 
-// 7. Build + 8. Storybook (heavy; skipped under --fast) ----------------------------------------------
+// 7. Server typecheck (B1b platform foundation — separate tsconfig; no DB) --------------------------
+{
+  const r = sh('npx tsc -p tsconfig.server.json');
+  record('server typecheck', r.code === 0, r.code === 0 ? 'exit 0 (clean)' : `exit ${r.code}`);
+}
+
+// 8. Server TS-2 fitness / Event-Log immutability / contract-mode E2E (DB-backed; skipped --fast) ---
+//    D-2026-031: disposable Docker PostgreSQL (or a reachable DATABASE_URL_ADMIN). These enforce zone
+//    separation at the DB-permission level, Event-Log immutability, and the trivial contract resource
+//    end-to-end. Heavy (provisions a DB), so skipped under --fast exactly like build/storybook.
+if (FAST) {
+  record('server TS-2 + Event Log + contract (DB)', null, 'skipped (--fast)');
+} else {
+  const r = sh('node scripts/run-server-tests.mjs');
+  const m = r.out.match(/Tests\s+(\d+)\s+passed(?:\s+\((\d+)\))?/);
+  const failed = /(\d+)\s+failed/.test(r.out);
+  const passedCount = m ? Number(m[1]) : 0;
+  // L-1: require POSITIVE evidence that tests actually ran — exit 0 alone is not enough (a suite that
+  // discovered zero test files must never read as a pass). Pass only on exit 0, no failures, and a
+  // reported passed-count > 0.
+  const pass = r.code === 0 && !failed && passedCount > 0;
+  record('server TS-2 + Event Log + contract (DB)', pass,
+    pass ? `${passedCount} passed`
+         : (r.code === 0 && passedCount === 0
+              ? 'exit 0 but no tests ran (no "Tests N passed") — treated as FAIL'
+              : (r.out.trim().split('\n').pop() || `exit ${r.code}`)));
+}
+
+// 9. Build + 10. Storybook (heavy; skipped under --fast) ---------------------------------------------
 if (FAST) {
   record('build (vite)', null, 'skipped (--fast)');
   record('storybook build', null, 'skipped (--fast)');

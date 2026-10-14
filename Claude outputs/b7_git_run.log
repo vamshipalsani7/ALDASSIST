@@ -1,0 +1,135 @@
+B7 git run @ 2026-09-18T19:04:25.0607993+05:30
+cwd = R:\ALDASSIST\04_Development\ui
+branch = main
+HEAD = 72c8937fab1cb52fde1309ba830f9f0777a69e7c
+== STEP 0: git status --porcelain ==
+ M 04_Development/ui/src/App.tsx
+ M 04_Development/ui/src/contract/index.ts
+ M 04_Development/ui/src/contract/ports.ts
+?? 04_Development/ui/src/contract/ops.ts
+?? 04_Development/ui/src/fixtures/providers/FixtureOpsProviders.ts
+?? 04_Development/ui/src/fixtures/scenarios/ops.ts
+?? 04_Development/ui/src/screens/AgentVerification/
+?? 04_Development/ui/src/screens/BusinessDashboard/
+?? 04_Development/ui/src/screens/DocketHealth/
+?? 04_Development/ui/src/screens/QualityConsole/
+?? 04_Development/ui/src/screens/RuleAuthoring/
+?? 04_Development/ui/src/screens/ops-labels.ts
+?? 04_Development/ui/src/shell/OpsShell.tsx
+?? 04_Development/ui/src/shell/OpsSidebar.tsx
+?? "Claude outputs/"
+expected shared=3 new=26 total=29
+== unstaged tracked modifications (expect exactly the 3 shared) ==
+04_Development/ui/src/App.tsx
+04_Development/ui/src/contract/index.ts
+04_Development/ui/src/contract/ports.ts
+== staging 29 explicit paths ==
+warning: in the working copy of '04_Development/ui/src/App.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/contract/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/contract/ports.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/contract/ops.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/fixtures/providers/FixtureOpsProviders.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/fixtures/scenarios/ops.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentVerification/AgentVerification.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentVerification/AgentVerificationScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentVerification/agentVerification.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/AgentVerification/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/BusinessDashboard/BusinessDashboard.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/BusinessDashboard/BusinessDashboardScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/BusinessDashboard/businessDashboard.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/BusinessDashboard/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/DocketHealth/DocketHealth.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/DocketHealth/DocketHealthScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/DocketHealth/docketHealth.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/DocketHealth/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/QualityConsole/QualityConsole.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/QualityConsole/QualityConsoleScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/QualityConsole/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/QualityConsole/qualityConsole.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/RuleAuthoring/RuleAuthoring.stories.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/RuleAuthoring/RuleAuthoringScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/RuleAuthoring/index.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/RuleAuthoring/ruleAuthoring.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/screens/ops-labels.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/shell/OpsShell.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '04_Development/ui/src/shell/OpsSidebar.tsx', LF will be replaced by CRLF the next time Git touches it
+== staged set ==
+04_Development/ui/src/App.tsx
+04_Development/ui/src/contract/index.ts
+04_Development/ui/src/contract/ops.ts
+04_Development/ui/src/contract/ports.ts
+04_Development/ui/src/fixtures/providers/FixtureOpsProviders.ts
+04_Development/ui/src/fixtures/scenarios/ops.ts
+04_Development/ui/src/screens/AgentVerification/AgentVerification.stories.tsx
+04_Development/ui/src/screens/AgentVerification/agentVerification.test.tsx
+04_Development/ui/src/screens/AgentVerification/AgentVerificationScreen.tsx
+04_Development/ui/src/screens/AgentVerification/index.ts
+04_Development/ui/src/screens/BusinessDashboard/BusinessDashboard.stories.tsx
+04_Development/ui/src/screens/BusinessDashboard/businessDashboard.test.tsx
+04_Development/ui/src/screens/BusinessDashboard/BusinessDashboardScreen.tsx
+04_Development/ui/src/screens/BusinessDashboard/index.ts
+04_Development/ui/src/screens/DocketHealth/DocketHealth.stories.tsx
+04_Development/ui/src/screens/DocketHealth/docketHealth.test.tsx
+04_Development/ui/src/screens/DocketHealth/DocketHealthScreen.tsx
+04_Development/ui/src/screens/DocketHealth/index.ts
+04_Development/ui/src/screens/ops-labels.ts
+04_Development/ui/src/screens/QualityConsole/index.ts
+04_Development/ui/src/screens/QualityConsole/QualityConsole.stories.tsx
+04_Development/ui/src/screens/QualityConsole/qualityConsole.test.tsx
+04_Development/ui/src/screens/QualityConsole/QualityConsoleScreen.tsx
+04_Development/ui/src/screens/RuleAuthoring/index.ts
+04_Development/ui/src/screens/RuleAuthoring/RuleAuthoring.stories.tsx
+04_Development/ui/src/screens/RuleAuthoring/ruleAuthoring.test.tsx
+04_Development/ui/src/screens/RuleAuthoring/RuleAuthoringScreen.tsx
+04_Development/ui/src/shell/OpsShell.tsx
+04_Development/ui/src/shell/OpsSidebar.tsx
+staged count = 29
+== commit ==
+[main f3b1c27] Phase 8 B7: implement Operations surface
+ 29 files changed, 1069 insertions(+), 2 deletions(-)
+ create mode 100644 04_Development/ui/src/contract/ops.ts
+ create mode 100644 04_Development/ui/src/fixtures/providers/FixtureOpsProviders.ts
+ create mode 100644 04_Development/ui/src/fixtures/scenarios/ops.ts
+ create mode 100644 04_Development/ui/src/screens/AgentVerification/AgentVerification.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentVerification/AgentVerificationScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentVerification/agentVerification.test.tsx
+ create mode 100644 04_Development/ui/src/screens/AgentVerification/index.ts
+ create mode 100644 04_Development/ui/src/screens/BusinessDashboard/BusinessDashboard.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/BusinessDashboard/BusinessDashboardScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/BusinessDashboard/businessDashboard.test.tsx
+ create mode 100644 04_Development/ui/src/screens/BusinessDashboard/index.ts
+ create mode 100644 04_Development/ui/src/screens/DocketHealth/DocketHealth.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/DocketHealth/DocketHealthScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/DocketHealth/docketHealth.test.tsx
+ create mode 100644 04_Development/ui/src/screens/DocketHealth/index.ts
+ create mode 100644 04_Development/ui/src/screens/QualityConsole/QualityConsole.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/QualityConsole/QualityConsoleScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/QualityConsole/index.ts
+ create mode 100644 04_Development/ui/src/screens/QualityConsole/qualityConsole.test.tsx
+ create mode 100644 04_Development/ui/src/screens/RuleAuthoring/RuleAuthoring.stories.tsx
+ create mode 100644 04_Development/ui/src/screens/RuleAuthoring/RuleAuthoringScreen.tsx
+ create mode 100644 04_Development/ui/src/screens/RuleAuthoring/index.ts
+ create mode 100644 04_Development/ui/src/screens/RuleAuthoring/ruleAuthoring.test.tsx
+ create mode 100644 04_Development/ui/src/screens/ops-labels.ts
+ create mode 100644 04_Development/ui/src/shell/OpsShell.tsx
+ create mode 100644 04_Development/ui/src/shell/OpsSidebar.tsx
+new HEAD = f3b1c271ebe021a329bed5da569cf0930c1fa74e
+parent   = 72c8937fab1cb52fde1309ba830f9f0777a69e7c
+== push origin main ==
+To https://github.com/vamshipalsani7/ALDASSIST.git
+   72c8937..f3b1c27  main -> main
+origin/main = f3b1c271ebe021a329bed5da569cf0930c1fa74e
+== final status ==
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	../../Claude outputs/
+
+nothing added to commit but untracked files present (use "git add" to track)
+== final log ==
+f3b1c27 Phase 8 B7: implement Operations surface
+72c8937 Phase 8 B6: implement Agent surface
+67eac0a Phase 8 B5: implement Client Home, Documents and Settings
+RESULT=SUCCESS commit=f3b1c271ebe021a329bed5da569cf0930c1fa74e parent=72c8937fab1cb52fde1309ba830f9f0777a69e7c

@@ -1,0 +1,94 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260920171235
+Username: RitZ\V
+RunAs User: RitZ\V
+Configuration Name: 
+Machine: RITZ (Microsoft Windows NT 10.0.26200.0)
+Host Application: powershell -NoProfile -ExecutionPolicy Bypass -File R:\ALDASSIST\Claude outputs\b1a_git_run.ps1
+Process ID: 16696
+PSVersion: 5.1.26100.9444
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9444
+BuildVersion: 10.0.26100.9444
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+=== B1a git run @ 2026-09-20T17:12:35.6859153+05:30 ===
+HEAD before: 0ddf8bbdc4adbe4afe87e46ed4bf2b98f6741f06
+=== working tree BEFORE (porcelain -uall) ===
+ M "01_Strategy/Decision Log.md"
+ M 04_Development/ui/src/App.tsx
+ M 04_Development/ui/src/components/CitationResolverContext.tsx
+?? 04_Development/Phase-9-B0-Specification-v0.2.md
+?? 04_Development/ui/src/runtime/ProviderScreen.tsx
+?? 04_Development/ui/src/runtime/RegistryContext.tsx
+?? 04_Development/ui/src/runtime/RouterShell.tsx
+?? 04_Development/ui/src/runtime/buildRegistry.ts
+?? 04_Development/ui/src/runtime/fixtureRegistry.ts
+?? 04_Development/ui/src/runtime/mode.ts
+?? 04_Development/ui/src/runtime/registry.ts
+?? 04_Development/ui/src/runtime/routes.tsx
+?? 04_Development/ui/src/runtime/runtime.test.tsx
+?? "Claude outputs/B5-git-recovery-runbook.md"
+?? "Claude outputs/B6-git-runbook.md"
+?? "Claude outputs/B7-git-runbook.md"
+?? "Claude outputs/Phase-8-B1-TokenHierarchy-Traceability.md"
+?? "Claude outputs/Phase-8-Closure-Freeze-Report.md"
+?? "Claude outputs/Phase-8-Independent-Audit.md"
+?? "Claude outputs/Phase-9-B0-Specification-v0.1.md"
+?? "Claude outputs/Phase-9-B0-Specification-v0.2.md"
+?? "Claude outputs/accuracy_git_run.log"
+?? "Claude outputs/accuracy_git_run.ps1"
+?? "Claude outputs/accuracy_run.bat"
+?? "Claude outputs/b1a_git_run.log"
+?? "Claude outputs/b1a_git_run.ps1"
+?? "Claude outputs/b1a_run.bat"
+?? "Claude outputs/b6_git_run.log"
+?? "Claude outputs/b6_git_run.ps1"
+?? "Claude outputs/b7_git_run.log"
+?? "Claude outputs/b7_git_run.ps1"
+?? "Claude outputs/b8_git_run.log"
+?? "Claude outputs/b8_git_run.ps1"
+?? "Claude outputs/b8_run.bat"
+?? "Claude outputs/b9_git_run.log"
+?? "Claude outputs/b9_git_run.ps1"
+?? "Claude outputs/b9_run.bat"
+?? "Claude outputs/check-token-hierarchy.mjs"
+
+InputObject                                              SideIndicator
+-----------                                              -------------
+01_Strategy/Decision Log.md                              =>           
+04_Development/Phase-9-B0-Specification-v0.2.md          =>           
+Claude outputs/accuracy_git_run.log                      =>           
+Claude outputs/accuracy_git_run.ps1                      =>           
+Claude outputs/accuracy_run.bat                          =>           
+Claude outputs/b1a_git_run.log                           =>           
+Claude outputs/b1a_git_run.ps1                           =>           
+Claude outputs/b1a_run.bat                               =>           
+Claude outputs/B5-git-recovery-runbook.md                =>           
+Claude outputs/b6_git_run.log                            =>           
+Claude outputs/b6_git_run.ps1                            =>           
+Claude outputs/B6-git-runbook.md                         =>           
+Claude outputs/b7_git_run.log                            =>           
+Claude outputs/b7_git_run.ps1                            =>           
+Claude outputs/B7-git-runbook.md                         =>           
+Claude outputs/b8_git_run.log                            =>           
+Claude outputs/b8_git_run.ps1                            =>           
+Claude outputs/b8_run.bat                                =>           
+Claude outputs/b9_git_run.log                            =>           
+Claude outputs/b9_git_run.ps1                            =>           
+Claude outputs/b9_run.bat                                =>           
+Claude outputs/check-token-hierarchy.mjs                 =>           
+Claude outputs/Phase-8-B1-TokenHierarchy-Traceability.md =>           
+Claude outputs/Phase-8-Closure-Freeze-Report.md          =>           
+Claude outputs/Phase-8-Independent-Audit.md              =>           
+Claude outputs/Phase-9-B0-Specification-v0.1.md          =>           
+Claude outputs/Phase-9-B0-Specification-v0.2.md          =>
+ABORT: working tree changes are not exactly the 11 B1a files
+**********************
+Windows PowerShell transcript end
+End time: 20260920171237
+**********************

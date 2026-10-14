@@ -1,0 +1,83 @@
+B9 git run @ 2026-09-19T18:55:14.6581263+05:30
+expected: modified=7 new=11 total=18
+cwd = R:\ALDASSIST
+branch = main
+HEAD = 723c6d0253abcfff8444dc29a8f1ec1b30663df9
+== git status --porcelain ==
+ M 04_Development/ui/package.json
+ M 04_Development/ui/src/components/index.ts
+ M 04_Development/ui/src/screens/AgentMatterDetail/AgentMatterDetailScreen.tsx
+ M 04_Development/ui/src/screens/AssessmentVerdict/AssessmentVerdictScreen.tsx
+ M 04_Development/ui/src/screens/Documents/DocumentsScreen.tsx
+ M 04_Development/ui/src/screens/PatentDocument/PatentDocumentScreen.tsx
+ M 04_Development/ui/src/screens/ReviewWorkspace/ReviewWorkspaceScreen.tsx
+?? 04_Development/ui/B9-verification-runbook.md
+?? 04_Development/ui/scripts/check-raw-values.mjs
+?? 04_Development/ui/scripts/raw-value-baseline.json
+?? 04_Development/ui/scripts/verify.mjs
+?? 04_Development/ui/src/components/AiAuthorshipMarker.stories.tsx
+?? 04_Development/ui/src/components/AiAuthorshipMarker.tsx
+?? 04_Development/ui/src/components/aiAuthorshipMarker.test.tsx
+?? 04_Development/ui/src/test/crossSurface.consistency.test.tsx
+?? 04_Development/ui/src/test/openSlots.preservation.test.ts
+?? 04_Development/ui/src/test/rawValueScanner.test.ts
+?? 04_Development/ui/src/test/vocabulary.crosscutting.test.ts
+?? "Claude outputs/"
+== modified (tracked) -- expect exactly the 7 ==
+  M  04_Development/ui/package.json
+  M  04_Development/ui/src/components/index.ts
+  M  04_Development/ui/src/screens/AgentMatterDetail/AgentMatterDetailScreen.tsx
+  M  04_Development/ui/src/screens/AssessmentVerdict/AssessmentVerdictScreen.tsx
+  M  04_Development/ui/src/screens/Documents/DocumentsScreen.tsx
+  M  04_Development/ui/src/screens/PatentDocument/PatentDocumentScreen.tsx
+  M  04_Development/ui/src/screens/ReviewWorkspace/ReviewWorkspaceScreen.tsx
+== new (untracked, excl. 'Claude outputs/') -- expect exactly the 11 ==
+  ?? 04_Development/ui/B9-verification-runbook.md
+  ?? 04_Development/ui/scripts/check-raw-values.mjs
+  ?? 04_Development/ui/scripts/raw-value-baseline.json
+  ?? 04_Development/ui/scripts/verify.mjs
+  ?? 04_Development/ui/src/components/AiAuthorshipMarker.stories.tsx
+  ?? 04_Development/ui/src/components/aiAuthorshipMarker.test.tsx
+  ?? 04_Development/ui/src/components/AiAuthorshipMarker.tsx
+  ?? 04_Development/ui/src/test/crossSurface.consistency.test.tsx
+  ?? 04_Development/ui/src/test/openSlots.preservation.test.ts
+  ?? 04_Development/ui/src/test/rawValueScanner.test.ts
+  ?? 04_Development/ui/src/test/vocabulary.crosscutting.test.ts
+all 18 expected files present on disk
+== staging 18 explicit paths (no 'git add .') ==
+staged count = 18
+  + 04_Development/ui/B9-verification-runbook.md
+  + 04_Development/ui/package.json
+  + 04_Development/ui/scripts/check-raw-values.mjs
+  + 04_Development/ui/scripts/raw-value-baseline.json
+  + 04_Development/ui/scripts/verify.mjs
+  + 04_Development/ui/src/components/AiAuthorshipMarker.stories.tsx
+  + 04_Development/ui/src/components/aiAuthorshipMarker.test.tsx
+  + 04_Development/ui/src/components/AiAuthorshipMarker.tsx
+  + 04_Development/ui/src/components/index.ts
+  + 04_Development/ui/src/screens/AgentMatterDetail/AgentMatterDetailScreen.tsx
+  + 04_Development/ui/src/screens/AssessmentVerdict/AssessmentVerdictScreen.tsx
+  + 04_Development/ui/src/screens/Documents/DocumentsScreen.tsx
+  + 04_Development/ui/src/screens/PatentDocument/PatentDocumentScreen.tsx
+  + 04_Development/ui/src/screens/ReviewWorkspace/ReviewWorkspaceScreen.tsx
+  + 04_Development/ui/src/test/crossSurface.consistency.test.tsx
+  + 04_Development/ui/src/test/openSlots.preservation.test.ts
+  + 04_Development/ui/src/test/rawValueScanner.test.ts
+  + 04_Development/ui/src/test/vocabulary.crosscutting.test.ts
+== commit ==
+[main c1fa2de] Phase 8 B9: cross-cutting hardening and verification
+ 18 files changed, 760 insertions(+), 60 deletions(-)
+ create mode 100644 04_Development/ui/B9-verification-runbook.md
+ create mode 100644 04_Development/ui/scripts/check-raw-values.mjs
+ create mode 100644 04_Development/ui/scripts/raw-value-baseline.json
+ create mode 100644 04_Development/ui/scripts/verify.mjs
+ create mode 100644 04_Development/ui/src/components/AiAuthorshipMarker.stories.tsx
+ create mode 100644 04_Development/ui/src/components/AiAuthorshipMarker.tsx
+ create mode 100644 04_Development/ui/src/components/aiAuthorshipMarker.test.tsx
+ create mode 100644 04_Development/ui/src/test/crossSurface.consistency.test.tsx
+ create mode 100644 04_Development/ui/src/test/openSlots.preservation.test.ts
+ create mode 100644 04_Development/ui/src/test/rawValueScanner.test.ts
+ create mode 100644 04_Development/ui/src/test/vocabulary.crosscutting.test.ts
+new HEAD = c1fa2deeafcff5a2727fd98e0fa369b1d64dd276
+parent   = 723c6d0253abcfff8444dc29a8f1ec1b30663df9
+== push origin main ==

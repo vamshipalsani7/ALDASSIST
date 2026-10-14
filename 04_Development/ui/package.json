@@ -19,11 +19,18 @@
     "check:raw": "node scripts/check-raw-values.mjs",
     "check:raw:update": "node scripts/check-raw-values.mjs --update-baseline",
     "check:vocab": "vitest run src/test/vocabulary.crosscutting.test.ts",
+    "typecheck:server": "tsc -p tsconfig.server.json",
+    "test:server": "node scripts/run-server-tests.mjs",
+    "build:public": "tsx src/ssg/prerenderPublic.tsx --out dist-public",
     "verify": "node scripts/verify.mjs",
     "verify:fast": "node scripts/verify.mjs --fast"
   },
   "dependencies": {
+    "fastify": "^5.12.5",
+    "kysely": "^0.27.6",
     "lucide-react": "0.454.0",
+    "node-pg-migrate": "^7.9.1",
+    "pg": "^8.23.0",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
@@ -35,11 +42,13 @@
     "@testing-library/react": "16.0.1",
     "@testing-library/user-event": "14.5.2",
     "@types/node": "22.9.0",
+    "@types/pg": "^8.23.1",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "@vitejs/plugin-react": "4.3.3",
     "jsdom": "25.0.1",
     "storybook": "8.4.7",
+    "tsx": "^4.23.15",
     "typescript": "5.6.3",
     "vite": "5.4.11",
     "vitest": "2.1.8"

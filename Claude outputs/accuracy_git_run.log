@@ -1,0 +1,69 @@
+Accuracy-fix git run @ 2026-09-20T08:15:43.6310432+05:30
+expected: modified=5 new=2 total=7
+cwd = R:\ALDASSIST
+branch = main
+HEAD = c1fa2deeafcff5a2727fd98e0fa369b1d64dd276
+== git status --porcelain ==
+ M 04_Development/ui/B9-verification-runbook.md
+ M 04_Development/ui/scripts/verify.mjs
+ M 04_Development/ui/src/fixtures/scenarios/ops.ts
+ M 04_Development/ui/src/test/openSlots.preservation.test.ts
+ M 04_Development/ui/src/test/vocabulary.crosscutting.test.ts
+?? 04_Development/ui/Phase-8-External-Source-Traceability.md
+?? 04_Development/ui/src/test/vocabulary.lexicon.ts
+?? "Claude outputs/"
+== modified (tracked) -- expect exactly the 5 ==
+  M  04_Development/ui/B9-verification-runbook.md
+  M  04_Development/ui/scripts/verify.mjs
+  M  04_Development/ui/src/fixtures/scenarios/ops.ts
+  M  04_Development/ui/src/test/openSlots.preservation.test.ts
+  M  04_Development/ui/src/test/vocabulary.crosscutting.test.ts
+== new (untracked, excl. 'Claude outputs/') -- expect exactly the 2 ==
+  ?? 04_Development/ui/Phase-8-External-Source-Traceability.md
+  ?? 04_Development/ui/src/test/vocabulary.lexicon.ts
+all 7 expected files present on disk
+== staging 7 explicit paths (no 'git add .') ==
+staged count = 7
+  + 04_Development/ui/B9-verification-runbook.md
+  + 04_Development/ui/Phase-8-External-Source-Traceability.md
+  + 04_Development/ui/scripts/verify.mjs
+  + 04_Development/ui/src/fixtures/scenarios/ops.ts
+  + 04_Development/ui/src/test/openSlots.preservation.test.ts
+  + 04_Development/ui/src/test/vocabulary.crosscutting.test.ts
+  + 04_Development/ui/src/test/vocabulary.lexicon.ts
+== commit ==
+[main 0ddf8bb] Phase 8 audit accuracy fixes (M1 open-slot coverage, M2 lexicon module, M3 traceability, L5 Gate-A baseline)
+ 7 files changed, 264 insertions(+), 55 deletions(-)
+ create mode 100644 04_Development/ui/Phase-8-External-Source-Traceability.md
+ create mode 100644 04_Development/ui/src/test/vocabulary.lexicon.ts
+new HEAD = 0ddf8bbdc4adbe4afe87e46ed4bf2b98f6741f06
+parent   = c1fa2deeafcff5a2727fd98e0fa369b1d64dd276
+== push origin main ==
+To https://github.com/vamshipalsani7/ALDASSIST.git
+   c1fa2de..0ddf8bb  main -> main
+origin/main = 0ddf8bbdc4adbe4afe87e46ed4bf2b98f6741f06
+== final status ==
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	Claude outputs/
+
+nothing added to commit but untracked files present (use "git add" to track)
+== files in the commit ==
+0ddf8bb Phase 8 audit accuracy fixes (M1 open-slot coverage, M2 lexicon module, M3 traceability, L5 Gate-A baseline)
+ 04_Development/ui/B9-verification-runbook.md       |  17 +-
+ .../ui/Phase-8-External-Source-Traceability.md     |  55 +++++++
+ 04_Development/ui/scripts/verify.mjs               |  12 +-
+ 04_Development/ui/src/fixtures/scenarios/ops.ts    |   4 +-
+ .../ui/src/test/openSlots.preservation.test.ts     | 179 +++++++++++++++++----
+ .../ui/src/test/vocabulary.crosscutting.test.ts    |  16 +-
+ 04_Development/ui/src/test/vocabulary.lexicon.ts   |  36 +++++
+ 7 files changed, 264 insertions(+), 55 deletions(-)
+committed file count = 7
+== final log (expect accuracy-fix commit immediately after B9) ==
+0ddf8bb Phase 8 audit accuracy fixes (M1 open-slot coverage, M2 lexicon module, M3 traceability, L5 Gate-A baseline)
+c1fa2de Phase 8 B9: cross-cutting hardening and verification
+723c6d0 Phase 8 B8: implement Public surface
+RESULT=SUCCESS commit=0ddf8bbdc4adbe4afe87e46ed4bf2b98f6741f06 parent=c1fa2deeafcff5a2727fd98e0fa369b1d64dd276 staged=7 committed=7
