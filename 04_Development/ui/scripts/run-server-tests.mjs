@@ -149,7 +149,9 @@ async function main() {
   let exitCode = 0;
   try {
     console.log('[server-tests] applying migration (schemas, per-zone roles/GRANTs, Event Log, seed)...');
-    run('node_modules/.bin/node-pg-migrate up -m server/migrations -d DATABASE_URL', testEnv);
+    // npx, not node_modules/.bin/... : execSync goes through cmd.exe on Windows, which reads a
+    // forward-slash path as a command plus switches. Matches the npx vitest call below.
+    run('npx --no-install node-pg-migrate up -m server/migrations -d DATABASE_URL', testEnv);
     console.log('[server-tests] running server suite (TS-2, Event Log, contract E2E, static fitness)...');
     run('npx vitest run --config vitest.server.config.ts', testEnv);
   } catch {

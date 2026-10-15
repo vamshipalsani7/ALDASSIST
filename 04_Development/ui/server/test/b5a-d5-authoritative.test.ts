@@ -151,9 +151,11 @@ describe('B5a authoritative data (DB, Zone-2) — rules + fees seeded with prove
     const other = await readFee(db, 'IN-NP-FILING-OTHER-PHYSICAL');
     expect(low?.amountInr).toBe(1750);
     expect(other?.amountInr).toBe(8800);
-    // D-2026-047 regression guard: the physical low figure is read from the First Schedule,
-    // NOT derived as e-filing + a ten-percent uplift (a method two official sources contradict).
-    expect(low?.provenance).not.toMatch(/ten-percent|uplift/i);
+    // D-2026-047 regression guard, stated POSITIVELY. A negative assertion on the word "uplift"
+    // cannot work here: the provenance deliberately names the superseded ten-percent-uplift
+    // derivation in order to record that it was superseded. Assert the basis and the traceability.
+    expect(low?.provenance).toMatch(/read from primary/i);
+    expect(low?.provenance).toMatch(/D-2026-047/);
   });
   it('B1 extension fee (Entry 4, r.24B(6)): low = 1000, other = 4000 per month (e-filing)', async () => {
     const low = await readFee(db, 'IN-FER-EXT-LOW-EFILING');

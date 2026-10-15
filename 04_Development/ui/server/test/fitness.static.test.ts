@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, sep } from 'node:path';
 import { ZONE1_REDACT_PATHS, loggerOptions } from '../logging/logger';
 
 /**
@@ -65,7 +65,9 @@ describe('TS-2 fitness (static) — no product computation leaks into the platfo
     // and B5 authorizes it. The invariant is narrowed to its intended foundation boundary — it is NOT
     // weakened or disabled: product-date computation remains prohibited everywhere else under server/,
     // and the detection patterns are unchanged. Only this one governed engine directory is exempt.
-    const RULES_DIR = join(SERVER_DIR, 'modules', 'rules') + '/';
+    // `sep`, not '/': on Windows join() yields backslash paths, so a hard-coded '/' made this
+    // exemption never match and the governed Rules Engine was reported as an offender.
+    const RULES_DIR = join(SERVER_DIR, 'modules', 'rules') + sep;
     const offenders: string[] = [];
     const dateMath = /setDate|setMonth|setFullYear|addDays|addMonths|\+\s*\d+\s*\*\s*24\s*\*\s*60/;
     for (const f of serverFiles) {
