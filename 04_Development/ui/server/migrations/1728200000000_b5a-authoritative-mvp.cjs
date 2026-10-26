@@ -150,19 +150,44 @@ exports.up = (pgm) => {
   `);
 };
 
-exports.down = (pgm) => {
-  pgm.sql(`
-    DELETE FROM rules.rule_version WHERE rule_id IN ('IN-FER-RESP-BASE','IN-FER-RESP-EXT','IN-NP-ENTRY');
-    DELETE FROM rules.rule_set     WHERE rule_id IN ('IN-FER-RESP-BASE','IN-FER-RESP-EXT','IN-NP-ENTRY');
-    DROP TABLE IF EXISTS rules.fee_schedule;
-    ALTER TABLE rules.rule_set DROP CONSTRAINT IF EXISTS rule_set_offset_unit_chk;
-    ALTER TABLE rules.rule_set
-      DROP COLUMN IF EXISTS offset_value,
-      DROP COLUMN IF EXISTS offset_unit,
-      DROP COLUMN IF EXISTS from_anchor,
-      DROP COLUMN IF EXISTS effective_date,
-      DROP COLUMN IF EXISTS source_provision,
-      DROP COLUMN IF EXISTS provenance;
-    -- NOTE: window_days NOT NULL is intentionally NOT re-imposed on down (representative rows retain values).
-  `);
+/**
+ * IRREVERSIBLE BY DESIGN — no rollback exists for this migration.
+ *
+ * Authority: D-2026-049 (Accepted 26 Oct 2026), which closed audit finding N-2 by ruling that BR-07's
+ * append-only guarantee binds ALL database actors, schema migrations included. There is no privileged
+ * migration exception and none may be introduced.
+ *
+ * Two independent mechanisms make the seeded rows unremovable:
+ *   (1) BR-07 trigger. `up` seeds rules.rule_version. The trigger `rules_version_immutable`
+ *       (1728100000000_b5-rules.cjs lines 54-56) raises on UPDATE/DELETE unconditionally — it carries no
+ *       WHEN clause and no role test, so it binds the migration role (superuser/owner) exactly as it binds
+ *       an application role. The companion REVOKE on line 60 covers only non-owner roles; the trigger is
+ *       what covers this path.
+ *   (2) Foreign key. rules.rule_version.rule_id REFERENCES rules.rule_set(rule_id) with no ON DELETE
+ *       clause (b5-rules line 41), so the default NO ACTION applies and the parent rule_set rows cannot be
+ *       deleted while their version rows stand.
+ *
+ * A partial rollback therefore does not exist: removing the rule_version DELETE would not make the
+ * rule_set DELETE succeed. The previous implementation issued both and was inert — it aborted on its first
+ * statement with a trigger exception that read like a bug rather than like the design constraint it is.
+ *
+ * RECOVERY, where this migration has been applied: drop and re-migrate the database, or write a
+ * forward-corrective migration that supersedes the seeded rows with a new version. Corrections to
+ * published rule data are forward-only — a new version row, never an edit or a delete.
+ *
+ * DO NOT "fix" this by disabling the trigger (ALTER TABLE ... DISABLE TRIGGER, session_replication_role)
+ * or by adding ON DELETE CASCADE. Either defeats BR-07 and contradicts D-2026-049.
+ *
+ * Note on the additive DDL in `up`: the rules.fee_schedule table and the nullable rule_set columns are
+ * additive and harmless to leave in place, so they are not dropped here. Attempting a transaction that
+ * must abort at its first statement is worse than refusing at the door.
+ */
+exports.down = () => {
+  throw new Error(
+    'Migration 1728200000000_b5a-authoritative-mvp is IRREVERSIBLE and has no down migration: it seeds ' +
+      'rules.rule_version, which is append-only and DB-immutable under BR-07 (trigger rules_version_immutable), ' +
+      'and the rules.rule_set rows are pinned by a NO ACTION foreign key from it. Ruled by D-2026-049. ' +
+      'Recovery: drop and re-migrate the database, or write a forward-corrective migration that supersedes ' +
+      'the seeded rows with a new version. Do not disable the trigger.'
+  );
 };

@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, sep } from 'node:path';
+import { createRequire } from 'node:module';
 import { ZONE1_REDACT_PATHS, loggerOptions } from '../logging/logger';
 
 /**
@@ -97,5 +98,23 @@ describe('TS-2 fitness (static) — migration declares zone separation at the DB
     expect(zone3IdentityGrant.test(sql)).toBe(false);
     // and zone3 IS granted on outcome (positive control that the file really defines its grants).
     expect(/GRANT[^;]*\boutcome\b[^;]*TO[^;]*alda_zone3/i.test(sql)).toBe(true);
+  });
+});
+
+describe('BR-07 (D-2026-049) — the b5a migration is irreversible by design', () => {
+  it('b5a exports a down() that throws, naming BR-07, instead of deleting rule_version rows', () => {
+    // D-2026-049: BR-07's append-only guarantee binds ALL actors, migrations included. b5a seeds
+    // rules.rule_version, so it cannot be rolled back — the trigger blocks removing the version rows,
+    // and a NO ACTION foreign key pins the parent rule_set rows. Its down() must therefore fail fast.
+    // No database is needed: the migration module only assigns shorthands/up/down on load.
+    const mig = serverFiles.find((f) => f.includes('b5a-authoritative-mvp'));
+    expect(mig, 'b5a migration present').toBeTruthy();
+    const mod = createRequire(import.meta.url)(mig as string);
+
+    // node-pg-migrate aliases down -> up when `down` is undefined (migration.js _getAction), which
+    // would silently RE-RUN the seed on rollback. Assert the export exists before asserting it throws.
+    expect(typeof mod.down).toBe('function');
+    expect(() => mod.down()).toThrow(/IRREVERSIBLE/);
+    expect(() => mod.down()).toThrow(/BR-07/);
   });
 });
