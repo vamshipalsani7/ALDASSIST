@@ -1,0 +1,52 @@
+ALDASSIST - B9 aggregate verification, FULL run
+Command      : npm.cmd run verify   (04_Development/ui)
+Date         : 26 Oct 2026
+Exit code    : 0
+Result       : VERIFY: PASS - 13 gates passed, 0 skipped
+Gate 2       : client tests 215 passed
+Gate 8       : server tests 138 passed (positive-count guard active)
+Gates 9/10   : vite build exit 0; storybook build exit 0
+Tree tested  : 265d789 PLUS two uncommitted modifications:
+                 M 01_Strategy/Decision Log.md
+                 M 04_Development/ui/scripts/verify.mjs
+               No committed tree corresponded to this run at the time of capture.
+Provenance   : OWNER-PRODUCED TRANSCRIPT, captured via Tee-Object on the owner's
+               Windows machine 'ritz'. This is NOT independent CI verification on a
+               clean checkout. Converted UTF-16LE -> UTF-8 without BOM; body unmodified.
+Not in body  : exit code and git status were separate commands and are recorded here only.
+
+---- captured output follows ----
+
+
+> aldassist-ui@0.1.0 verify
+> node scripts/verify.mjs
+
+
+B9 aggregate verification
+============================================================
+Γ£ô PASS  typecheck                                exit 0 (clean)
+Γ£ô PASS  tests                                    215 passed
+Γ£ô PASS  token Gate A (inherited/new)             inherited baseline 209; current 209; new debt 0
+Γ£ô PASS  token Gate B                             0 definition hard-fail(s)
+Γ£ô PASS  token anti-leak                          0 violation(s)
+Γ£ô PASS  token harness                            0 finding(s)
+Γ£ô PASS  raw-value (inherited/new)                inherited baseline 20 occurrence(s); 0 new
+Γ£ô PASS  vocabulary (CR-16)                       0 banned-term violation(s) ΓÇö provisional seed; lexicon authority = NOT authoritative
+Γ£ô PASS  open-slot preservation                   O-2026-001 / L1 / L1-04 / S-3 / MFA / Rules-Engine all UNRESOLVED
+Γ£ô PASS  server typecheck                         exit 0 (clean)
+Γ£ô PASS  server TS-2 + Event Log + contract (DB)  138 passed
+Γ£ô PASS  build (vite)                             exit 0
+Γ£ô PASS  storybook build                          exit 0
+============================================================
+VERIFY: PASS ΓÇö all gates meet their pass condition; token Gate A and raw-value gate are at their documented INHERITED baselines (no new debt), not clean-by-accident.
+npm.cmd : npm notice
+At line:1 char:1
++ npm.cmd run verify 2>&1 | Tee-Object -FilePath "$env:TEMP\alda-verify ...
++ ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (npm notice:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+npm notice New major version of npm available! 11.17.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice
