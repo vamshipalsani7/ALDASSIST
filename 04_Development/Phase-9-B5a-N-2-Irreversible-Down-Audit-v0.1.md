@@ -66,7 +66,16 @@ The function check earns its place: node-pg-migrate aliases `down` to `up` when 
 
 ## 7. Limitations and residual risk
 
-1. **No Floor gate covers the database invariants.** The trigger and foreign-key behaviour were exercised once, against a disposable container that no longer exists. That evidence is **not automatically exercised by the current Floor** and is reproducible only by re-executing the recorded commands.
+1. **The database invariants are now Floor-covered; the end-to-end path is not.**
+   `server/test/ruleVersionImmutability.test.ts` asserts at gate 8 that the BR-07 trigger blocks
+   UPDATE/DELETE/TRUNCATE for a privileged writer and that the NO ACTION foreign key pins the parent
+   `rule_set` row. Added 26 Oct 2026; named Vitest run 27 Oct 2026, 2 of 2 passed (`NAMED_EXIT=0`)
+   against a disposable PostgreSQL whose database name, seven applied migrations, seeded
+   `IN-FER-RESP-BASE` row and both BR-07 triggers were asserted before the run; full suite 139 → 141.
+   **[OBSERVED-A]** What remains uncovered is `node-pg-migrate down` end to end — no Floor gate runs
+   it, so that evidence is still the one-shot disposable-container check, **not automatically
+   exercised by the current Floor**. The **zone-grant layer** on `rules.rule_version` is likewise
+   untested: the new test covers the owner path, not the REVOKE binding application roles.
 2. **The regression test does not run under `verify:fast`**, which skips gate 8. Only a full `npm run verify` reaches it.
 3. **The migration file is untypechecked.** `tsconfig.server.json` sets neither `allowJs` nor `checkJs`, so the `.cjs` is outside gate 7.
 4. **All run evidence is [OBSERVED-A], not [OBSERVED-C].** Claude did not execute the Floor runs or the PostgreSQL check and cannot independently attest to the execution environment.
@@ -80,6 +89,13 @@ Within the scope declared at §1, **finding N-2 is closed.**
 
 The defect is characterised and its full mechanism recorded, including the foreign-key factor that the original finding did not capture. The governing question it raised — whether BR-07 binds migrations — is decided at D-2026-049 and extended to BR-20. The remediation is implemented, the intended failure mode has been exercised against a real PostgreSQL and behaved as designed, and a Floor-resident regression test guards the most likely reintroduction path and passes.
 
-The **principal residual risk is the absence of repeatable database-invariant coverage in the current Floor**, per §7.1: the trigger and the foreign key were exercised once, and nothing in the Floor re-exercises them. Separately, the evidence assembled here **does not rule out other defects**, in the remediation or in B5a — it was gathered to characterise and dispose of N-2, not to search for faults, and §7 records the further limits on its reach. Closing N-2 retires neither concern, and this audit does not recommend treating Floor-resident coverage of the throw as coverage of the invariant.
+The **principal residual risk is now the absence of Floor coverage for the end-to-end rollback
+path**, per §7.1: the BR-07 trigger and the foreign key are exercised at gate 8 on every full verify,
+but nothing in the Floor runs `node-pg-migrate down` against a database, and the zone-grant layer on
+`rules.rule_version` is untested. Separately, the evidence assembled here **does not rule out other
+defects**, in the remediation or in B5a — it was gathered to characterise and dispose of N-2, not to
+search for faults, and §7 records the further limits on its reach. Closing N-2 retires neither
+concern, and this audit does not recommend treating gate-8 coverage of the trigger and the foreign
+key as coverage of the migration's rollback behaviour end to end.
 
 **No conclusion is offered on B5a.** Accepting this document closes N-2 and leaves the B5a post-implementation audit, as a whole, unrecorded.
