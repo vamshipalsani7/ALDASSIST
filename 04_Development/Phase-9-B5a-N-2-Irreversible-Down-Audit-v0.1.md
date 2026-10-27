@@ -74,8 +74,9 @@ The function check earns its place: node-pg-migrate aliases `down` to `up` when 
    `IN-FER-RESP-BASE` row and both BR-07 triggers were asserted before the run; full suite 139 → 141.
    **[OBSERVED-A]** What remains uncovered is `node-pg-migrate down` end to end — no Floor gate runs
    it, so that evidence is still the one-shot disposable-container check, **not automatically
-   exercised by the current Floor**. The **zone-grant layer** on `rules.rule_version` is likewise
-   untested: the new test covers the owner path, not the REVOKE binding application roles.
+   exercised by the current Floor**. The **zone-grant layer** is covered too, by a third test
+   asserting Zone 2 is refused on permission rather than by the trigger (27 Oct 2026; 3 of 3 named,
+   full suite 141 → 142). **[OBSERVED-A]**
 2. **The regression test does not run under `verify:fast`**, which skips gate 8. Only a full `npm run verify` reaches it.
 3. **The migration file is untypechecked.** `tsconfig.server.json` sets neither `allowJs` nor `checkJs`, so the `.cjs` is outside gate 7.
 4. **All run evidence is [OBSERVED-A], not [OBSERVED-C].** Claude did not execute the Floor runs or the PostgreSQL check and cannot independently attest to the execution environment.
@@ -91,11 +92,11 @@ The defect is characterised and its full mechanism recorded, including the forei
 
 The **principal residual risk is now the absence of Floor coverage for the end-to-end rollback
 path**, per §7.1: the BR-07 trigger and the foreign key are exercised at gate 8 on every full verify,
-but nothing in the Floor runs `node-pg-migrate down` against a database, and the zone-grant layer on
-`rules.rule_version` is untested. Separately, the evidence assembled here **does not rule out other
-defects**, in the remediation or in B5a — it was gathered to characterise and dispose of N-2, not to
-search for faults, and §7 records the further limits on its reach. Closing N-2 retires neither
-concern, and this audit does not recommend treating gate-8 coverage of the trigger and the foreign
-key as coverage of the migration's rollback behaviour end to end.
+but nothing in the Floor runs `node-pg-migrate down` against a database. Separately, the evidence
+assembled here **does not rule out other defects**, in the remediation or in B5a — it was gathered
+to characterise and dispose of N-2, not to search for faults, and §7 records the further limits on
+its reach. Closing N-2 retires neither concern, and this audit does not recommend treating gate-8
+coverage of the trigger and the foreign key as coverage of the migration's rollback behaviour end
+to end.
 
 **No conclusion is offered on B5a.** Accepting this document closes N-2 and leaves the B5a post-implementation audit, as a whole, unrecorded.
